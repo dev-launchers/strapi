@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_positions_open_positions",
+  "info": {
+    "name": "openPositions",
+    "icon": "hands-helping"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

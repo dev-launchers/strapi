@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_dates_meeting_times",
+  "info": {
+    "name": "meetingTimes",
+    "icon": "calendar-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}

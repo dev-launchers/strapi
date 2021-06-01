@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leaders",
+  "info": {
+    "name": "Leader",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Projects": {
+      "via": "Leaders",
+      "collection": "project",
+      "dominant": true
+    }
+  }
+}

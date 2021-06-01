@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "Project",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "catchingPhrase": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "heroImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "vision": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "commitmentLevel": {
+      "type": "string",
+      "required": true
+    },
+    "signupFormUrl": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "meetingLinkURLs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.meeting-link-ur-ls",
+      "required": true
+    },
+    "meetingTimes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dates.meeting-times",
+      "required": true
+    },
+    "keywords": {
+      "type": "component",
+      "repeatable": true,
+      "component": "keywords.keywords",
+      "required": true
+    },
+    "projectReferenceURLs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.project-reference-ur-ls",
+      "required": true
+    },
+    "openPositions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "positions.open-positions",
+      "required": false
+    },
+    "Leaders": {
+      "collection": "leaders",
+      "via": "Projects"
+    }
+  }
+}
