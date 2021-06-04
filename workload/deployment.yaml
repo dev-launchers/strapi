@@ -55,10 +55,3 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 10
           failureThreshold: 5
-        volumeMounts:
-            - name: strapi-persistent-storage
-              mountPath: /srv/app
-      volumes:
-        - name: strapi-persistent-storage
-          persistentVolumeClaim:
-            claimName: strapi-pv-claim
