@@ -33,6 +33,11 @@ spec:
             secretKeyRef:
               name: postgres
               key: host
+        - name: DATABASE_PORT
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: port
         - name: DATABASE_USERNAME
           valueFrom:
             secretKeyRef:
