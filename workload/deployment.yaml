@@ -50,8 +50,11 @@ spec:
               key: password
         resources:
           limits:
-            cpu: 200m
-            memory: 200Mi
+            cpu: 256m
+            memory: 256Mi
+          requests:
+            cpu: 128m
+            memory: 128Mi
         livenessProbe:
           httpGet:
             path: /
