@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "points",
+  "info": {
+    "name": "point"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "totalPoints": {
+      "type": "integer"
+    },
+    "totalSeasonPoints": {
+      "type": "integer"
+    },
+    "availablePoints": {
+      "type": "integer"
+    },
+    "volunteerHours": {
+      "type": "float"
+    }
+  }
+}
