@@ -58,9 +58,6 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
-    },
-    "leader": {
-      "model": "leaders"
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_people_members",
+  "info": {
+    "name": "members",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "member": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

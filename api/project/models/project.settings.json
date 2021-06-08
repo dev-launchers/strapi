@@ -17,7 +17,7 @@
       "required": true,
       "unique": true
     },
-    "catchingPhrase": {
+    "catchPhrase": {
       "type": "string",
       "required": true
     },
@@ -82,9 +82,11 @@
       "component": "positions.open-positions",
       "required": false
     },
-    "Leaders": {
-      "collection": "leaders",
-      "via": "Projects"
+    "people": {
+      "type": "component",
+      "repeatable": false,
+      "component": "people.people",
+      "required": true
     }
   }
 }
