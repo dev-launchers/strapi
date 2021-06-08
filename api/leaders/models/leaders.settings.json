@@ -12,10 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Projects": {
-      "via": "Leaders",
-      "collection": "project",
-      "dominant": true
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "project": {
+      "model": "project"
     }
   }
 }
