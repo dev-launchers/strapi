@@ -22,6 +22,11 @@
     },
     "volunteerHours": {
       "type": "float"
+    },
+    "user": {
+      "via": "point",
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

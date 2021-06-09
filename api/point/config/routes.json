@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/points",
+      "path": "/users/points",
       "handler": "point.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/points/count",
+      "path": "/users/points/count",
       "handler": "point.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/points/:id",
+      "path": "/users/:id/points",
       "handler": "point.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/points",
+      "path": "/users/points",
       "handler": "point.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/points/:id",
+      "path": "/users/:id/points",
       "handler": "point.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/points/:id",
+      "path": "/users/:id/points",
       "handler": "point.delete",
       "config": {
         "policies": []
