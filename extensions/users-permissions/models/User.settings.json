@@ -58,6 +58,10 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "point": {
+      "via": "user",
+      "model": "point"
     }
   }
 }
