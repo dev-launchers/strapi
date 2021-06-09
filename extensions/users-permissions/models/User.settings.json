@@ -63,8 +63,8 @@
       "model": "leaders"
     },
     "point": {
-      "model": "point",
-      "via": "user"
+      "via": "user",
+      "model": "point"
     }
   }
 }
