@@ -6,4 +6,4 @@ bases:
 images:
 - name: devlaunchers/cms-api
   newName: devlaunchers/cms-api
-  newTag: 1.0.0 # {"$imagepolicy": "strapi:strapi:tag"}
+  newTag: 1.0.2 # {"$imagepolicy": "strapi:strapi:tag"}
