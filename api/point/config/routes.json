@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "PATCH",
+      "path": "/users/:id/points",
+      "handler": "point.incrementOrDecrementPoint",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/users/:id/points",
       "handler": "point.delete",
