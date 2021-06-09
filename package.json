@@ -12,6 +12,7 @@
   "dependencies": {
     "knex": "0.21.18",
     "pg": "8.5.1",
+    "semantic-release": "^17.4.3",
     "strapi": "3.6.2",
     "strapi-admin": "3.6.2",
     "strapi-connector-bookshelf": "3.6.2",
@@ -32,6 +33,22 @@
   "engines": {
     "node": ">=10.16.0 <=14.x.x",
     "npm": "^6.0.0"
+  },
+  "release": {
+    "branches": [
+      "release"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      "@semantic-release/github"
+    ]
   },
   "license": "MIT"
 }
