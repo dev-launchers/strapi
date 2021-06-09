@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/profiles",
+      "path": "/users/profiles",
       "handler": "profile.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/profiles/count",
+      "path": "/users/profiles/count",
       "handler": "profile.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/profiles/:id",
+      "path": "/users/:id/profiles",
       "handler": "profile.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/profiles",
+      "path": "/users/profiles",
       "handler": "profile.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/profiles/:id",
+      "path": "/users/:id/profiles",
       "handler": "profile.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/profiles/:id",
+      "path": "/users/:id/profiles",
       "handler": "profile.delete",
       "config": {
         "policies": []
