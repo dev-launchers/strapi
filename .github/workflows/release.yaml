@@ -4,8 +4,8 @@ on:
     branches:
       - release
     paths-ignore:
-      - 'staging/flux-patch.yaml'
-      - 'production/flux-patch.yaml'
+      - 'staging/kustomization.yaml'
+      - 'production/kustomization.yaml'
 jobs:
   build:
     runs-on: ubuntu-latest
