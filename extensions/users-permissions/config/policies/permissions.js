@@ -11,6 +11,7 @@ module.exports = async (ctx, next) => {
   }
 
   /*
+    NOTE: This is our custom code to authenticate users via httponly cookie
     If there is no auth header provided, get the cookie with JWT
     then set the jwt in the auth header to allow strapi's logic to work
   */

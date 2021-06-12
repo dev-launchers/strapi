@@ -130,12 +130,18 @@ module.exports = {
           })
         );
       } else {
+        //NOTE: This is our custom code to authenticate users via httponly cookie
 
         //creates a JWT
         const token = strapi.plugins['users-permissions'].services.jwt.issue({
           id: user.id,
         })
 
+        /*
+          if in dev env, disable secure option because secure option
+          makes it so the cookie can only be sent through https, but in
+          development envrionment we use http
+        */
         if(isDevEnv()){
           ctx.cookies.set("token", token);
         } else {
@@ -181,12 +187,19 @@ module.exports = {
         return ctx.badRequest(null, error === 'array' ? error[0] : error);
       }
 
+
+      //NOTE: This is our custom code to authenticate users via httponly cookie
+
       //creates a jwt
       const token = strapi.plugins['users-permissions'].services.jwt.issue({
         id: user.id,
       });
 
-      //if in dev env, disable secure option
+      /*
+        if in dev env, disable secure option because secure option
+        makes it so the cookie can only be sent through https, but in
+        development envrionment we use http
+      */
       if(isDevEnv()){
         ctx.cookies.set("token", token);
       } else {
