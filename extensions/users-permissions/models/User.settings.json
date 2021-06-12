@@ -66,6 +66,26 @@
     "profile": {
       "model": "profile",
       "via": "user"
+    },
+    "discordId": {
+      "type": "string"
+    },
+    "googleId": {
+      "type": "string",
+      "required": true
+    },
+    "discordAvatar": {
+      "type": "string"
+    },
+    "discordDiscriminator": {
+      "type": "string"
+    },
+    "discordUsername": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "uid",
+      "required": true
     }
   }
 }
