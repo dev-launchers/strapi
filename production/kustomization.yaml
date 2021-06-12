@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: strapi
 bases:
 - ../workload
+resources:
+  - deployment.yaml
 images:
 - name: devlaunchers/cms-api
   newName: devlaunchers/cms-api
