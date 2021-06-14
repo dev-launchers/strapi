@@ -8,7 +8,8 @@
   "options": {},
   "attributes": {
     "leader": {
-      "collection": "leaders"
+      "plugin": "users-permissions",
+      "model": "user"
     },
     "role": {
       "type": "string",
