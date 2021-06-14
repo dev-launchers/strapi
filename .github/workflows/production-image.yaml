@@ -1,34 +1,27 @@
-name: staging-image
+name: production-image
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      # Ignore when changes is made by flux
-      - 'staging/**'
-      - 'production/**'
-      # Ignore markdown files
-      - "**/*.md"
+  release:
+    types: [published]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 jobs:
-  build:
+  build-app:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # https://stackoverflow.com/questions/60942067/get-current-date-and-time-in-github-workflows
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y%m%d%H%M')"
+        with:
+          # GITHUB_REF is tag of the release https://docs.github.com/en/actions/reference/events-that-trigger-workflows#release
+          ref: ${{ github.ref }}
+          # Number of commits to fetch. 0 indicates all history for all branches and tags.
+          fetch-depth: 0
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
         with:
-          # list of Docker images to use as base name for tags
           images: devlaunchers/cms-api # list of Docker images to use as base name for tags
-          # generate Docker tags based on the following events/attributes
-          # flux image update policy sorts by timestamp
           tags: |
-            type=raw,value={{sha}}-${{ steps.date.outputs.date }}
+            type=semver,pattern={{version}}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
