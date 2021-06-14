@@ -39,7 +39,7 @@
       "type": "string",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "richtext",
       "required": true
     },
@@ -50,7 +50,7 @@
     "signupFormUrl": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "meetingLinkURLs": {
       "type": "component",
@@ -74,7 +74,7 @@
       "type": "component",
       "repeatable": true,
       "component": "links.project-reference-ur-ls",
-      "required": true
+      "required": false
     },
     "openPositions": {
       "type": "component",
@@ -82,11 +82,16 @@
       "component": "positions.open-positions",
       "required": false
     },
-    "people": {
+    "team": {
       "type": "component",
       "repeatable": false,
       "component": "people.people",
       "required": true
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "projects"
     }
   }
 }

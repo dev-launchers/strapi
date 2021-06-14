@@ -58,6 +58,10 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "projects": {
+      "via": "user",
+      "collection": "project"
     }
   }
 }
