@@ -9,7 +9,7 @@
   "attributes": {
     "member": {
       "plugin": "users-permissions",
-      "collection": "user"
+      "model": "user"
     },
     "role": {
       "type": "string",
