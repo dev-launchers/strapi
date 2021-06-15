@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/users/time-capsules/:id",
+      "path": "/users/:id/time-capsules",
       "handler": "time-capsule.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/time-capsules",
+      "path": "/users/time-capsules",
       "handler": "time-capsule.create",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/time-capsules/:id",
+      "path": "/users/:id/time-capsules",
       "handler": "time-capsule.delete",
       "config": {
         "policies": []
