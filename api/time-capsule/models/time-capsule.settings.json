@@ -13,28 +13,33 @@
   "pluginOptions": {},
   "attributes": {
     "generalDayInformation": {
-      "type": "string"
+      "type": "text"
     },
     "acquiredKnowledge": {
-      "type": "string"
+      "type": "text"
     },
     "sessionRating": {
-      "type": "string"
+      "type": "text"
     },
     "gaveHelp": {
-      "type": "string"
+      "type": "text"
     },
     "volunteerHours": {
       "type": "float"
     },
     "receivedHelp": {
-      "type": "string"
+      "type": "text"
     },
     "pairUpQuestion": {
-      "type": "string"
+      "type": "text"
     },
     "extraInformation": {
-      "type": "string"
+      "type": "text"
+    },
+    "user": {
+      "via": "time_capsules",
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
