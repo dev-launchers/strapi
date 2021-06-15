@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/time-capsules",
+      "path": "/users/time-capsules",
       "handler": "time-capsule.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/time-capsules/count",
+      "path": "/users/time-capsules/count",
       "handler": "time-capsule.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/time-capsules/:id",
+      "path": "/users/time-capsules/:id",
       "handler": "time-capsule.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/time-capsules/:id",
+      "path": "/users/:id/time-capsules",
       "handler": "time-capsule.update",
       "config": {
         "policies": []
