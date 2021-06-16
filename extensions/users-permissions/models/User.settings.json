@@ -101,7 +101,7 @@
     "country": {
       "type": "string"
     },
-    "zip_code": {
+    "zipCode": {
       "type": "integer"
     },
     "hasAcceptedTermsOfService": {
