@@ -94,6 +94,21 @@
     "time_capsules": {
       "via": "user",
       "collection": "time-capsule"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "country": {
+      "type": "string"
+    },
+    "zip_code": {
+      "type": "integer"
+    },
+    "hasAcceptedTermsOfService": {
+      "type": "boolean"
+    },
+    "hasSubscribedEmails": {
+      "type": "boolean"
     }
   }
 }
