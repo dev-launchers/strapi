@@ -89,9 +89,9 @@
       "required": true
     },
     "user": {
+      "via": "projects",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "projects"
+      "model": "user"
     }
   }
 }
