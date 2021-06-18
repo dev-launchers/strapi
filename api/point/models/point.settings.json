@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "points",
+  "info": {
+    "name": "point",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "totalPoints": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "totalSeasonPoints": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "availablePoints": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "volunteerHours": {
+      "type": "float",
+      "required": true,
+      "default": 0
+    },
+    "user": {
+      "via": "point",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}
