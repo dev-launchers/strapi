@@ -46,7 +46,7 @@ module.exports = async () => {
       key: '',
       secret: '',
       callback: `${strapi.config.server.url}/auth/google/callback`,
-      scope: ['email'],
+      scope: ['email', "profile"],
     },
     github: {
       enabled: false,
@@ -141,9 +141,11 @@ module.exports = async () => {
     },
   };
   const prevGrantConfig = (await pluginStore.get({ key: 'grant' })) || {};
-  // store grant auth config to db
-  // when plugin_users-permissions_grant is not existed in db
+  // store grant auth config to db in core_store table
+  // when key plugin_users-permissions_grant does not existed in db
   // or we have added/deleted provider here.
+  // If plugin_users-permissions_grant already exists, we have to update it directly from database
+  // https://github.com/strapi/strapi/issues/2660#issuecomment-630091376
   if (!prevGrantConfig || !_.isEqual(_.keys(prevGrantConfig), _.keys(grantConfig))) {
     // merge with the previous provider config.
     _.keys(grantConfig).forEach(key => {
