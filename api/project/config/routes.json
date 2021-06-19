@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/projects/:id",
+      "path": "/projects/:slug",
       "handler": "project.findOne",
       "config": {
         "policies": []
