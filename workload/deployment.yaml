@@ -48,6 +48,11 @@ spec:
             secretKeyRef:
               name: postgres
               key: password
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: strapi-config
+              key: url
         resources:
           limits:
             cpu: 256m
