@@ -7,4 +7,4 @@ bases:
 images:
 - name: devlaunchers/cms-api
   newName: devlaunchers/cms-api
-  newTag: c93db92-202106192042 # {"$imagepolicy": "strapi:strapi:tag"}
+  newTag: da376e3-202106202027 # {"$imagepolicy": "strapi:strapi:tag"}
