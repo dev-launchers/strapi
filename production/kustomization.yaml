@@ -3,7 +3,8 @@ kind: Kustomization
 namespace: strapi
 bases:
 - ../workload
+- ./configmap.yaml
 images:
 - name: devlaunchers/cms-api
   newName: devlaunchers/cms-api
-  newTag: 1.0.0 # {"$imagepolicy": "strapi:strapi:tag"}
+  newTag: 1.0.2 # {"$imagepolicy": "strapi:strapi:tag"}

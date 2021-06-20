@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/leaders",
-      "handler": "leaders.find",
+      "path": "/users/time-capsules",
+      "handler": "time-capsule.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/leaders/count",
-      "handler": "leaders.count",
+      "path": "/users/time-capsules/count",
+      "handler": "time-capsule.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/leaders/:id",
-      "handler": "leaders.findOne",
+      "path": "/users/:id/time-capsules",
+      "handler": "time-capsule.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/leaders",
-      "handler": "leaders.create",
+      "path": "/users/time-capsules",
+      "handler": "time-capsule.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/leaders/:id",
-      "handler": "leaders.update",
+      "path": "/users/:id/time-capsules",
+      "handler": "time-capsule.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/leaders/:id",
-      "handler": "leaders.delete",
+      "path": "/users/:id/time-capsules",
+      "handler": "time-capsule.delete",
       "config": {
         "policies": []
       }
