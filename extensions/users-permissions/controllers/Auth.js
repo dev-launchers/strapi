@@ -142,12 +142,12 @@ module.exports = {
           makes it so the cookie can only be sent through https, but in
           development envrionment we use http
         */
-        if(isDevEnv()){
+        if (isDevEnv()) {
           ctx.cookies.set("token", token);
         } else {
           ctx.cookies.set("token", token, {
             httpOnly: true,
-            secure: true ,
+            secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age
             sameSite: "None"
           });
@@ -187,25 +187,23 @@ module.exports = {
         return ctx.badRequest(null, error === 'array' ? error[0] : error);
       }
 
-
       //NOTE: This is our custom code to authenticate users via httponly cookie
 
       //creates a jwt
       const token = strapi.plugins['users-permissions'].services.jwt.issue({
         id: user.id,
       });
-
       /*
         if in dev env, disable secure option because secure option
         makes it so the cookie can only be sent through https, but in
         development envrionment we use http
       */
-      if(isDevEnv()){
+      if (isDevEnv()) {
         ctx.cookies.set("token", token);
       } else {
         ctx.cookies.set("token", token, {
           httpOnly: true,
-          secure: true ,
+          secure: true,
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age
           sameSite: "None"
         });
@@ -559,9 +557,9 @@ module.exports = {
     } catch (err) {
       const adminError = _.includes(err.message, 'username')
         ? {
-            id: 'Auth.form.error.username.taken',
-            message: 'Username already taken',
-          }
+          id: 'Auth.form.error.username.taken',
+          message: 'Username already taken',
+        }
         : { id: 'Auth.form.error.email.taken', message: 'Email already taken' };
 
       ctx.badRequest(null, formatError(adminError));
