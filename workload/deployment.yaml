@@ -72,6 +72,9 @@ spec:
               key: google-group-id
         - name: DEVLAUNCHERS_GOOGLE_DIRECTORY_KEY
           value: "/etc/google-directory/google-service-key.json"
+        volumeMounts:
+        - name: google-directory-key
+          mountPath: "/etc/google-directory"
         resources:
           limits:
             cpu: 256m
