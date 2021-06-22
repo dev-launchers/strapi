@@ -15,6 +15,13 @@ spec:
       labels:
         app: strapi
     spec:
+      volumes:
+        - name: google-directory-key
+          secret:
+            secretName: auth
+            items:
+            - key: google-service-key.json
+              path: google-service-key.json
       containers:
       - name: strapi
         image: devlaunchers/cms-api:latest
@@ -53,6 +60,18 @@ spec:
             configMapKeyRef:
               name: strapi-config
               key: url
+        - name: DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT
+          valueFrom:
+            secretKeyRef:
+              name: auth
+              key: google-jwt-subject
+        - name: DEVLAUNCHERS_GOOGLE_DIRECTORY_GROUP_ID
+          valueFrom:
+            secretKeyRef:
+              name: auth
+              key: google-group-id
+        - name: DEVLAUNCHERS_GOOGLE_DIRECTORY_KEY
+          value: "/etc/google-directory/google-service-key.json"
         resources:
           limits:
             cpu: 256m
