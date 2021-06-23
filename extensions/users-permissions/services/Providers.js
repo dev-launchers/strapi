@@ -90,7 +90,6 @@ const connect = (provider, query) => {
           .findOne({ type: advanced.default_role }, []);
 
         const createdProfile = await strapi.query('profile').create({
-          displayName: profile.username,
           profilePictureUrl: profile.profilePictureURL
         })
 

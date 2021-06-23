@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "displayName": {
-      "type": "string"
-    },
     "bio": {
       "type": "text"
     },
