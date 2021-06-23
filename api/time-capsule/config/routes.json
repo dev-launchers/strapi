@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/users/time-capsules",
+      "path": "/users/:id/time-capsules",
       "handler": "time-capsule.find",
       "config": {
         "policies": []
@@ -12,14 +12,6 @@
       "method": "GET",
       "path": "/users/time-capsules/count",
       "handler": "time-capsule.count",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/users/:id/time-capsules",
-      "handler": "time-capsule.findOne",
       "config": {
         "policies": []
       }
