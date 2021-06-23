@@ -14,10 +14,6 @@
     "displayName": {
       "type": "string"
     },
-    "email": {
-      "type": "string",
-      "required": true
-    },
     "bio": {
       "type": "text"
     },
