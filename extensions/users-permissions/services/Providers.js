@@ -89,6 +89,17 @@ const connect = (provider, query) => {
           .query('role', 'users-permissions')
           .findOne({ type: advanced.default_role }, []);
 
+        const createdProfile = await strapi.query('profile').create({
+          profilePictureUrl: profile.profilePictureURL
+        })
+
+        const createdPoint = await strapi.query('point').create({
+          totalPoints: 0,
+          totalSeasonPoints: 0,
+          availablePoints: 0,
+          volunteerHours: 0
+        })
+
         // Create the new user.
         // This merge the provider-specific data(profile) with defaultParams
         const defaultParams = {
@@ -96,6 +107,8 @@ const connect = (provider, query) => {
           role: defaultRole.id,
           confirmed: true,
           userId: uuidv4(),
+          profile: createdProfile.id,
+          point: createdPoint.id
         }
         const params = _.assign(profile, defaultParams);
 
