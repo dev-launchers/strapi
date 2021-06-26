@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV == 'development') {
-  module.exports = ({ env }) => ({
+  module.exports = () => ({
     upload: {
       providerOptions: {
         localServer: {

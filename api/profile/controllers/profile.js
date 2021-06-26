@@ -12,7 +12,7 @@ module.exports = {
   async findOne(ctx) {
     const { id } = ctx.params;
 
-    const entity = await strapi.services.profile.findOne({ user: id })
+    const entity = await strapi.services.profile.findOne({ user: id });
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },
 
@@ -20,16 +20,16 @@ module.exports = {
   async update(ctx) {
     const { id } = ctx.params;
 
-     let entity;
-     if (ctx.is('multipart')) {
-       const { data, files } = parseMultipartData(ctx);
-       entity = await strapi.services.profile.update({ user: id }, data, {
-         files,
-       });
-     } else {
-       entity = await strapi.services.profile.update({ user: id }, ctx.request.body);
-     }
+    let entity;
+    if (ctx.is('multipart')) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services.profile.update({ user: id }, data, {
+        files,
+      });
+    } else {
+      entity = await strapi.services.profile.update({ user: id }, ctx.request.body);
+    }
 
-     return sanitizeEntity(entity, { model: strapi.models.profile });
+    return sanitizeEntity(entity, { model: strapi.models.profile });
   }
 };
