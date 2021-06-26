@@ -55,5 +55,9 @@
       "@semantic-release/github"
     ]
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.29.0"
+  }
 }
