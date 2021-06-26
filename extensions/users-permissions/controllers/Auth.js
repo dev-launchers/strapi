@@ -187,6 +187,10 @@ module.exports = {
         return ctx.badRequest(null, error === 'array' ? error[0] : error);
       }
 
+      if(!user.username){
+        return ctx.badRequest("username cannot be null");
+      }
+
       //NOTE: This is our custom code to authenticate users via httponly cookie
 
       //creates a jwt
