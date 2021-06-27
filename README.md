@@ -2,6 +2,14 @@
 
 A quick description of your strapi application
 
+# Contributing
+
+# Release
+We are using semantic versioning to tag release. Follow https://github.com/semantic-release/semantic-release#commit-message-format
+to format the commit messages.
+
+Once you are ready to create a new release, create a PR to merge main branch to release branch.
+
 # Staging
 Staging URL is https://cms-api-staging.devlaunchers.com
 
