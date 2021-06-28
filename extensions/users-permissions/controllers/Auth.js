@@ -187,9 +187,7 @@ module.exports = {
         return ctx.badRequest(null, error === 'array' ? error[0] : error);
       }
 
-      if(!user.username){
-        return ctx.badRequest("username cannot be null");
-      }
+
 
       //NOTE: This is our custom code to authenticate users via httponly cookie
 
@@ -213,12 +211,19 @@ module.exports = {
         });
       }
 
+      if(!user.username){
+        ctx.redirect('http://localhost:3006/signup');
+      } else {
+        ctx.redirect('http://localhost:3006/user-profile')
+      }
+
+      /*
       ctx.send({
         status: 'Authorized',
         user: sanitizeEntity(user.toJSON ? user.toJSON() : user, {
           model: strapi.query('user', 'users-permissions').model,
         }),
-      });
+      });*/
     }
   },
 
