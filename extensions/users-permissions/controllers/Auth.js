@@ -212,9 +212,9 @@ module.exports = {
       }
 
       if(!user.username){
-        ctx.redirect('http://localhost:3006/signup');
+        ctx.redirect(`${process.env.FRONTEND_URL}/signup`);
       } else {
-        ctx.redirect('http://localhost:3006/user-profile')
+        ctx.redirect(`${process.env.FRONTEND_URL}/user-profile`)
       }
 
       /*

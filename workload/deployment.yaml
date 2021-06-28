@@ -92,6 +92,11 @@ spec:
             secretKeyRef:
               name: storage
               key: container-name
+        - name: FRONTEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: strapi-config
+              key: frontend_url
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
