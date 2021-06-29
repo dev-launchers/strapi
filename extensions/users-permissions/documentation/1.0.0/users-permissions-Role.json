@@ -527,7 +527,6 @@
             "items": {
               "required": [
                 "id",
-                "username",
                 "email",
                 "googleId",
                 "userId"

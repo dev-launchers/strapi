@@ -187,6 +187,8 @@ module.exports = {
         return ctx.badRequest(null, error === 'array' ? error[0] : error);
       }
 
+
+
       //NOTE: This is our custom code to authenticate users via httponly cookie
 
       //creates a jwt
@@ -209,12 +211,19 @@ module.exports = {
         });
       }
 
+      if(!user.username){
+        ctx.redirect(`${process.env.FRONTEND_URL}/signup`);
+      } else {
+        ctx.redirect(`${process.env.FRONTEND_URL}/user-profile`);
+      }
+
+      /*
       ctx.send({
         status: 'Authorized',
         user: sanitizeEntity(user.toJSON ? user.toJSON() : user, {
           model: strapi.query('user', 'users-permissions').model,
         }),
-      });
+      });*/
     }
   },
 

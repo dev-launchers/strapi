@@ -245,7 +245,6 @@ const getProfile = async (provider, query, callback) => {
             */
             callback(null, {
               googleId: body.sub,
-              username: body.name,
               email: body.email,
               profilePictureURL: body.picture,
             });

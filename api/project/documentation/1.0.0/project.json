@@ -754,7 +754,6 @@
                     "leader": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"
@@ -870,7 +869,6 @@
                     "member": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"
@@ -976,7 +974,6 @@
           "user": {
             "required": [
               "id",
-              "username",
               "email",
               "googleId",
               "userId"
@@ -1243,7 +1240,6 @@
                     "leader": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"
@@ -1359,7 +1355,6 @@
                     "member": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"

@@ -1187,7 +1187,6 @@
       "UsersPermissionsUser": {
         "required": [
           "id",
-          "username",
           "email",
           "googleId",
           "userId"
@@ -1491,7 +1490,6 @@
       },
       "NewUsersPermissionsUser": {
         "required": [
-          "username",
           "email",
           "googleId",
           "userId"

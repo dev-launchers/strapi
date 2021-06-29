@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "06/24/2021 7:33:05 PM"
+    "x-generation-date": "06/26/2021 7:37:27 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5009,7 +5009,6 @@
           "user": {
             "required": [
               "id",
-              "username",
               "email",
               "googleId",
               "userId"
@@ -5186,7 +5185,6 @@
           "user": {
             "required": [
               "id",
-              "username",
               "email",
               "googleId",
               "userId"
@@ -5568,7 +5566,6 @@
                     "leader": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"
@@ -5684,7 +5681,6 @@
                     "member": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"
@@ -5790,7 +5786,6 @@
           "user": {
             "required": [
               "id",
-              "username",
               "email",
               "googleId",
               "userId"
@@ -6057,7 +6052,6 @@
                     "leader": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"
@@ -6173,7 +6167,6 @@
                     "member": {
                       "required": [
                         "id",
-                        "username",
                         "email",
                         "googleId",
                         "userId"
@@ -6326,7 +6319,6 @@
           "user": {
             "required": [
               "id",
-              "username",
               "email",
               "googleId",
               "userId"
@@ -6533,7 +6525,6 @@
             "items": {
               "required": [
                 "id",
-                "username",
                 "email",
                 "googleId",
                 "userId"
@@ -6669,7 +6660,6 @@
       "UsersPermissionsUser": {
         "required": [
           "id",
-          "username",
           "email",
           "googleId",
           "userId"
@@ -6973,7 +6963,6 @@
       },
       "NewUsersPermissionsUser": {
         "required": [
-          "username",
           "email",
           "googleId",
           "userId"
