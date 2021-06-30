@@ -15,7 +15,7 @@ module.exports = {
       user: id,
       ...ctx.query
     }
-    const entity = await strapi.services["time-capsule"].find(params)
+    const entity = await strapi.services["time-capsule"].find(params);
     return sanitizeEntity(entity, { model: strapi.models["time-capsule"] });
   },
 

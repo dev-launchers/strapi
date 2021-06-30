@@ -72,6 +72,31 @@ spec:
               key: google-group-id
         - name: DEVLAUNCHERS_GOOGLE_DIRECTORY_KEY
           value: "/etc/google-directory/google-service-key.json"
+        - name: STORAGE_ACCOUNT
+          valueFrom:
+            secretKeyRef:
+              name: storage
+              key: account
+        - name: STORAGE_ACCOUNT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: storage
+              key: account-key
+        - name: STORAGE_URL
+          valueFrom:
+            secretKeyRef:
+              name: storage
+              key: url
+        - name: STORAGE_CONTAINER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: storage
+              key: container-name
+        - name: FRONTEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: strapi-config
+              key: frontend_url
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"

@@ -2,7 +2,7 @@ const fs = require('fs');
 const { JWT } = require('google-auth-library');
 const { google } = require('googleapis');
 
-const { isDevEnv } = require("../../../utils/isDevEnv");
+const { isDevEnv } = require('../../../utils/isDevEnv');
 
 class GoogleGroupManager {
   constructor(email, key, groupID) {
@@ -38,14 +38,14 @@ class GoogleGroupManager {
         groupKey: this.groupID,
         requestBody: {
           email: user_email,
-          role: "MEMBER",
+          role: 'MEMBER',
         },
       });
     } catch (err) {
       if (err.code == 409) {
-        console.warn(`${user_email} already in the Google Group`)
+        console.warn(`${user_email} already in the Google Group`);
       } else {
-        throw `Google Admin Directory API returned error ${err} when adding user`
+        throw `Google Admin Directory API returned error ${err} when adding user`;
       }
     }
   }
