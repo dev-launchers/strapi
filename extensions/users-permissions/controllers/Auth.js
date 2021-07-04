@@ -201,13 +201,15 @@ module.exports = {
         development envrionment we use http
       */
       if (isDevEnv()) {
-        ctx.cookies.set('token', token);
+        ctx.cookies.set('token', token, {
+          httpOnly: true,
+          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+        });
       } else {
         ctx.cookies.set('token', token, {
           httpOnly: true,
           secure: true,
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age
-          sameSite: 'None'
         });
       }
 
