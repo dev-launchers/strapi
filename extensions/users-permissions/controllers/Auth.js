@@ -204,13 +204,14 @@ module.exports = {
         ctx.cookies.set('token', token, {
           httpOnly: true,
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+          domain: 'localhost'
         });
       } else {
         ctx.cookies.set('token', token, {
           httpOnly: true,
           secure: true,
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
-          domain: 'devlaunchers.com'
+          domain: "devlaunchers.com"
         });
       }
 
@@ -221,7 +222,7 @@ module.exports = {
       }
 
       /*
-      ctx.send({
+      ctx.send(
         status: 'Authorized',
         user: sanitizeEntity(user.toJSON ? user.toJSON() : user, {
           model: strapi.query('user', 'users-permissions').model,
