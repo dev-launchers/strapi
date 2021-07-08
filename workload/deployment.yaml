@@ -97,6 +97,11 @@ spec:
             configMapKeyRef:
               name: strapi-config
               key: frontend_url
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: auth
+              key: jwt-secret
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
