@@ -44,7 +44,6 @@ module.exports = strapi => {
             const whitelist = Array.isArray(originList) ? originList : originList.split(/\s*,\s*/);
 
             const requestOrigin = ctx.accept.headers.origin;
-            console.log("requested origin: ", requestOrigin);
             if (whitelist.includes('*')) {
               return '*';
             }
