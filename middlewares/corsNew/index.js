@@ -5,8 +5,9 @@
  */
 const cors = require('@koa/cors');
 
+//CUSTOM CODE: I passed in both the frontend url and the backend url as the origins
 const defaults = {
-  origin: process.env.FRONTEND_URL,
+  origin: [process.env.FRONTEND_URL, process.env.URL],
   maxAge: 31536000,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
@@ -43,17 +44,19 @@ module.exports = strapi => {
 
             const whitelist = Array.isArray(originList) ? originList : originList.split(/\s*,\s*/);
 
-            //const requestOrigin = ctx.accept.headers.origin;
+            console.log("white list: ", whitelist);
+
+            const requestOrigin = ctx.accept.headers.origin;
+            console.log("request origin: ", requestOrigin);
             if (whitelist.includes('*')) {
               return '*';
             }
-            //commented this out because it threw an error whenever we added the frontend_url as the origin
-            /*
+
             if (!whitelist.includes(requestOrigin)) {
-              return ctx.throw(`${requestOrigin} is A STUPID valid origin`);
-            }*/
-            //CUSTOM CODE: just return the front end url to be used as the orign
-            return process.env.FRONTEND_URL;
+              return ctx.throw(`${requestOrigin} is not a valid origin`);
+            }
+
+            return requestOrigin;
           },
           exposeHeaders: expose,
           maxAge,
