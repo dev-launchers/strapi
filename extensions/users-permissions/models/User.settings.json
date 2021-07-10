@@ -68,8 +68,8 @@
       "model": "point"
     },
     "profile": {
-      "model": "profile",
-      "via": "user"
+      "via": "user",
+      "model": "profile"
     },
     "discordId": {
       "type": "string"
