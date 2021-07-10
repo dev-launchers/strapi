@@ -1319,6 +1319,9 @@
                 "user": {
                   "type": "string"
                 },
+                "Images": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
