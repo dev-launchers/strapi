@@ -2,11 +2,8 @@ module.exports = {
   //...
   settings: {
     cors: {
-      enabled: false,
-      //origin: [process.env.FRONTEND_URL],
+      enabled: true,
+      origin: [process.env.FRONTEND_URL, process.env.URL],
     },
-    corsNew: {
-      enabled: true
-    }
   },
 };
