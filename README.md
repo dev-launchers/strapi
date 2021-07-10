@@ -3,7 +3,7 @@
 A quick description of your strapi application
 
 # Contributing
-Follow the [CONTRIBUTING.md](CONTRIBUTING.md)
+Follow the [contributing guide](CONTRIBUTING.md)
 
 # Release
 We are using semantic versioning to tag release. Follow https://github.com/semantic-release/semantic-release#commit-message-format
