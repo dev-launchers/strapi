@@ -1395,6 +1395,9 @@
               "user": {
                 "type": "string"
               },
+              "displayName": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },

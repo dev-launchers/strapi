@@ -90,6 +90,7 @@ const connect = (provider, query) => {
           .findOne({ type: advanced.default_role }, []);
 
         const createdProfile = await strapi.query('profile').create({
+          displayName: profile.displayName,
           profilePictureUrl: profile.profilePictureURL
         });
 
@@ -245,6 +246,7 @@ const getProfile = async (provider, query, callback) => {
             */
             callback(null, {
               googleId: body.sub,
+              displayName: body.name,
               email: body.email,
               profilePictureURL: body.picture,
             });
