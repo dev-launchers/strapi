@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/githubs/:user/:repo/code_freq",
+      "handler": "github.listCodeFreq",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/githubs/:user/:repo/contributors",
+      "handler": "github.listContributors",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
