@@ -15,6 +15,9 @@ Before you start contributing, you're going to need a few things:
     - Either [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/)
     - Why? These are code editors that most of our contributors use, so we can help you more
       if you use one of these. However, most other code editors should work.
+- **Postman:**
+    - We will be using postman as our REST client
+    - Refer to [postman](https://www.postman.com/downloads/) to download it
 
 # Setup
 
@@ -25,10 +28,10 @@ platform__dev-env repo into that parent folder.
 ├── platform__dev-env
 ```
 
-2. Make sure to add all the env var to the `api.env.example`. After adding all the env var,
+2. Make sure to add only secret env vars to the `api.env.example`. After adding all the secret env var,
 make sure to remove .example from `api.env.example`. It should look like this `api.env`.
 If you don't know the env var, just ask in the backend-chat channel on discord and someone
-should send you all the env vars.
+should send you all the secret env vars. All non secret env vars you can add to [platform__dev-env]( https://github.com/dev-launchers/platform__dev-env/blob/main/docker-compose-strapi.yaml#L5.).
 
 ## communication
 **Discord:**
@@ -61,15 +64,17 @@ To prevent formatting wars and be consistent, here are the coding style guidelin
       ```
 - End statements and expressions with semicolons (`;`).
 - Use camelCase when naming variables
+- You can run npx eslint . to see if your code follows the standard
 
 ## Commits, Branches, and Pull Requests
 - Before starting anything, make sure you:
     - ```bash
       git checkout main
       git pull
-      git checkout -b "branch-name"
+      git checkout -b "username/branch-name"
       ```
     - This ensures that you are working on the newest copy of the app.
+    - When naming branches, add your github username followed by a "/" then the name of your branch
 - We are using semantic versioning for commits to tag releases:
     - Follow the [Format Guide](https://github.com/semantic-release/semantic-release#commit-message-format)
 - Create a new branch for each new feature you add.
@@ -80,8 +85,24 @@ To prevent formatting wars and be consistent, here are the coding style guidelin
         - It would be wise to add a new feature
         - Or, something is missing or confusing
 
+# Testing
+- To begin testing your changes, you will need to open up Postman
+- You'll first want to create a user under the Users collection
+- After creating a user, you can login with that user by making a
+  POST request to /auth/local and passing in the identifier and password
+  of the user you created into the body of the request
+  - Example:
+    ```json
+    {
+      "identifier": "test user",
+      "password": "test123"
+    }
+    ```
+- After loging in, you should be able test any endpoint you've created that requires authentication
+
+
 # Running
-In the root directory of this repo, run `./run.sh` to spin up all services.
+In the root of the [platform__dev-env](https://github.com/dev-launchers/platform__dev-env) repo, run `./run.sh` to spin up all services.
 If you only want to run a subset of services run `./run.sh <service 1>, <service 2> ... <service n>`.
 For example, if you only want to run the api, run `./run.sh strapi`. If you want to run the bot, run `./run.sh bot`.
 Tilt will automatically detect change in source and handle restarts.
