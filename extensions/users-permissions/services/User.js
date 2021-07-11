@@ -73,10 +73,10 @@ module.exports = {
    * @return {Promise}
    */
    /*
-      CUSTOM CODE:
-      had to pass in profile and point into the array.
-      This array lets strapi know we want to include those collections
-      in the response
+    CUSTOM CODE:
+    had to pass in profile and point into the array.
+    This array lets strapi know we want to include those collections
+    in the response
    */
   fetchAuthenticatedUser(id) {
     return strapi.query('user', 'users-permissions').findOne({ id }, ['role', 'profile', 'point']);
