@@ -2,7 +2,7 @@
 module.exports = {
   async logout(ctx) {
     console.log('Successfully logged out');
-    const token = ctx.cookies.get("token");
+    const token = ctx.cookies.get('token');
     if(!token) {
       console.log('TOKEN IS NULL: ', token);
     } else {
