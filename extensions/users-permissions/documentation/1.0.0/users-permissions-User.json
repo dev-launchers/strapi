@@ -1485,6 +1485,31 @@
           },
           "hasSubscribedEmails": {
             "type": "boolean"
+          },
+          "interest": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "interest": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1579,6 +1604,9 @@
           },
           "hasSubscribedEmails": {
             "type": "boolean"
+          },
+          "interest": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
