@@ -1,6 +1,6 @@
 'use strict';
 
-const { isDevEnv } = require("../../../utils/isDevEnv");
+const { isDevEnv } = require('../../../utils/isDevEnv');
 
 module.exports = {
   async logout(ctx) {
