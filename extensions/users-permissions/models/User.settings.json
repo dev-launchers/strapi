@@ -109,6 +109,10 @@
     },
     "hasSubscribedEmails": {
       "type": "boolean"
+    },
+    "interest": {
+      "via": "users_permissions_users",
+      "model": "interest"
     }
   }
 }

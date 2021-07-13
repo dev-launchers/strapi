@@ -840,6 +840,9 @@
                         "hasSubscribedEmails": {
                           "type": "boolean"
                         },
+                        "interest": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -955,6 +958,9 @@
                         "hasSubscribedEmails": {
                           "type": "boolean"
                         },
+                        "interest": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1059,6 +1065,9 @@
               },
               "hasSubscribedEmails": {
                 "type": "boolean"
+              },
+              "interest": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -1410,6 +1419,9 @@
                         "hasSubscribedEmails": {
                           "type": "boolean"
                         },
+                        "interest": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1524,6 +1536,9 @@
                         },
                         "hasSubscribedEmails": {
                           "type": "boolean"
+                        },
+                        "interest": {
+                          "type": "string"
                         },
                         "created_by": {
                           "type": "string"
