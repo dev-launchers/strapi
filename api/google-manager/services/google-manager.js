@@ -68,6 +68,8 @@ if (!isDevEnv()) {
 
   module.exports = new GoogleManager(email, privateKey, groupID);
 } else {
-  module.exports = new MockGoogleManager();
+  module.exports = {
+    GoogleGroupManager: GoogleManager,
+    mockGoogleGroupManager: new MockGoogleManager()
+  }
 }
-
