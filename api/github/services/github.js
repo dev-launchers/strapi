@@ -1,6 +1,8 @@
 'use strict';
 
 const axios = require('axios');
+// Cache fetching from Github for 10 minutes
+const CACHE_TTL = 10 * 60 * 1000;
 
 class GithubManager {
   constructor() {
@@ -8,7 +10,8 @@ class GithubManager {
     this.defaultHeaders = {
       'Accept': 'application/vnd.github.v3+json',
     };
-    this.knownBots = ['fluxcdbot'];
+    this.knownBots = ['fluxcdbot', 'dev-launchers-flux'];
+    this.cache = new Map();
   }
 
   repoURL(user, repo) {
@@ -16,41 +19,88 @@ class GithubManager {
   }
 
   async repoCodeFreq(user, repo) {
-    const resp = await axios.get(
-      `${this.url}/repos/${user}/${repo}/stats/code_frequency`,
-      this.defaultHeaders,
-    );
-    const freq = resp.data.map(change => {
-      return {
-        datetime: new Date(change[0] * 1000),
-        addedLines: change[1],
-        removedLines: change[2],
-      };
-    });
-    return freq;
+    const url = new URL(`${this.url}/repos/${user}/${repo}/stats/code_frequency`);
+    const fetchFunc = async () => {
+      const resp = await axios.get(
+        url.toString(),
+        this.defaultHeaders,
+      );
+      const cachedData = this.fetchCache(url);
+      if (cachedData) {
+        return cachedData;
+      }
+      const freq = resp.data.map(change => {
+        return {
+          datetime: new Date(change[0] * 1000),
+          addedLines: change[1],
+          removedLines: change[2],
+        };
+      });
+      return freq;
+    };
+    return await this.cacheWrapper(url, fetchFunc);
   }
 
   async repoContributors(user, repo) {
-    const resp = await axios.get(
-      `${this.url}/repos/${user}/${repo}/stats/contributors`,
-      this.defaultHeaders,
-    );
-    const contributors = resp.data.reduce((filtered, c) => {
-      const username = c.author.login;
-      if (!this.knownBots.includes(username)) {
-        filtered.push({
-          name: c.author.login,
-          githubURL: c.author.html_url,
-          avatarURL: c.author.avatar_url,
-          contributions: c.total
-        });
+    const url = new URL(`${this.url}/repos/${user}/${repo}/stats/contributors`);
+    const fetchFunc = async () => {
+      const resp = await axios.get(
+        url.toString(),
+        this.defaultHeaders,
+      );
+      const contributors = resp.data.reduce((filtered, c) => {
+        const username = c.author.login;
+        if (!this.knownBots.includes(username)) {
+          filtered.push({
+            name: c.author.login,
+            githubURL: c.author.html_url,
+            avatarURL: c.author.avatar_url,
+            contributions: c.total
+          });
+        }
+        return filtered;
+      }, []);
+      contributors.sort((c1, c2) => {
+        return c2.contributions - c1.contributions;
+      });
+      return contributors;
+    };
+    return await this.cacheWrapper(url, fetchFunc);
+  }
+
+
+  async cacheWrapper(url, f) {
+    const key = url.pathname;
+    const cachedData = this.fetchCache(key);
+    if (cachedData) {
+      return cachedData;
+    }
+    const freshData = await f();
+    this.addCache(key, freshData);
+    return freshData;
+  }
+
+
+  fetchCache(key) {
+    const data = this.cache.get(key);
+    if (data) {
+      if (this.hasExpired(data)) {
+        this.cache.delete(key);
+      } else {
+        return data;
       }
-      return filtered;
-    }, []);
-    contributors.sort((c1, c2) => {
-      return c2.contributions - c1.contributions;
+    }
+  }
+
+  addCache(key, data) {
+    this.cache.set(key, {
+      data,
+      addedTime: Date.now(),
     });
-    return contributors;
+  }
+
+  hasExpired(cacheEntry) {
+    return cacheEntry.addedTime + CACHE_TTL < Date.now();
   }
 }
 
