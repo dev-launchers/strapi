@@ -110,9 +110,9 @@
     "hasSubscribedEmails": {
       "type": "boolean"
     },
-    "interest": {
+    "interests": {
       "via": "users_permissions_users",
-      "model": "interest"
+      "collection": "interest"
     }
   }
 }

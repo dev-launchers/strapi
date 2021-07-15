@@ -516,7 +516,8 @@
     "schemas": {
       "Interest": {
         "required": [
-          "id"
+          "id",
+          "interests"
         ],
         "properties": {
           "id": {
@@ -616,8 +617,11 @@
                 "hasSubscribedEmails": {
                   "type": "boolean"
                 },
-                "interest": {
-                  "type": "string"
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -635,6 +639,9 @@
         }
       },
       "NewInterest": {
+        "required": [
+          "interests"
+        ],
         "properties": {
           "interests": {
             "type": "string"

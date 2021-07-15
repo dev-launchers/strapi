@@ -592,8 +592,11 @@
               "hasSubscribedEmails": {
                 "type": "boolean"
               },
-              "interest": {
-                "type": "string"
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
