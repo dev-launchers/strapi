@@ -50,5 +50,7 @@ module.exports = {
 
   async create(ctx) {
     console.log("body: ", ctx.request.body);
+    console.log("auth: ", strapi.services.project.projectManager.auth);
+    await strapi.services.project.projectManager.createGroup('alearm246@devlaunchers.com', 'backend description', 'site backend');
   }
 };

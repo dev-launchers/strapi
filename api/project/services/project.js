@@ -9,6 +9,8 @@
  const { google } = require('googleapis');
  const { GoogleGroupManager }  = require('../../../extensions/users-permissions/services/google-group');
  const { isDevEnv } = require('../../../utils/isDevEnv');
+ const axios = require('axios');
+ const { v4: uuidv4 } = require('uuid');
 
  class ProjectManager extends GoogleGroupManager {
    constructor(email, key) {
@@ -21,8 +23,36 @@
      console.log(this.auth);
    }
 
-   async createGroup(groupId) {
-     console.log(`created group with id: ${groupId}`);
+   async createGroup(ownerEmail, description, name) {
+     try {
+       const admin = await google.admin({
+         version: 'directory_v1',
+         auth: this.auth
+       });
+
+       const group = await admin.groups.insert({
+         requestBody: {
+           id: uuidv4(),
+           email: ownerEmail,
+           name,
+           description,
+           adminCreated: true
+         }
+       })
+
+       console.log('group: ', group);
+       /*
+       const res = await axios.post('https://admin.googleapis.com/admin/directory/v1/groups', {
+         id: uuidv4(),
+         email: ownerEmail,
+         name,
+         description,
+         adminCreated: true
+       });
+       console.log(res.data);*/
+     } catch(err) {
+       console.error(err);
+     }
    }
 
    /*
@@ -38,7 +68,6 @@
      });
      // https://googleapis.dev/nodejs/googleapis/latest/admin/interfaces/Params$Resource$Members$Insert.html
      try {
-       const groupRole = role === 'leader' ? 'OWNER' : 'MEMBER';
        await admin.members.insert({
          groupKey: this.groupID,
          requestBody: {
@@ -75,5 +104,8 @@ const googleKey = JSON.parse(rawKey);
 const email = googleKey.client_email;
 const privateKey = googleKey.private_key;
 const groupID = '1239487nigdfhgdrgidgiihu';
-
-module.exports = new ProjectManager(email, privateKey);;
+const projectManager = new ProjectManager(email, privateKey);
+//console.log("project manager func: ", projectManager.createGroup('alearm246@gmail.com', 'backend description', 'site backend').then(res => console.log(res)))
+module.exports = {
+  projectManager
+}

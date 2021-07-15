@@ -9,13 +9,15 @@ class GoogleManager {
     const scopes = [
       'https://www.googleapis.com/auth/admin.directory.group',
       'https://www.googleapis.com/auth/admin.directory.group.member',
-      'https://www.googleapis.com/auth/admin.directory.user.security'];
+      'https://www.googleapis.com/auth/admin.directory.user.security',
+      'https://apps-apis.google.com/a/feeds/groups/'
+    ];
     // https://www.npmjs.com/package/google-auth-library#json-web-tokens
     this.auth = new JWT({
       email: email,
       key: key,
       // Subject is needed https://github.com/googleapis/google-api-nodejs-client/issues/1884#issuecomment-625062805
-      subject: process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT,
+      subject: 'team@devlaunchers.com',
       scopes: scopes,
     });
     this.groupID = groupID;
