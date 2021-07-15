@@ -11,14 +11,18 @@
  const { isDevEnv } = require('../../../utils/isDevEnv');
 
  class ProjectManager extends GoogleGroupManager {
-   constructor(email, key, groupID) {
-     super(email, key, groupID);
+   constructor(email, key) {
+     super(email, key);
      const scopes = [
        'https://www.googleapis.com/auth/admin.directory.group',
        'https://www.googleapis.com/auth/admin.directory.group.member',
        'https://www.googleapis.com/auth/admin.directory.user.security'];
      // https://www.npmjs.com/package/google-auth-library#json-web-tokens
      console.log(this.auth);
+   }
+
+   async createGroup(groupId) {
+     console.log(`created group with id: ${groupId}`);
    }
 
    /*
@@ -66,10 +70,10 @@
  }
 */
 
-const rawKey = fs.readFileSync(process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_KEY);
+const rawKey = fs.readFileSync("/srv/app/google-directory-key.json");
 const googleKey = JSON.parse(rawKey);
 const email = googleKey.client_email;
 const privateKey = googleKey.private_key;
 const groupID = '1239487nigdfhgdrgidgiihu';
 
-module.exports = new ProjectManager(email, privateKey, groupID);;
+module.exports = new ProjectManager(email, privateKey);;

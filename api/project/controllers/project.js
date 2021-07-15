@@ -47,4 +47,8 @@ module.exports = {
     }));
     return sanitizeEntity(entity, {model: strapi.models.project});
   },
+
+  async create(ctx) {
+    console.log("body: ", ctx.request.body);
+  }
 };
