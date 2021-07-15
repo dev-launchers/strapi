@@ -632,6 +632,94 @@
               }
             }
           },
+          "projects": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "catchPhrase",
+                "title",
+                "heroImage",
+                "vision",
+                "description",
+                "commitmentLevel",
+                "signupFormUrl",
+                "meetingLinkURLs",
+                "meetingTimes",
+                "keywords",
+                "team"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heroImage": {
+                  "type": "string"
+                },
+                "vision": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "commitmentLevel": {
+                  "type": "string"
+                },
+                "signupFormUrl": {
+                  "type": "string"
+                },
+                "meetingLinkURLs": {
+                  "type": "component"
+                },
+                "meetingTimes": {
+                  "type": "component"
+                },
+                "keywords": {
+                  "type": "component"
+                },
+                "projectReferenceURLs": {
+                  "type": "component"
+                },
+                "openPositions": {
+                  "type": "component"
+                },
+                "team": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -647,6 +735,12 @@
             "type": "string"
           },
           "users_permissions_users": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "projects": {
             "type": "array",
             "items": {
               "type": "string"

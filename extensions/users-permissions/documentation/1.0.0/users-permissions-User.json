@@ -1322,6 +1322,12 @@
                 "Images": {
                   "type": "component"
                 },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1507,6 +1513,12 @@
                   "type": "string"
                 },
                 "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "projects": {
                   "type": "array",
                   "items": {
                     "type": "string"

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/15/2021 12:02:38 AM"
+    "x-generation-date": "07/15/2021 5:13:45 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5731,6 +5731,94 @@
               }
             }
           },
+          "projects": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "catchPhrase",
+                "title",
+                "heroImage",
+                "vision",
+                "description",
+                "commitmentLevel",
+                "signupFormUrl",
+                "meetingLinkURLs",
+                "meetingTimes",
+                "keywords",
+                "team"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heroImage": {
+                  "type": "string"
+                },
+                "vision": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "commitmentLevel": {
+                  "type": "string"
+                },
+                "signupFormUrl": {
+                  "type": "string"
+                },
+                "meetingLinkURLs": {
+                  "type": "component"
+                },
+                "meetingTimes": {
+                  "type": "component"
+                },
+                "keywords": {
+                  "type": "component"
+                },
+                "projectReferenceURLs": {
+                  "type": "component"
+                },
+                "openPositions": {
+                  "type": "component"
+                },
+                "team": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -5746,6 +5834,12 @@
             "type": "string"
           },
           "users_permissions_users": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "projects": {
             "type": "array",
             "items": {
               "type": "string"
@@ -6823,6 +6917,44 @@
               }
             }
           },
+          "interests": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "interests"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "interests": {
+                  "type": "string"
+                },
+                "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -7309,6 +7441,12 @@
                   }
                 }
               }
+            }
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "published_at": {
@@ -7846,6 +7984,12 @@
                 "Images": {
                   "type": "component"
                 },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -8031,6 +8175,12 @@
                   "type": "string"
                 },
                 "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "projects": {
                   "type": "array",
                   "items": {
                     "type": "string"
