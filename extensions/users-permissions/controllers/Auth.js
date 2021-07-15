@@ -212,7 +212,7 @@ module.exports = {
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
           secure: true,
           sameSite: 'None'
-        })
+        });
       } else {
         ctx.cookies.set('token', token, {
           httpOnly: true,
