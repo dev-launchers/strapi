@@ -102,6 +102,11 @@ spec:
             secretKeyRef:
               name: auth
               key: jwt-secret
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: strapi-config
+              key: node_env
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"

@@ -5,3 +5,4 @@ metadata:
 data:
   url: "https://cms-api.devlaunchers.com"
   frontend_url: "https://devlaunchers.com"
+  node_env: "production"

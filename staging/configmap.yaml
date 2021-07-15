@@ -5,3 +5,4 @@ metadata:
 data:
   url: "https://cms-api-staging.devlaunchers.com"
   frontend_url: "https://staging.devlaunchers.com"
+  node_env: "staging"

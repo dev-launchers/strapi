@@ -206,6 +206,13 @@ module.exports = {
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
           domain: 'localhost'
         });
+      } else if(process.env.NODE_ENV === 'staging') {
+        ctx.cookies.set('token', token, {
+          httpOnly: true,
+          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+          secure: true,
+          sameSite: 'None'
+        });
       } else {
         ctx.cookies.set('token', token, {
           httpOnly: true,
@@ -214,6 +221,9 @@ module.exports = {
           domain: 'devlaunchers.com'
         });
       }
+
+
+
 
       if(!user.username){
         ctx.redirect(`${process.env.FRONTEND_URL}/signup`);

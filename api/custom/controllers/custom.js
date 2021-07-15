@@ -11,7 +11,15 @@ module.exports = {
         maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
         domain: 'localhost'
       });
-    } else {
+    } else if(process.env.NODE_ENV === 'staging') {
+      ctx.cookies.set('token', null, {
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+        secure: true,
+        sameSite: 'None'
+      });
+    }
+    else {
       ctx.cookies.set('token', null, {
         httpOnly: true,
         secure: true,
