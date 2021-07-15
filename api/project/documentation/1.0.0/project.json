@@ -840,6 +840,12 @@
                         "hasSubscribedEmails": {
                           "type": "boolean"
                         },
+                        "interests": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -955,6 +961,12 @@
                         "hasSubscribedEmails": {
                           "type": "boolean"
                         },
+                        "interests": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1059,6 +1071,12 @@
               },
               "hasSubscribedEmails": {
                 "type": "boolean"
+              },
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -1410,6 +1428,12 @@
                         "hasSubscribedEmails": {
                           "type": "boolean"
                         },
+                        "interests": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1524,6 +1548,12 @@
                         },
                         "hasSubscribedEmails": {
                           "type": "boolean"
+                        },
+                        "interests": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
                         },
                         "created_by": {
                           "type": "string"

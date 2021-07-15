@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/users/profiles": {
+    "/interests": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Profile"
+                    "$ref": "#/components/schemas/Interest"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Interest"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Profile"
+                  "$ref": "#/components/schemas/Interest"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Interest"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProfile"
+                "$ref": "#/components/schemas/NewInterest"
               }
             }
           }
         }
       }
     },
-    "/users/profiles/count": {
+    "/interests/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Interest"
         ],
         "parameters": []
       }
     },
-    "/users/{id}/profiles": {
+    "/interests/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Profile"
+                  "$ref": "#/components/schemas/Interest"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Interest"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Profile"
+                  "$ref": "#/components/schemas/Interest"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Interest"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProfile"
+                "$ref": "#/components/schemas/NewInterest"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Interest"
         ],
         "parameters": [
           {
@@ -514,145 +514,123 @@
   },
   "components": {
     "schemas": {
-      "Profile": {
+      "Interest": {
         "required": [
-          "id"
+          "id",
+          "interests"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "bio": {
+          "interests": {
             "type": "string"
           },
-          "profilePictureUrl": {
-            "type": "string"
-          },
-          "socialMediaLinks": {
+          "users_permissions_users": {
             "type": "array",
             "items": {
-              "type": "object",
               "required": [
-                "id"
+                "id",
+                "email",
+                "googleId",
+                "userId"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "socialMediaLink": {
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "point": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "discordId": {
+                  "type": "string"
+                },
+                "googleId": {
+                  "type": "string"
+                },
+                "discordAvatar": {
+                  "type": "string"
+                },
+                "discordDiscriminator": {
+                  "type": "string"
+                },
+                "discordUsername": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "uid"
+                },
+                "time_capsules": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "birthday": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "zipCode": {
+                  "type": "integer"
+                },
+                "hasAcceptedTermsOfService": {
+                  "type": "boolean"
+                },
+                "hasSubscribedEmails": {
+                  "type": "boolean"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
               }
             }
-          },
-          "level": {
-            "type": "integer"
-          },
-          "user": {
-            "required": [
-              "id",
-              "email",
-              "googleId",
-              "userId"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "projects": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "point": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "discordId": {
-                "type": "string"
-              },
-              "googleId": {
-                "type": "string"
-              },
-              "discordAvatar": {
-                "type": "string"
-              },
-              "discordDiscriminator": {
-                "type": "string"
-              },
-              "discordUsername": {
-                "type": "string"
-              },
-              "userId": {
-                "type": "uid"
-              },
-              "time_capsules": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "birthday": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "zipCode": {
-                "type": "integer"
-              },
-              "hasAcceptedTermsOfService": {
-                "type": "boolean"
-              },
-              "hasSubscribedEmails": {
-                "type": "boolean"
-              },
-              "interests": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "displayName": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -660,39 +638,19 @@
           }
         }
       },
-      "NewProfile": {
+      "NewInterest": {
+        "required": [
+          "interests"
+        ],
         "properties": {
-          "bio": {
+          "interests": {
             "type": "string"
           },
-          "profilePictureUrl": {
-            "type": "string"
-          },
-          "socialMediaLinks": {
+          "users_permissions_users": {
             "type": "array",
             "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "socialMediaLink": {
-                  "type": "string"
-                }
-              }
+              "type": "string"
             }
-          },
-          "level": {
-            "type": "integer"
-          },
-          "user": {
-            "type": "string"
-          },
-          "displayName": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -710,7 +668,7 @@
   },
   "tags": [
     {
-      "name": "Profile"
+      "name": "Interest"
     }
   ]
 }
