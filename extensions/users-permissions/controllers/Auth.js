@@ -222,8 +222,12 @@ module.exports = {
         });
       }
 
-
-
+      const { hostname } = ctx.request;
+      if(!user.username && hostname === 'localhost'){
+        ctx.redirect('http://localhost:3000/signup')
+      } else if(user.username && hostname === 'localhost') {
+        ctx.redirect('http://localhost:3000/user-profile');
+      }
 
       if(!user.username){
         ctx.redirect(`${process.env.FRONTEND_URL}/signup`);
