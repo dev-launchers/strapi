@@ -224,8 +224,10 @@ module.exports = {
 
       const { hostname } = ctx.request;
       if(!user.username && hostname === 'localhost'){
+        console.log(`REDIRECTING TO SIGNUP, hostname: ${hostname}`);
         ctx.redirect('http://localhost:3000/signup');
       } else if(user.username && hostname === 'localhost') {
+        console.log(`REDIRECTING TO USER PROFILE, hostname: ${hostname}`);
         ctx.redirect('http://localhost:3000/user-profile');
       }
 
