@@ -22,6 +22,11 @@
       "collection": "user",
       "via": "interests",
       "dominant": true
+    },
+    "projects": {
+      "collection": "project",
+      "via": "interests",
+      "dominant": true
     }
   }
 }

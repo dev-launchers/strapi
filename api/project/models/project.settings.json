@@ -97,6 +97,10 @@
       "type": "component",
       "repeatable": true,
       "component": "links.images"
+    },
+    "interests": {
+      "via": "projects",
+      "collection": "interest"
     }
   }
 }
