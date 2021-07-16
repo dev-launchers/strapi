@@ -49,8 +49,7 @@ module.exports = {
   },
 
   async create(ctx) {
-    console.log("body: ", ctx.request.body);
-    console.log("auth: ", strapi.services.project.projectManager.auth);
-    await strapi.services.project.projectManager.createGroup('alearm246@devlaunchers.com', 'backend description', 'site backend');
+    const group = await strapi.services.project.projectManager.createGroup('random2-bot@devlaunchers.com', 'random2 bot description', 'random2-bot');
+    await strapi.services.project.projectManager.joinGroup(group.id, 'alejandroarmas@devlaunchers.com', 'OWNER');
   }
 };
