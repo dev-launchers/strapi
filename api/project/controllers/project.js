@@ -4,6 +4,7 @@
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
+const {sanitizeEntity} = require('strapi-utils');
 
 module.exports = {
   async find(ctx) {
@@ -24,10 +25,9 @@ module.exports = {
       entity.team.members = entity.team.members.map((member) => ({
         id: member.member.id,
         name: member.member.username,
-        email: member.member.email,
         role: member.role,
       }));
-      return entity;
+      return sanitizeEntity(entity, {model: strapi.models.project});
     });
   },
   async findOne(ctx) {
@@ -43,10 +43,8 @@ module.exports = {
     entity.team.members = entity.team.members.map((member) => ({
       id: member.member.id,
       name: member.member.username,
-      email: member.member.email,
       role: member.role,
     }));
-
-    return entity;
+    return sanitizeEntity(entity, {model: strapi.models.project});
   },
 };
