@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/google-manager/watch/:application/:event",
+      "handler": "google-manager.watchAuditLogs"
+    },
+    {
+      "method": "POST",
+      "path": "/google-manager/listen/:application/:event",
+      "handler": "google-manager.listenAuditLogs"
+    },
+    {
+      "method": "POST",
+      "path": "/google-manager/watch/stop",
+      "handler": "google-manager.stopAuditLogs"
+    }
+  ]
+}
