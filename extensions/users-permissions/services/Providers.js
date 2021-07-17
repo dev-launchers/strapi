@@ -14,7 +14,6 @@ const purest = require('purest')({ request });
 const purestConfig = require('@purest/providers');
 const { getAbsoluteServerUrl } = require('strapi-utils');
 const jwt = require('jsonwebtoken');
-const GoogleGroupManager = require('./google-group');
 
 /**
  * Connect thanks to a third-party provider.
@@ -116,7 +115,7 @@ const connect = (provider, query) => {
         const createdUser = await strapi.query('user', 'users-permissions').create(params);
 
         // Add new user to Google Group
-        await GoogleGroupManager.join(profile.email);
+        await strapi.services['google-manager'].joinGroup(profile.email);
 
         return resolve([createdUser, null]);
       } catch (err) {
