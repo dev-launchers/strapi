@@ -4,7 +4,7 @@ const { google } = require('googleapis');
 
 const { isDevEnv } = require('../../../utils/isDevEnv');
 
-class GoogleGroupManager {
+class GoogleManager {
   constructor(email, key, groupID) {
     const scopes = [
       'https://www.googleapis.com/auth/admin.directory.group',
@@ -25,7 +25,7 @@ class GoogleGroupManager {
     Adds current user to Google Group
     Caller is responsible to catch error
   */
-  async join(user_email) {
+  async joinGroup(user_email) {
     const auth = this.auth;
     // Authentication code reference from https://medium.com/swlh/how-to-use-directory-from-google-api-using-node-js-cb375f7a3f14
     const admin = await google.admin({
@@ -51,9 +51,9 @@ class GoogleGroupManager {
   }
 }
 
-class MockGoogleGroupManager {
-  async join(user_email) {
-    console.log(`${user_email} joined Google Group`);
+class MockGoogleManager {
+  async joinGroup(user_email) {
+    console.log(`${user_email} joined mock Google Group`);
   }
 }
 
@@ -66,8 +66,8 @@ if (!isDevEnv()) {
   const privateKey = googleKey.private_key;
   const groupID = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_GROUP_ID;
 
-  module.exports = new GoogleGroupManager(email, privateKey, groupID);
+  module.exports = new GoogleManager(email, privateKey, groupID);
 } else {
-  module.exports = new MockGoogleGroupManager();
+  module.exports = new MockGoogleManager();
 }
 
