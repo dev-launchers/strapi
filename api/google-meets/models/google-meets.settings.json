@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "GoogleMeets",
+  "info": {
+    "name": "GoogleMeets"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "meetingCode": {
+      "type": "string"
+    },
+    "conferenceId": {
+      "type": "string"
+    },
+    "calendarEventId": {
+      "type": "string"
+    }
+  }
+}
