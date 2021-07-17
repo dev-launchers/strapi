@@ -61,12 +61,12 @@ module.exports = {
     const { model } = ctx.params;
     const { body } = ctx.request;
 
-    console.log("MODEL: ", model);
     if(model === 'application::project.project'){
-      console.log("BODY: ", body.team.leaders);
+      const { title, description } = body;
 
-      const group = await strapi.services.project.projectManager.createGroup('random3-bot@devlaunchers.com', 'random3 bot description', 'random3-bot');
-      await strapi.services.project.projectManager.joinGroup(group.id, 'alejandroarmas@devlaunchers.com', 'OWNER');
+      const group = await strapi.services.project.projectManager.createGroup(`${title}@devlaunchers.com`, description, title);
+
+      await strapi.services.project.projectManager.joinGroup(group.id, body.team);
 
     }
 
