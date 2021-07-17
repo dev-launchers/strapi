@@ -5,12 +5,11 @@ const { google } = require('googleapis');
 const { isDevEnv } = require('../../../utils/isDevEnv');
 
 class GoogleManager {
-  constructor(email, key, groupID) {
+  constructor(email, key) {
     const scopes = [
       'https://www.googleapis.com/auth/admin.directory.group',
       'https://www.googleapis.com/auth/admin.directory.group.member',
       'https://www.googleapis.com/auth/admin.directory.user.security',
-      'https://www.googleapis.com/auth/calendar'
     ];
     // https://www.npmjs.com/package/google-auth-library#json-web-tokens
     this.auth = new JWT({
@@ -20,14 +19,38 @@ class GoogleManager {
       subject: 'team@devlaunchers.com',
       scopes: scopes,
     });
-    this.groupID = groupID;
+  }
+
+  async createGroup(groupEmail, description, name) {
+    try {
+      const admin = await google.admin({
+        version: 'directory_v1',
+        auth: this.auth
+      });
+
+      const group = await admin.groups.insert({
+        requestBody: {
+          email: groupEmail,
+          name,
+          description,
+        }
+      })
+
+      return group.data;
+    } catch(err) {
+      if(err.code === 409){
+        console.warn('Google group already exists')
+      } else {
+        throw new Error(`Google Admin Directory API returned ${err} when creating google group`);
+      }
+    }
   }
 
   /*
     Adds current user to Google Group
     Caller is responsible to catch error
   */
-  async joinGroup(user_email) {
+  async joinGroup(groupId, user_email, role) {
     const auth = this.auth;
     // Authentication code reference from https://medium.com/swlh/how-to-use-directory-from-google-api-using-node-js-cb375f7a3f14
     const admin = await google.admin({
@@ -37,10 +60,10 @@ class GoogleManager {
     // https://googleapis.dev/nodejs/googleapis/latest/admin/interfaces/Params$Resource$Members$Insert.html
     try {
       await admin.members.insert({
-        groupKey: this.groupID,
+        groupKey: groupId,
         requestBody: {
           email: user_email,
-          role: 'MEMBER',
+          role
         },
       });
     } catch (err) {
@@ -66,12 +89,12 @@ if (!isDevEnv()) {
   const googleKey = JSON.parse(rawKey);
   const email = googleKey.client_email;
   const privateKey = googleKey.private_key;
-  const groupID = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_GROUP_ID;
 
-  module.exports = new GoogleManager(email, privateKey, groupID);
+  module.exports = new GoogleManager(email, privateKey);
 } else {
-  module.exports = {
-    GoogleGroupManager: GoogleManager,
-    mockGoogleGroupManager: new MockGoogleManager()
-  }
+  const rawKey = fs.readFileSync("/srv/app/google-directory-key.json");
+  const googleKey = JSON.parse(rawKey);
+  const email = googleKey.client_email;
+  const privateKey = googleKey.private_key;
+  module.exports = new GoogleManager(email, privateKey);
 }

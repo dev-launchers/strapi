@@ -62,11 +62,34 @@ module.exports = {
     const { body } = ctx.request;
 
     if(model === 'application::project.project'){
-      const { title, description } = body;
+      const { title, description, team } = body;
+      const group = await strapi.services['google-manager'].createGroup(`${title}@devlaunchers.com`, description, title);
 
-      const group = await strapi.services.project.projectManager.createGroup(`${title}@devlaunchers.com`, description, title);
+      team.leaders.forEach(async (leader) => {
+        try {
+          const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
 
-      await strapi.services.project.projectManager.joinGroup(group.id, body.team);
+          await strapi.services['google-manager'].joinGroup(group.id, user.email, 'OWNER');
+        } catch(err) {
+          console.error("ERROR 1: ", err);
+        }
+      });
+
+      team.members.forEach(async (member) => {
+        try {
+          const user = await strapi.query('user', 'users-permissions').findOne({id: member.member});
+
+          await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
+        } catch(err) {
+          console.error("ERROR 2: ", err);
+        }
+      });
+
+      await strapi.services['google-manager'].joinGroup(group.id, 'alejandroarmas@devlaunchers.com', 'OWNER');
+
+
+
+      //await strapi.services.project.projectManager.joinGroup(group.id, body.team);
 
     }
 
