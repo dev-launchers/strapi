@@ -1,3 +1,4 @@
+const { CronJob } = require('cron');
 const fs = require('fs');
 const { JWT } = require('google-auth-library');
 const { google } = require('googleapis');
@@ -7,7 +8,7 @@ const uuid = require('uuid/v4');
 const { isDevEnv } = require('../../../utils/isDevEnv');
 
 class GoogleManager {
-  constructor(email, key, groupID, serverBaseURL) {
+  constructor(email, key, groupID, serverBaseURL, auditFreqMins) {
     const scopes = [
       'https://www.googleapis.com/auth/admin.directory.group',
       'https://www.googleapis.com/auth/admin.directory.group.member',
@@ -23,6 +24,7 @@ class GoogleManager {
     });
     this.groupID = groupID;
     this.serverBaseURL = serverBaseURL;
+    this.auditFreqMilliSecs = minuteToMilliSeconds(auditFreqMins);
   }
 
   /*
@@ -103,6 +105,27 @@ class GoogleManager {
     }
   }
 
+  async listAuditReports(userKey, applicationName, eventName) {
+    const auth = this.auth;
+    const service = google.admin({ version: 'reports_v1', auth });
+    const currentTime = new Date();
+    const startTime = new Date(currentTime - this.auditFreqMilliSecs).toISOString();
+    try {
+      const resp = await service.activities.list({
+        userKey,
+        applicationName,
+        eventName,
+        startTime,
+      });
+      const reports = resp.data;
+      return reports;
+    }
+    catch (err) {
+      console.error('Failed to list audit reports, error:', err.message);
+      throw err.message;
+    }
+  }
+
 }
 
 class MockGoogleManager {
@@ -119,6 +142,10 @@ class MockGoogleManager {
   }
 }
 
+function minuteToMilliSeconds(minutes) {
+  return minutes * 60 * 1000;
+}
+
 // Load Google Directory API service account credential
 
 if (!isDevEnv()) {
@@ -128,8 +155,20 @@ if (!isDevEnv()) {
   const privateKey = googleKey.private_key;
   const groupID = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_GROUP_ID;
   const serverBaseURL = process.env.URL;
+  const auditFreq = process.env.AUDIT_FREQ_MINUTES;
 
-  module.exports = new GoogleManager(email, privateKey, groupID, serverBaseURL);
+  const manager = new GoogleManager(email, privateKey, groupID, serverBaseURL, auditFreq);
+  const cronTime = `0 */${auditFreq} * * * *`;
+  const job = new CronJob(cronTime, function () {
+    manager.listAuditReports('all', 'meet', 'call_ended').then(reports => {
+      reports.items.forEach(r => {
+        strapi.log.info('Report for Google Meet', r.events[0].parameters);
+      });
+    });
+  });
+  job.start();
+
+  module.exports = manager;
 } else {
   module.exports = new MockGoogleManager();
 }
