@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/17/2021 6:17:23 PM"
+    "x-generation-date": "07/18/2021 2:23:25 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5909,6 +5909,26 @@
           },
           "calendarEventId": {
             "type": "string"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "totalMinutes": {
+                  "type": "integer"
+                }
+              }
+            }
           }
         }
       },
@@ -5925,6 +5945,26 @@
           },
           "calendarEventId": {
             "type": "string"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "totalMinutes": {
+                  "type": "integer"
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"
