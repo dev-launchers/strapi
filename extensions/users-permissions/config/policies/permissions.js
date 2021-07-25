@@ -17,7 +17,6 @@ module.exports = async (ctx, next) => {
   */
   if (ctx.request && ctx.request.header && !ctx.request.header.authorization) {
     const token = ctx.cookies.get('token');
-    console.log('JWT TOKEN IN COOKIE: ', token);
     if (token) {
       ctx.request.header.authorization = 'Bearer ' + token;
     }
