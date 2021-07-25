@@ -17,6 +17,15 @@ module.exports = {
     };
     return sanitizeEntity(entity, { model: strapi.models.repo });
   },
+  async listIssues(ctx) {
+    const { user, repo } = ctx.params;
+    let issues = await strapi.services['github'].repoIssues(user, repo);
+    const entity = {
+      url: strapi.services['github'].repoURL(user, repo),
+      issues: issues,
+    };
+    return sanitizeEntity(entity, { model: strapi.models.repo });
+  },
   async listContributors(ctx) {
     const { user, repo } = ctx.params;
     let contributors = await strapi.services['github'].repoContributors(user, repo);
