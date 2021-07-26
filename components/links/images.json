@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_links_images",
+  "info": {
+    "name": "Images",
+    "icon": "camera-retro"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

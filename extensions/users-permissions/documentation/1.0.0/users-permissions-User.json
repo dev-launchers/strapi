@@ -1187,7 +1187,6 @@
       "UsersPermissionsUser": {
         "required": [
           "id",
-          "username",
           "email",
           "googleId",
           "userId"
@@ -1320,6 +1319,15 @@
                 "user": {
                   "type": "string"
                 },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1391,6 +1399,9 @@
                 "type": "integer"
               },
               "user": {
+                "type": "string"
+              },
+              "displayName": {
                 "type": "string"
               },
               "published_at": {
@@ -1486,12 +1497,49 @@
           },
           "hasSubscribedEmails": {
             "type": "boolean"
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "interests"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "interests": {
+                  "type": "string"
+                },
+                "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
       "NewUsersPermissionsUser": {
         "required": [
-          "username",
           "email",
           "googleId",
           "userId"
@@ -1581,6 +1629,12 @@
           },
           "hasSubscribedEmails": {
             "type": "boolean"
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

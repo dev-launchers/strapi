@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/google-meets/:name",
+      "handler": "google-meets.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/google-meets",
+      "handler": "google-meets.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/google-meets/:id",
+      "handler": "google-meets.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/google-meets/:id",
+      "handler": "google-meets.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

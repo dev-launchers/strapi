@@ -11,7 +11,7 @@ const crypto = require('crypto');
 const _ = require('lodash');
 const grant = require('grant-koa');
 const { sanitizeEntity } = require('strapi-utils');
-const { isDevEnv } = require("../../../utils/isDevEnv");
+const { isDevEnv } = require('../../../utils/isDevEnv');
 
 
 const emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -135,7 +135,7 @@ module.exports = {
         //creates a JWT
         const token = strapi.plugins['users-permissions'].services.jwt.issue({
           id: user.id,
-        })
+        });
 
         /*
           if in dev env, disable secure option because secure option
@@ -143,13 +143,13 @@ module.exports = {
           development envrionment we use http
         */
         if (isDevEnv()) {
-          ctx.cookies.set("token", token);
+          ctx.cookies.set('token', token);
         } else {
-          ctx.cookies.set("token", token, {
+          ctx.cookies.set('token', token, {
             httpOnly: true,
             secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age
-            sameSite: "None"
+            sameSite: 'None'
           });
         }
 
@@ -187,6 +187,8 @@ module.exports = {
         return ctx.badRequest(null, error === 'array' ? error[0] : error);
       }
 
+
+
       //NOTE: This is our custom code to authenticate users via httponly cookie
 
       //creates a jwt
@@ -199,22 +201,50 @@ module.exports = {
         development envrionment we use http
       */
       if (isDevEnv()) {
-        ctx.cookies.set("token", token);
+        ctx.cookies.set('token', token, {
+          httpOnly: true,
+          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+          domain: 'localhost'
+        });
+      } else if(process.env.NODE_ENV === 'staging') {
+        ctx.cookies.set('token', token, {
+          httpOnly: true,
+          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+          secure: true,
+          sameSite: 'None'
+        });
       } else {
-        ctx.cookies.set("token", token, {
+        ctx.cookies.set('token', token, {
           httpOnly: true,
           secure: true,
-          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age
-          sameSite: "None"
+          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+          domain: 'devlaunchers.com'
         });
       }
 
-      ctx.send({
+      const { hostname } = ctx.request;
+      console.log('HOSTNAME: ', hostname);
+      if(!user.username && hostname === 'localhost'){
+        console.log(`REDIRECTING TO SIGNUP, hostname: ${hostname}`);
+        ctx.redirect('http://localhost:3000/signup');
+      } else if(user.username && hostname === 'localhost') {
+        console.log(`REDIRECTING TO USER PROFILE, hostname: ${hostname}`);
+        ctx.redirect('http://localhost:3000/user-profile');
+      }
+
+      if(!user.username){
+        ctx.redirect(`${process.env.FRONTEND_URL}/signup`);
+      } else {
+        ctx.redirect(`${process.env.FRONTEND_URL}/user-profile`);
+      }
+
+      /*
+      ctx.send(
         status: 'Authorized',
         user: sanitizeEntity(user.toJSON ? user.toJSON() : user, {
           model: strapi.query('user', 'users-permissions').model,
         }),
-      });
+      });*/
     }
   },
 

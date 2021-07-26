@@ -527,7 +527,6 @@
             "items": {
               "required": [
                 "id",
-                "username",
                 "email",
                 "googleId",
                 "userId"
@@ -613,6 +612,12 @@
                 },
                 "hasSubscribedEmails": {
                   "type": "boolean"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"

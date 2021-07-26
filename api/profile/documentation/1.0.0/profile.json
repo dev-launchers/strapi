@@ -551,7 +551,6 @@
           "user": {
             "required": [
               "id",
-              "username",
               "email",
               "googleId",
               "userId"
@@ -638,6 +637,12 @@
               "hasSubscribedEmails": {
                 "type": "boolean"
               },
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -645,6 +650,9 @@
                 "type": "string"
               }
             }
+          },
+          "displayName": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -681,6 +689,9 @@
             "type": "integer"
           },
           "user": {
+            "type": "string"
+          },
+          "displayName": {
             "type": "string"
           },
           "published_at": {

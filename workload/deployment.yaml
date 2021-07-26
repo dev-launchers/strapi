@@ -92,6 +92,23 @@ spec:
             secretKeyRef:
               name: storage
               key: container-name
+        - name: FRONTEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: strapi-config
+              key: frontend_url
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: auth
+              key: jwt-secret
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: strapi-config
+              key: node_env
+        - name: STRAPI_LOG_LEVEL
+          value: info
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"

@@ -1,5 +1,4 @@
 FROM strapi/base
-ENV NODE_ENV production
 WORKDIR /srv/app
 COPY ./package.json ./
 COPY ./package-lock.json ./

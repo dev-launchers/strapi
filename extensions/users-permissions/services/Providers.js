@@ -14,7 +14,6 @@ const purest = require('purest')({ request });
 const purestConfig = require('@purest/providers');
 const { getAbsoluteServerUrl } = require('strapi-utils');
 const jwt = require('jsonwebtoken');
-const GoogleGroupManager = require("./google-group");
 
 /**
  * Connect thanks to a third-party provider.
@@ -90,15 +89,16 @@ const connect = (provider, query) => {
           .findOne({ type: advanced.default_role }, []);
 
         const createdProfile = await strapi.query('profile').create({
+          displayName: profile.displayName,
           profilePictureUrl: profile.profilePictureURL
-        })
+        });
 
         const createdPoint = await strapi.query('point').create({
           totalPoints: 0,
           totalSeasonPoints: 0,
           availablePoints: 0,
           volunteerHours: 0
-        })
+        });
 
         // Create the new user.
         // This merge the provider-specific data(profile) with defaultParams
@@ -109,17 +109,17 @@ const connect = (provider, query) => {
           userId: uuidv4(),
           profile: createdProfile.id,
           point: createdPoint.id
-        }
+        };
         const params = _.assign(profile, defaultParams);
 
         const createdUser = await strapi.query('user', 'users-permissions').create(params);
 
         // Add new user to Google Group
-        await GoogleGroupManager.join(profile.email);
+        await strapi.services['google-manager'].joinGroup(profile.email);
 
         return resolve([createdUser, null]);
       } catch (err) {
-        console.log("Failed to connect user to provider, error", err);
+        console.log('Failed to connect user to provider, error', err);
         reject([null, err]);
       }
     });
@@ -224,7 +224,7 @@ const getProfile = async (provider, query, callback) => {
     case 'google': {
       const google = purest({ provider: 'google', config: purestConfig });
       google
-        .get("https://www.googleapis.com/oauth2/v3/userinfo")
+        .get('https://www.googleapis.com/oauth2/v3/userinfo')
         .auth(access_token)
         .request((err, res, body) => {
           if (err) {
@@ -245,7 +245,7 @@ const getProfile = async (provider, query, callback) => {
             */
             callback(null, {
               googleId: body.sub,
-              username: body.name,
+              displayName: body.name,
               email: body.email,
               profilePictureURL: body.picture,
             });

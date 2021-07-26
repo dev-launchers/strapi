@@ -16,9 +16,9 @@ module.exports = async (ctx, next) => {
     then set the jwt in the auth header to allow strapi's logic to work
   */
   if (ctx.request && ctx.request.header && !ctx.request.header.authorization) {
-    const token = ctx.cookies.get("token");
+    const token = ctx.cookies.get('token');
     if (token) {
-      ctx.request.header.authorization = "Bearer " + token;
+      ctx.request.header.authorization = 'Bearer ' + token;
     }
   }
 

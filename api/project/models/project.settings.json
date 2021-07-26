@@ -92,6 +92,15 @@
       "plugin": "users-permissions",
       "model": "user",
       "via": "projects"
+    },
+    "Images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.images"
+    },
+    "interests": {
+      "via": "projects",
+      "collection": "interest"
     }
   }
 }

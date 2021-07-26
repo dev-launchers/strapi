@@ -14,8 +14,8 @@
       "type": "string",
       "minLength": 3,
       "unique": true,
-      "configurable": false,
-      "required": true
+      "configurable": true,
+      "required": false
     },
     "email": {
       "type": "email",
@@ -68,8 +68,8 @@
       "model": "point"
     },
     "profile": {
-      "model": "profile",
-      "via": "user"
+      "via": "user",
+      "model": "profile"
     },
     "discordId": {
       "type": "string"
@@ -109,6 +109,10 @@
     },
     "hasSubscribedEmails": {
       "type": "boolean"
+    },
+    "interests": {
+      "via": "users_permissions_users",
+      "collection": "interest"
     }
   }
 }
