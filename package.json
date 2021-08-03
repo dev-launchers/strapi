@@ -10,6 +10,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "cron": "^1.8.2",
     "google-auth-library": "^7.1.2",
     "googleapis": "^77.0.0",
     "knex": "0.21.18",
