@@ -1,9 +1,9 @@
 {
   "paths": {
-    "/githubs/{user}/{repo}/code_freq": {
-      "get": {
+    "/google-manager/watch/{application}/{event}": {
+      "post": {
         "deprecated": false,
-        "description": "",
+        "description": "Create a new record",
         "responses": {
           "200": {
             "description": "response",
@@ -52,36 +52,29 @@
         },
         "summary": "",
         "tags": [
-          "Github"
+          "Google-manager"
         ],
-        "parameters": [
-          {
-            "name": "user",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "repo",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
-        ]
+        }
       }
     },
-    "/githubs/{user}/{repo}/issues": {
-      "get": {
+    "/google-manager/listen/{application}/{event}": {
+      "post": {
         "deprecated": false,
-        "description": "",
+        "description": "Create a new record",
         "responses": {
           "200": {
             "description": "response",
@@ -130,36 +123,29 @@
         },
         "summary": "",
         "tags": [
-          "Github"
+          "Google-manager"
         ],
-        "parameters": [
-          {
-            "name": "user",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "repo",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
-        ]
+        }
       }
     },
-    "/githubs/{user}/{repo}/contributors": {
-      "get": {
+    "/google-manager/watch/stop": {
+      "post": {
         "deprecated": false,
-        "description": "",
+        "description": "Create a new record",
         "responses": {
           "200": {
             "description": "response",
@@ -208,36 +194,25 @@
         },
         "summary": "",
         "tags": [
-          "Github"
+          "Google-manager"
         ],
-        "parameters": [
-          {
-            "name": "user",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "repo",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
-        ]
+        }
       }
     }
   },
-  "tags": [
-    {
-      "name": "Github"
-    }
-  ]
+  "tags": []
 }

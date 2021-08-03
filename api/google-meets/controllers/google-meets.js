@@ -20,6 +20,6 @@ module.exports = {
     const meet = await strapi.services['google-meets'].findOne({ name: name });
     const entity = userFacingMeets(meet);
 
-    return sanitizeEntity(entity, { model: strapi.models.repo });
+    return sanitizeEntity(entity, { model: strapi.models['google-meets'] });
   }
 };
