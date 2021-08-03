@@ -1328,6 +1328,9 @@
                     "type": "string"
                   }
                 },
+                "board": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },

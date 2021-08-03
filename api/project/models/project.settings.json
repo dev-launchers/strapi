@@ -101,6 +101,11 @@
     "interests": {
       "via": "projects",
       "collection": "interest"
+    },
+    "board": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project.project-board"
     }
   }
 }
