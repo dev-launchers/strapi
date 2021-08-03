@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/24/2021 7:53:17 PM"
+    "x-generation-date": "08/01/2021 6:20:36 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6399,7 +6399,8 @@
                 "meetingLinkURLs",
                 "meetingTimes",
                 "keywords",
-                "team"
+                "team",
+                "isListed"
               ],
               "properties": {
                 "id": {
@@ -6458,6 +6459,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "isListed": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -6929,7 +6933,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "id": {
@@ -7607,6 +7612,9 @@
               }
             }
           },
+          "isListed": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -7625,7 +7633,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "slug": {
@@ -8100,6 +8109,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "isListed": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
@@ -8582,7 +8594,8 @@
                 "meetingLinkURLs",
                 "meetingTimes",
                 "keywords",
-                "team"
+                "team",
+                "isListed"
               ],
               "properties": {
                 "id": {
@@ -8641,6 +8654,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "isListed": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
