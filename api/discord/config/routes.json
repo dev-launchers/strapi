@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/auth/discord/redirect",
+      "handler": "discord.discordAuth",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
