@@ -41,6 +41,21 @@ class GithubManager {
     return await this.cacheWrapper(url, fetchFunc);
   }
 
+  async repoIssues(user, repo) {
+    const url = new URL(`${this.url}/repos/${user}/${repo}/issues`);
+    const fetchFunc = async () => {
+      const resp = await axios.get(
+        url.toString(),
+        this.defaultHeaders,
+      );
+      const cachedData = this.fetchCache(url);
+      if (cachedData) {
+        return cachedData;
+      }
+      return resp.data;
+    };
+    return await this.cacheWrapper(url, fetchFunc);
+  }
   async repoContributors(user, repo) {
     const url = new URL(`${this.url}/repos/${user}/${repo}/stats/contributors`);
     const fetchFunc = async () => {

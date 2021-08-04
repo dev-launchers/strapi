@@ -299,6 +299,26 @@
           },
           "calendarEventId": {
             "type": "string"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "totalMinutes": {
+                  "type": "integer"
+                }
+              }
+            }
           }
         }
       },
@@ -315,6 +335,26 @@
           },
           "calendarEventId": {
             "type": "string"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "totalMinutes": {
+                  "type": "integer"
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"

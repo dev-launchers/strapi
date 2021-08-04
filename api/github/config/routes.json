@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/githubs/:user/:repo/issues",
+      "handler": "github.listIssues",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/githubs/:user/:repo/contributors",
       "handler": "github.listContributors",
       "config": {

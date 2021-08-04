@@ -1,23 +1,28 @@
+const { CronJob } = require('cron');
 const fs = require('fs');
 const { JWT } = require('google-auth-library');
 const { google } = require('googleapis');
+const uuid = require('uuid/v4');
+// Doc is at https://googleapis.dev/nodejs/googleapis/latest/index.html
 
 const { isDevEnv } = require('../../../utils/isDevEnv');
 const { v4: uuidv4 } = require('uuid');
 
 class GoogleManager {
-  constructor(email, key) {
+  constructor(email, key, serverBaseURL, auditFreqMins) {
     const scopes = [
       'https://www.googleapis.com/auth/admin.directory.group',
       'https://www.googleapis.com/auth/admin.directory.group.member',
       'https://www.googleapis.com/auth/admin.directory.user.security',
+      'https://www.googleapis.com/auth/admin.reports.audit.readonly',
     ];
 
     const calendarScopes = [
       'https://www.googleapis.com/auth/calendar',
       'https://www.googleapis.com/auth/calendar.events'
-    ]
-    this.devlaunchersEmail = 'team@devlaunchers.com';
+    ];
+
+    this.devlaunchersEmail = 'team@devlaunchers.com'
     // https://www.npmjs.com/package/google-auth-library#json-web-tokens
     this.adminAuth = new JWT({
       email: email,
@@ -33,8 +38,8 @@ class GoogleManager {
       subject: this.devlaunchersEmail,
       scopes: calendarScopes,
     });
-
-
+    this.serverBaseURL = serverBaseURL;
+    this.auditFreqMilliSecs = minuteToMilliSeconds(auditFreqMins);
   }
 
   async createGroup(groupEmail, description, name) {
@@ -86,7 +91,7 @@ class GoogleManager {
       if (err.code == 409) {
         console.warn(`${user_email} already in the Google Group`);
       } else {
-        throw `Google Admin Directory API returned error ${err} when adding user`;
+        console.error(`Google Admin Directory API returned error ${err} when adding user`);
       }
     }
   }
@@ -191,6 +196,76 @@ class GoogleManager {
     const titleRegEx = title.replace(/[^a-zA-Z0-9 ]/g, "");
     return titleRegEx.split(' ').join('-').toLowerCase();
   }
+
+  /**
+   * Creates a subscription channel to start receiving notifications
+   * https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities/watch
+   */
+  async watchAuditLogs(userKey, applicationName, eventName) {
+    const auth = this.auth;
+    const service = google.admin({ version: 'reports_v1', auth });
+    const requestBody = {
+      id: uuid(),
+      type: 'web_hook',
+      address: `${this.serverBaseURL}/google-manager/listen/${applicationName}/${eventName}`,
+      payload: true,
+      resourceId: uuid(),
+      kind: 'api#channel',
+    };
+    try {
+      const resp = await service.activities.watch({
+        userKey,
+        applicationName,
+        eventName,
+        requestBody
+      });
+      const subscriptionChannel = resp.data;
+      return subscriptionChannel;
+    }
+    catch (err) {
+      console.error('Google Report API returned error:', err.message);
+      throw err.message;
+    }
+  }
+
+  async stopAuditLogs(channelId, resourceId) {
+    const auth = this.auth;
+    const service = google.admin({ version: 'reports_v1', auth });
+    const requestBody = {
+      id: channelId,
+      resourceId,
+    };
+    try {
+      await service.channels.stop({
+        requestBody
+      });
+    }
+    catch (err) {
+      console.error('Stop Google push notifications returned error:', err.message);
+      throw err.message;
+    }
+  }
+
+  async listAuditReports(userKey, applicationName, eventName) {
+    const auth = this.auth;
+    const service = google.admin({ version: 'reports_v1', auth });
+    const currentTime = new Date();
+    const startTime = new Date(currentTime - this.auditFreqMilliSecs).toISOString();
+    try {
+      const resp = await service.activities.list({
+        userKey,
+        applicationName,
+        eventName,
+        startTime,
+      });
+      const reports = resp.data;
+      return reports;
+    }
+    catch (err) {
+      console.error('Failed to list audit reports, error:', err.message);
+      throw err.message;
+    }
+  }
 }
 
 class MockGoogleManager {
@@ -228,6 +303,18 @@ class MockGoogleManager {
   async formatEmail(title) {
     console.log(`${title} has been formatted`);
   }
+
+  async watchAuditLogs(_userKey, applicationName, eventName) {
+    console.log(`Mock Google Manager watch ${eventName} event of ${applicationName}`);
+  }
+
+  async stopAuditLogs(channelId, resourceId) {
+    console.log(`Mock Google Manager stop watching channel ${channelId} for resoruce ${resourceId}`);
+  }
+}
+
+function minuteToMilliSeconds(minutes) {
+  return minutes * 60 * 1000;
 }
 
 // Load Google Directory API service account credential
@@ -237,8 +324,21 @@ if (!isDevEnv()) {
   const googleKey = JSON.parse(rawKey);
   const email = googleKey.client_email;
   const privateKey = googleKey.private_key;
+  const serverBaseURL = process.env.URL;
+  const auditFreq = process.env.AUDIT_FREQ_MINUTES;
 
-  module.exports = new GoogleManager(email, privateKey);
+  const manager = new GoogleManager(email, privateKey, serverBaseURL, auditFreq);
+  const cronTime = `0 */${auditFreq} * * * *`;
+  const job = new CronJob(cronTime, function () {
+    manager.listAuditReports('all', 'meet', 'call_ended').then(reports => {
+      reports.items.forEach(r => {
+        strapi.log.info('Report for Google Meet', r.events[0].parameters);
+      });
+    });
+  });
+  job.start();
+
+  module.exports = manager;
 } else {
   module.exports = new MockGoogleManager();
 }

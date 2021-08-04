@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_project_project_boards",
+  "info": {
+    "name": "ProjectBoard",
+    "icon": "clipboard"
+  },
+  "options": {},
+  "attributes": {
+    "ProjectMilestone": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project.project-milestones"
+    }
+  }
+}
