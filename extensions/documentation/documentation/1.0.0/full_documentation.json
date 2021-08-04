@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/01/2021 6:20:36 AM"
+    "x-generation-date": "08/03/2021 5:36:34 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6460,6 +6460,9 @@
                     "type": "string"
                   }
                 },
+                "board": {
+                  "type": "component"
+                },
                 "isListed": {
                   "type": "boolean"
                 },
@@ -7612,6 +7615,62 @@
               }
             }
           },
+          "board": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ProjectMilestone": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "task": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "isReached"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "isReached": {
+                            "type": "boolean"
+                          },
+                          "completionDate": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "isListed": {
             "type": "boolean"
           },
@@ -8108,6 +8167,62 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "board": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ProjectMilestone": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "task": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "isReached"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "isReached": {
+                            "type": "boolean"
+                          },
+                          "completionDate": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "isListed": {
@@ -8654,6 +8769,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "board": {
+                  "type": "component"
                 },
                 "isListed": {
                   "type": "boolean"

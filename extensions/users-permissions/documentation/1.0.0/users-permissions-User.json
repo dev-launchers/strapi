@@ -1329,6 +1329,9 @@
                     "type": "string"
                   }
                 },
+                "board": {
+                  "type": "component"
+                },
                 "isListed": {
                   "type": "boolean"
                 },
