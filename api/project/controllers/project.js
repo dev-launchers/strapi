@@ -48,14 +48,4 @@ module.exports = {
     }));
     return sanitizeEntity(entity, {model: strapi.models.project});
   },
-
-  async create(ctx) {
-    const entity = await strapi.services.project.create(ctx.request.body);
-    console.log("entity: ", entity);
-    /*
-    const group = await strapi.services.project.projectManager.createGroup('random2-bot@devlaunchers.com', 'random2 bot description', 'random2-bot');
-    await strapi.services.project.projectManager.joinGroup(group.id, 'alejandroarmas@devlaunchers.com', 'OWNER');*/
-
-    return sanitizeEntity(entity, { model: strapi.models.project})
-  }
 };
