@@ -7,6 +7,8 @@ const { setCreatorFields } = require('strapi-utils');
 const { getService, wrapBadRequest, pickWritableAttributes } = require('../utils');
 const { validateBulkDeleteInput, validatePagination } = require('./validation');
 
+const TEAM_EMAIL = 'team@devlaunchers.com';
+
 module.exports = {
   async find(ctx) {
     const { userAbility } = ctx.state;
@@ -60,38 +62,64 @@ module.exports = {
     const { userAbility, user } = ctx.state;
     const { model } = ctx.params;
     const { body } = ctx.request;
+    let newBody = {};
 
+    //model lets us check which collection where creating
     if(model === 'application::project.project'){
       const { title, description, team } = body;
-      const group = await strapi.services['google-manager'].createGroup(`${title}@devlaunchers.com`, description, title);
 
+      //formats email based on the title of the project
+      const formatedEmail = strapi.services['google-manager'].formatEmail(title);
+
+      const group = await strapi.services['google-manager'].createGroup(`${formatedEmail}@devlaunchers.com`, description, title);
+
+      //lets leaders join google group
       team.leaders.forEach(async (leader) => {
         try {
           const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
 
           await strapi.services['google-manager'].joinGroup(group.id, user.email, 'OWNER');
         } catch(err) {
-          console.error("ERROR 1: ", err);
+          console.error("error letting leaders join google group: ", err);
         }
       });
 
+      //Lets team@devlaunchers.com be owner of the google group to fix google meets auto admit problem
+      await strapi.services['google-manager'].joinGroup(group.id, TEAM_EMAIL, 'OWNER');
+
+      //lets members join google group
       team.members.forEach(async (member) => {
         try {
           const user = await strapi.query('user', 'users-permissions').findOne({id: member.member});
 
           await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
         } catch(err) {
-          console.error("ERROR 2: ", err);
+          console.error("error letting members join google group: ", err);
         }
       });
 
-      await strapi.services['google-manager'].joinGroup(group.id, 'alejandroarmas@devlaunchers.com', 'OWNER');
+      const calendar = await strapi.services['google-manager'].createCalendar(title);
 
+      newBody.calendarId = calendar.id;
 
+     await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
 
-      //await strapi.services.project.projectManager.joinGroup(group.id, body.team);
+      //gives project leads owner acl of calendar
+      team.leaders.forEach(async (leader) => {
+        try {
+          const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
 
+          await strapi.services['google-manager'].grantAcl(calendar.id, user.email, 'owner');
+        } catch(err) {
+          console.error(err);
+        }
+      })
+
+      //gives the remainder of the google group reader acl for the calendar
+      await strapi.services['google-manager'].grantAcl(calendar.id, group.email, 'reader');
     }
+
+
 
     const entityManager = getService('entity-manager');
     const permissionChecker = getService('permission-checker').create({ userAbility, model });
@@ -107,7 +135,7 @@ module.exports = {
     const sanitizeFn = pipe([pickWritables, pickPermittedFields, setCreator]);
 
     await wrapBadRequest(async () => {
-      const entity = await entityManager.create(sanitizeFn(body), model);
+      const entity = await entityManager.create(sanitizeFn({...body, ...newBody}), model);
       ctx.body = permissionChecker.sanitizeOutput(entity);
 
       await strapi.telemetry.send('didCreateFirstContentTypeEntry', { model });
