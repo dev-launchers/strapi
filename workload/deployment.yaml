@@ -107,6 +107,10 @@ spec:
             configMapKeyRef:
               name: strapi-config
               key: node_env
+        - name: STRAPI_LOG_LEVEL
+          value: info
+        - name: AUDIT_FREQ_MINUTES
+          value: "60"
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
