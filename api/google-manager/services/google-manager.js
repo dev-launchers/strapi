@@ -159,7 +159,7 @@ class GoogleManager {
           ],
           conferenceData: {
             createRequest: {
-              requestId: "24324234234dfghdfghfgh568j",
+              requestId: uuidv4(),
               conferenceSolutionKey: {
                 type: "hangoutsMeet"
               },
