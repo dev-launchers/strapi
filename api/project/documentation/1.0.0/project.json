@@ -530,7 +530,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "id": {
@@ -1264,6 +1265,9 @@
               }
             }
           },
+          "isListed": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1282,7 +1286,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "slug": {
@@ -1813,6 +1818,9 @@
                 }
               }
             }
+          },
+          "isListed": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

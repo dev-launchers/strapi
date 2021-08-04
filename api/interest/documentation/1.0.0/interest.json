@@ -648,7 +648,8 @@
                 "meetingLinkURLs",
                 "meetingTimes",
                 "keywords",
-                "team"
+                "team",
+                "isListed"
               ],
               "properties": {
                 "id": {
@@ -710,6 +711,9 @@
                 },
                 "board": {
                   "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
