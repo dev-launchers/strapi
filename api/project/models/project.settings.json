@@ -101,6 +101,10 @@
     "interests": {
       "via": "projects",
       "collection": "interest"
+    },
+    "isListed": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
