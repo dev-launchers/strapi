@@ -711,7 +711,7 @@
                 },
                 "calendarId": {
                   "type": "string"
-
+                },
                 "board": {
                   "type": "component"
                 },

@@ -15,4 +15,4 @@
  const calendar = google.calendar({ version: '3', auth: client });*/
 
 
-module.exports = {}
+module.exports = {};

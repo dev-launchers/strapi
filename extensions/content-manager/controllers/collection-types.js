@@ -80,7 +80,7 @@ module.exports = {
 
           await strapi.services['google-manager'].joinGroup(group.id, user.email, 'OWNER');
         } catch(err) {
-          console.error("error letting leaders join google group: ", err);
+          console.error('error letting leaders join google group: ', err);
         }
       });
 
@@ -94,7 +94,7 @@ module.exports = {
 
           await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
         } catch(err) {
-          console.error("error letting members join google group: ", err);
+          console.error('error letting members join google group: '', err);
         }
       });
 
@@ -102,7 +102,7 @@ module.exports = {
 
       newBody.calendarId = calendar.id;
 
-     await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
+      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
 
       //gives project leads owner acl of calendar
       team.leaders.forEach(async (leader) => {
@@ -113,7 +113,7 @@ module.exports = {
         } catch(err) {
           console.error(err);
         }
-      })
+      });
 
       //gives the remainder of the google group reader acl for the calendar
       await strapi.services['google-manager'].grantAcl(calendar.id, group.email, 'reader');

@@ -1209,7 +1209,6 @@
               }
             }
           },
-
           "calendarId": {
             "type": "string"
           },
@@ -1767,10 +1766,9 @@
               "type": "string"
             }
           },
-<<<<<<< HEAD
           "calendarId": {
             "type": "string"
-=======
+          },
           "board": {
             "type": "object",
             "required": [
@@ -1829,7 +1827,6 @@
           },
           "isListed": {
             "type": "boolean"
->>>>>>> main
           },
           "published_at": {
             "type": "string",

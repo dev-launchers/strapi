@@ -55,12 +55,12 @@ class GoogleManager {
           name,
           description,
         }
-      })
+      });
 
       return group.data;
     } catch(err) {
       if(err.code === 409){
-        console.warn('Google group already exists')
+        console.warn('Google group already exists');
       } else {
         throw new Error(`Google Admin Directory API returned ${err} when creating google group`);
       }
@@ -101,13 +101,13 @@ class GoogleManager {
       const calendar = await google.calendar({
         version: 'v3',
         auth: this.calendarAuth
-      })
+      });
 
       const createdCalendar = await calendar.calendars.insert({
         requestBody: {
           summary: title
         }
-      })
+      });
       return createdCalendar.data;
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when creating calendar`);
@@ -119,25 +119,27 @@ class GoogleManager {
       const calendar = await google.calendar({
         version: 'v3',
         auth: this.calendarAuth
-      })
+      });
 
-      const acl = await calendar.acl.insert({
+      await calendar.acl.insert({
         calendarId,
         requestBody: {
-            role: role,
-            scope: {
-              type: role === 'reader' ? 'group' : 'user',
-              value: email
-            }
+          role: role,
+          scope: {
+            type: role === 'reader' ? 'group' : 'user',
+            value: email
+          }
         }
-      })
+      });
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when granting acl`);
     }
   }
 
   async createEvent(calendarId, title, groupEmail) {
+
     try {
+
       const calendar = await google.calendar({
         version: 'v3',
         auth: this.calendarAuth
@@ -148,31 +150,31 @@ class GoogleManager {
         conferenceDataVersion: 1,
         requestBody: {
           end: {
-            date: "2021-07-04"
+            date: '2021-07-04'
           },
           start: {
-            date: "2021-07-04"
+            date: '2021-07-04'
           },
           recurrence: [
-            "RRULE:FREQ=DAILY"
+            'RRULE:FREQ=DAILY'
           ],
           attendees: [
             {
               email: groupEmail,
-              responseStatus: "accepted"
+              responseStatus: 'accepted'
             }
           ],
           conferenceData: {
             createRequest: {
               requestId: uuidv4(),
               conferenceSolutionKey: {
-                type: "hangoutsMeet"
+                type: 'hangoutsMeet',
               },
             }
           },
           summary: `${title} Common Room`,
         }
-    })
+    });
 
     const {id, summary, conferenceData } = createdEvent.data;
 
@@ -185,7 +187,7 @@ class GoogleManager {
       meetingCode,
       conferenceId: conferenceData.conferenceId,
       calendarEventId: id,
-    })
+    });
 
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when creating event`);
@@ -193,7 +195,7 @@ class GoogleManager {
   }
 
   formatEmail(title){
-    const titleRegEx = title.replace(/[^a-zA-Z0-9 ]/g, "");
+    const titleRegEx = title.replace(/[^a-zA-Z0-9 ]/g, '');
     return titleRegEx.split(' ').join('-').toLowerCase();
   }
 
@@ -297,7 +299,7 @@ class MockGoogleManager {
   }
 
   async createEvent(calendarId, title, groupEmail) {
-    console.log(`event has been created for ${title}`);
+    console.log(`event has been created for ${title} and email: ${groupEmail}`);
   }
 
   async formatEmail(title) {
