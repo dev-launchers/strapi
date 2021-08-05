@@ -172,7 +172,7 @@ class GoogleManager {
           },
           summary: `${title} Common Room`,
         }
-    });
+      });
 
       const {id, summary, conferenceData } = createdEvent.data;
 
@@ -185,9 +185,9 @@ class GoogleManager {
         conferenceId: conferenceData.conferenceId,
         calendarEventId: id,
       });
-
+      
     } catch(err) {
-        console.error(`Google Calendar API returned error ${err} when creating event`);
+      console.error(`Google Calendar API returned error ${err} when creating event`);
     }
   }
 
