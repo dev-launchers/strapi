@@ -22,7 +22,7 @@ class GoogleManager {
       'https://www.googleapis.com/auth/calendar.events'
     ];
 
-    this.devlaunchersEmail = 'team@devlaunchers.com'
+    this.devlaunchersEmail = 'team@devlaunchers.com';
     // https://www.npmjs.com/package/google-auth-library#json-web-tokens
     this.adminAuth = new JWT({
       email: email,
@@ -137,13 +137,11 @@ class GoogleManager {
   }
 
   async createEvent(calendarId, title, groupEmail) {
-
     try {
-
       const calendar = await google.calendar({
         version: 'v3',
         auth: this.calendarAuth
-      })
+      });
 
       const createdEvent = await calendar.events.insert({
         calendarId,
@@ -176,21 +174,20 @@ class GoogleManager {
         }
     });
 
-    const {id, summary, conferenceData } = createdEvent.data;
+      const {id, summary, conferenceData } = createdEvent.data;
 
-    //gets meetingcode from uri
-    const meetingCode = conferenceData.entryPoints[0].uri.split('/')[3];
+      //gets meetingcode from uri
+      const meetingCode = conferenceData.entryPoints[0].uri.split('/')[3];
 
-
-    await strapi.services['google-meets'].create({
-      name: summary,
-      meetingCode,
-      conferenceId: conferenceData.conferenceId,
-      calendarEventId: id,
-    });
+      await strapi.services['google-meets'].create({
+        name: summary,
+        meetingCode,
+        conferenceId: conferenceData.conferenceId,
+        calendarEventId: id,
+      });
 
     } catch(err) {
-      console.error(`Google Calendar API returned error ${err} when creating event`);
+        console.error(`Google Calendar API returned error ${err} when creating event`);
     }
   }
 
@@ -291,7 +288,7 @@ class MockGoogleManager {
     };
     console.log(`google calendar for ${title} has been created`);
 
-    return mockCalendar
+    return mockCalendar;
   }
 
   async grantAcl(calendarId, email, role) {

@@ -94,7 +94,7 @@ module.exports = {
 
           await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
         } catch(err) {
-          console.error('error letting members join google group: '', err);
+          console.error('error letting members join google group: ', err);
         }
       });
 
