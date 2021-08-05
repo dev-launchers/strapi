@@ -9,7 +9,7 @@ module.exports = {
       return ctx.send({ message: 'There is not a code in the url' }, 500);
     }
     try {
-      // post a request to get back the token type and an access token
+      // make a post request to get back the token type and an access token
       const discordData = {
         client_id: process.env.CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
@@ -42,7 +42,7 @@ module.exports = {
         discordDiscriminator: userResult.data.discriminator,
       };
       const { id, username } = ctx.state.user;
-      await strapi.query('user', 'users-permissions').update({ id: id}, validatedBody);
+      await strapi.query('user', 'users-permissions').update({ id }, validatedBody);
       if(!username){
         return ctx.redirect(`${process.env.FRONTEND_URL}/signup`);
       }
