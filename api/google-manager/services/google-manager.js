@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require('uuid');
 
 class GoogleManager {
   constructor(email, key, serverBaseURL, auditFreqMins) {
-    const scopes = [
+    const adminScopes = [
       'https://www.googleapis.com/auth/admin.directory.group',
       'https://www.googleapis.com/auth/admin.directory.group.member',
       'https://www.googleapis.com/auth/admin.directory.user.security',
@@ -148,10 +148,10 @@ class GoogleManager {
         conferenceDataVersion: 1,
         requestBody: {
           end: {
-            date: '2021-07-04'
+            date: new Date()
           },
           start: {
-            date: '2021-07-04'
+            date: new Date()
           },
           recurrence: [
             'RRULE:FREQ=DAILY'
@@ -176,7 +176,11 @@ class GoogleManager {
 
       const {id, summary, conferenceData } = createdEvent.data;
 
-      //gets meetingcode from uri
+      /*
+        gets meetingcode from uri
+        Ex uri: https://meet.google.com/nuz-gfbn-nxv
+        Ex split array: ['https:', '', 'meet.google.com', 'nuz-gfbn-nxv']
+      */
       const meetingCode = conferenceData.entryPoints[0].uri.split('/')[3];
 
       await strapi.services['google-meets'].create({
@@ -185,7 +189,7 @@ class GoogleManager {
         conferenceId: conferenceData.conferenceId,
         calendarEventId: id,
       });
-      
+
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when creating event`);
     }
