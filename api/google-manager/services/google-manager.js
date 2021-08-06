@@ -29,7 +29,7 @@ class GoogleManager {
       key: key,
       // Subject is needed https://github.com/googleapis/google-api-nodejs-client/issues/1884#issuecomment-625062805
       subject: this.devlaunchersEmail,
-      scopes: scopes,
+      scopes: adminScopes,
     });
 
     this.calendarAuth = new JWT({
@@ -148,10 +148,10 @@ class GoogleManager {
         conferenceDataVersion: 1,
         requestBody: {
           end: {
-            date: new Date()
+            date: this.getCurrentDate(),
           },
           start: {
-            date: new Date()
+            date: this.getCurrentDate(),
           },
           recurrence: [
             'RRULE:FREQ=DAILY'
@@ -198,6 +198,14 @@ class GoogleManager {
   formatEmail(title){
     const titleRegEx = title.replace(/[^a-zA-Z0-9 ]/g, '');
     return titleRegEx.split(' ').join('-').toLowerCase();
+  }
+
+  getCurrentDate() {
+    const dateObj = new Date();
+    const month = dateObj.getUTCMonth() + 1; //months from 1-12
+    const day = dateObj.getUTCDate();
+    const year = dateObj.getUTCFullYear();
+    return `${year}-${month}-${day}`;
   }
 
   /**

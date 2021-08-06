@@ -67,7 +67,6 @@ module.exports = {
     //model lets us check which collection where creating
     if(model === 'application::project.project'){
       const { title, description, team } = body;
-
       //formats email based on the title of the project
       const formatedEmail = strapi.services['google-manager'].formatEmail(title);
 
