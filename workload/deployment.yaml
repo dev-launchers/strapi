@@ -28,6 +28,21 @@ spec:
         ports:
         - containerPort: 1337
         env:
+        - name: CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: auth
+              key: discord-client-id
+        - name: CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: auth
+              key: discord-client-secret
+        - name: REDIRECT_URL
+          valueFrom:
+            configMapKeyRef:
+              name: strapi-config
+              key: redirect_url
         - name: DATABASE_CLIENT
           value: postgres
         - name: DATABASE_NAME
