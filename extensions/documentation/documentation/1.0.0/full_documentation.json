@@ -14,7 +14,8 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/25/2021 2:43:55 AM"
+
+    "x-generation-date": "08/03/2021 5:36:34 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6459,7 +6460,8 @@
                 "meetingLinkURLs",
                 "meetingTimes",
                 "keywords",
-                "team"
+                "team",
+                "isListed"
               ],
               "properties": {
                 "id": {
@@ -6518,6 +6520,12 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "board": {
+                  "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -6989,7 +6997,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "id": {
@@ -7667,6 +7676,65 @@
               }
             }
           },
+          "board": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ProjectMilestone": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "task": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "isReached"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "isReached": {
+                            "type": "boolean"
+                          },
+                          "completionDate": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "isListed": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -7685,7 +7753,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "slug": {
@@ -8160,6 +8229,65 @@
             "items": {
               "type": "string"
             }
+          },
+          "board": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ProjectMilestone": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "task": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "isReached"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "isReached": {
+                            "type": "boolean"
+                          },
+                          "completionDate": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "isListed": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
@@ -8642,7 +8770,8 @@
                 "meetingLinkURLs",
                 "meetingTimes",
                 "keywords",
-                "team"
+                "team",
+                "isListed"
               ],
               "properties": {
                 "id": {
@@ -8701,6 +8830,12 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "board": {
+                  "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

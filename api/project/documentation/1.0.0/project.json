@@ -530,7 +530,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "id": {
@@ -1208,6 +1209,65 @@
               }
             }
           },
+          "board": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ProjectMilestone": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "task": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "isReached"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "isReached": {
+                            "type": "boolean"
+                          },
+                          "completionDate": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "isListed": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1226,7 +1286,8 @@
           "meetingLinkURLs",
           "meetingTimes",
           "keywords",
-          "team"
+          "team",
+          "isListed"
         ],
         "properties": {
           "slug": {
@@ -1701,6 +1762,65 @@
             "items": {
               "type": "string"
             }
+          },
+          "board": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ProjectMilestone": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "task": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "isReached"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "isReached": {
+                            "type": "boolean"
+                          },
+                          "completionDate": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "isListed": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
