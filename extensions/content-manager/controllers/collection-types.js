@@ -108,14 +108,14 @@ module.exports = {
         try {
           const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
 
-          await strapi.services['google-manager'].grantAcl(calendar.id, user.email, 'owner');
+          await strapi.services['google-manager'].grantAcl(calendar.id, user.email, 'owner', 'user');
         } catch(err) {
           console.error(err);
         }
       });
 
       //gives the remainder of the google group reader acl for the calendar
-      await strapi.services['google-manager'].grantAcl(calendar.id, group.email, 'reader');
+      await strapi.services['google-manager'].grantAcl(calendar.id, group.email, 'reader', 'group');
     }
 
 

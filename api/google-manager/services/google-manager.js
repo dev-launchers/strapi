@@ -114,7 +114,7 @@ class GoogleManager {
     }
   }
 
-  async grantAcl(calendarId, email, role) {
+  async grantAcl(calendarId, email, role, scopeType) {
     try {
       const calendar = await google.calendar({
         version: 'v3',
@@ -126,7 +126,7 @@ class GoogleManager {
         requestBody: {
           role: role,
           scope: {
-            type: role === 'reader' ? 'group' : 'user',
+            type: scopeType,
             value: email
           }
         }
