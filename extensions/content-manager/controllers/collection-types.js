@@ -7,8 +7,6 @@ const { setCreatorFields } = require('strapi-utils');
 const { getService, wrapBadRequest, pickWritableAttributes } = require('../utils');
 const { validateBulkDeleteInput, validatePagination } = require('./validation');
 
-const TEAM_EMAIL = 'team@devlaunchers.com';
-
 module.exports = {
   async find(ctx) {
     const { userAbility } = ctx.state;
