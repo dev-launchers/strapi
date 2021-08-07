@@ -1209,6 +1209,9 @@
               }
             }
           },
+          "calendarId": {
+            "type": "string"
+          },
           "board": {
             "type": "object",
             "required": [
@@ -1762,6 +1765,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "calendarId": {
+            "type": "string"
           },
           "board": {
             "type": "object",
