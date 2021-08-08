@@ -96,6 +96,23 @@ class GoogleManager {
     }
   }
 
+  async getGroup(groupEmail) {
+    try {
+      const admin = await google.admin({
+        version: 'directory_v1',
+        auth: this.adminAuth
+      });
+
+      const group = await admin.groups.get({
+        groupKey: groupEmail
+      });
+
+      return group.data;
+    } catch(err) {
+      console.error(`Google Admin Directory API returned error ${err} when getting group`);
+    }
+  }
+
   async createCalendar(title) {
     try {
       const calendar = await google.calendar({

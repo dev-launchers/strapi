@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/:slug/google-resources",
+      "handler": "project.giveGoogleResources",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
