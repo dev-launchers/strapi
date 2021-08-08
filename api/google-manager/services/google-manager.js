@@ -311,6 +311,16 @@ class MockGoogleManager {
     console.log(`${user_email} joined mock Google Group`);
   }
 
+  async getGroup(groupEmail) {
+    const mockGroup = {
+      id: uuidv4(),
+      email: groupEmail
+    }
+    console.log(`${groupEmail} has been fetched from google group`);
+
+    return mockGroup;
+  }
+
   async createCalendar(title) {
     const mockCalendar = {
       id: uuidv4(),
