@@ -57,21 +57,17 @@ module.exports = {
       const project = await strapi.services.project.findOne({ slug });
 
       const { title, description, team } = project;
-      console.log('TEAM: ', team);
       //formats email based on the title of the project
       const formatedEmail = strapi.services['google-manager'].formatEmail(title);
 
       const group = await strapi.services['google-manager'].createGroup(`${formatedEmail}@devlaunchers.com`, description, title);
       await strapi.services['google-manager'].joinGroup(group.id, 'alejandroarmas@devlaunchers.com', 'OWNER');
 
-      if(!team.leaders.length === 0 && !team.members.length) {
+      if(!Object.keys(team).length === 0) {
         //lets leaders join google group
         team.leaders.forEach(async (leader) => {
           try {
-            console.log('leader obj: ', leader);
-            console.log('typeof: ', typeof leader.id);
             const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader.id});
-            console.log('leader user: ', user);
 
             await strapi.services['google-manager'].joinGroup(group.id, user.email, 'OWNER');
           } catch(err) {
@@ -83,7 +79,6 @@ module.exports = {
         team.members.forEach(async (member) => {
           try {
             const user = await strapi.query('user', 'users-permissions').findOne({id: member.member.id});
-            console.log('member user: ', user);
 
             await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
           } catch(err) {
@@ -102,7 +97,7 @@ module.exports = {
 
       await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
 
-      if(!team.leaders.length === 0 && !team.members.length) {
+      if(!Object.keys(team).length === 0) {
         //gives project leads owner acl of calendar
         team.leaders.forEach(async (leader) => {
           try {
