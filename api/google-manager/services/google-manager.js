@@ -315,7 +315,7 @@ class MockGoogleManager {
     const mockGroup = {
       id: uuidv4(),
       email: groupEmail
-    }
+    };
     console.log(`${groupEmail} has been fetched from google group`);
 
     return mockGroup;
