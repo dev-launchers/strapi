@@ -149,6 +149,37 @@ module.exports = {
     const { id, model } = ctx.params;
     const { body } = ctx.request;
 
+    if(model === 'application::project.project'){
+      const { title, team } = body;
+      const project = await strapi.services.project.findOne({ id });
+      const formatedEmail = strapi.services['google-manager'].formatEmail(title);
+      const group = await strapi.services['google-manager'].getGroup(`${formatedEmail}@devlaunchers.com`);
+
+      //lets leaders join google group and gives them owner acl for calendar
+      team.leaders.forEach(async (leader) => {
+        try {
+          const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
+
+          await strapi.services['google-manager'].joinGroup(group.id, user.email, 'OWNER');
+          await strapi.services['google-manager'].grantAcl(project.calendarId, user.email, 'owner', 'user');
+        } catch(err) {
+          console.error('error letting leaders join google group: ', err);
+        }
+      });
+      //lets members join google group
+      team.members.forEach(async (member) => {
+        try {
+          const user = await strapi.query('user', 'users-permissions').findOne({id: member.member});
+
+          await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
+        } catch(err) {
+          console.error('error letting members join google group: ', err);
+        }
+      });
+      //gives the remainder of the google group reader acl for the calendar
+      await strapi.services['google-manager'].grantAcl(project.calendarId, group.email, 'reader', 'group');
+    }
+
     const entityManager = getService('entity-manager');
     const permissionChecker = getService('permission-checker').create({ userAbility, model });
 

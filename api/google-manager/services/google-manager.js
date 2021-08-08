@@ -96,6 +96,23 @@ class GoogleManager {
     }
   }
 
+  async getGroup(groupEmail) {
+    try {
+      const admin = await google.admin({
+        version: 'directory_v1',
+        auth: this.adminAuth
+      });
+
+      const group = await admin.groups.get({
+        groupKey: groupEmail
+      })
+
+      return group.data;
+    } catch(err) {
+      console.error(`Google Admin Directory API returned error ${err} when getting group`);
+    }
+  }
+
   async createCalendar(title) {
     try {
       const calendar = await google.calendar({
@@ -351,15 +368,5 @@ if (!isDevEnv()) {
 
   module.exports = manager;
 } else {
-
-  /*const rawKey = fs.readFileSync('/srv/app/google-service-key.json');
-  const googleKey = JSON.parse(rawKey);
-  const email = googleKey.client_email;
-  const privateKey = googleKey.private_key;
-  const serverBaseURL = process.env.URL;
-  const auditFreq = process.env.AUDIT_FREQ_MINUTES;
-
-  const manager = new GoogleManager(email, privateKey, serverBaseURL, auditFreq);
-  module.exports = manager*/
   module.exports = new MockGoogleManager();
 }
