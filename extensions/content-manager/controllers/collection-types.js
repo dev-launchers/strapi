@@ -71,9 +71,7 @@ module.exports = {
       const formatedEmail = strapi.services['google-manager'].formatEmail(title);
 
       const group = await strapi.services['google-manager'].createGroup(`${formatedEmail}@devlaunchers.com`, description, title);
-      console.log(team);
-      console.log(team.leaders);
-      console.log(team.members);
+
       if(!Object.keys(team).length === 0){
         //lets leaders join google group
         team.leaders.forEach(async (leader) => {

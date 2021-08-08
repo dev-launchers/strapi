@@ -105,7 +105,7 @@ class GoogleManager {
 
       const group = await admin.groups.get({
         groupKey: groupEmail
-      })
+      });
 
       return group.data;
     } catch(err) {
