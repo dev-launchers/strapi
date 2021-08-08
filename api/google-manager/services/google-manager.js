@@ -351,5 +351,15 @@ if (!isDevEnv()) {
 
   module.exports = manager;
 } else {
+
+  /*const rawKey = fs.readFileSync('/srv/app/google-service-key.json');
+  const googleKey = JSON.parse(rawKey);
+  const email = googleKey.client_email;
+  const privateKey = googleKey.private_key;
+  const serverBaseURL = process.env.URL;
+  const auditFreq = process.env.AUDIT_FREQ_MINUTES;
+
+  const manager = new GoogleManager(email, privateKey, serverBaseURL, auditFreq);
+  module.exports = manager*/
   module.exports = new MockGoogleManager();
 }
