@@ -22,20 +22,20 @@ class GoogleManager {
       'https://www.googleapis.com/auth/calendar.events'
     ];
 
-    this.devlaunchersEmail = 'team@devlaunchers.com';
+    this.subject = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT;
     // https://www.npmjs.com/package/google-auth-library#json-web-tokens
     this.adminAuth = new JWT({
       email: email,
       key: key,
       // Subject is needed https://github.com/googleapis/google-api-nodejs-client/issues/1884#issuecomment-625062805
-      subject: this.devlaunchersEmail,
+      subject: this.subject,
       scopes: adminScopes,
     });
 
     this.calendarAuth = new JWT({
       email: email,
       key: key,
-      subject: this.devlaunchersEmail,
+      subject: this.subject,
       scopes: calendarScopes,
     });
     this.serverBaseURL = serverBaseURL;
@@ -302,7 +302,6 @@ class GoogleManager {
 }
 
 class MockGoogleManager {
-
   async createGroup(groupEmail, description, name) {
     const mockGroup = {
       id: uuidv4(),

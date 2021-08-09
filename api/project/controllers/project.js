@@ -6,7 +6,7 @@
  */
 const { sanitizeEntity } = require('strapi-utils');
 
-const TEAM_EMAIL = 'team@devlaunchers.com';
+const TEAM_EMAIL = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT;
 
 module.exports = {
   async find(ctx) {
@@ -62,7 +62,7 @@ module.exports = {
 
       const group = await strapi.services['google-manager'].createGroup(`${formatedEmail}@devlaunchers.com`, description, title);
 
-      if(!Object.keys(team).length === 0) {
+      if(team.leaders){
         //lets leaders join google group
         team.leaders.forEach(async (leader) => {
           try {
@@ -73,7 +73,9 @@ module.exports = {
             console.error('error letting leaders join google group: ', err);
           }
         });
+      }
 
+      if(team.members){
         //lets members join google group
         team.members.forEach(async (member) => {
           try {
@@ -86,7 +88,6 @@ module.exports = {
         });
       }
 
-
       //Lets team@devlaunchers.com be owner of the google group to fix google meets auto admit problem
       await strapi.services['google-manager'].joinGroup(group.id, TEAM_EMAIL, 'OWNER');
 
@@ -96,7 +97,7 @@ module.exports = {
 
       await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
 
-      if(!Object.keys(team).length === 0) {
+      if(team.leaders){
         //gives project leads owner acl of calendar
         team.leaders.forEach(async (leader) => {
           try {
@@ -108,6 +109,7 @@ module.exports = {
           }
         });
       }
+
 
       //gives the remainder of the google group reader acl for the calendar
       await strapi.services['google-manager'].grantAcl(calendar.id, group.email, 'reader', 'group');
