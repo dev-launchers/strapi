@@ -148,6 +148,23 @@ module.exports = {
       const { id, model } = ctx.params;
       const { body } = ctx.request;
 
+      const entityManager = getService('entity-manager');
+      const permissionChecker = getService('permission-checker').create({ userAbility, model });
+
+      if (permissionChecker.cannot.update()) {
+        return ctx.forbidden();
+      }
+
+      const entity = await entityManager.findOneWithCreatorRoles(id, model);
+
+      if (!entity) {
+        return ctx.notFound();
+      }
+
+      if (permissionChecker.cannot.update(entity)) {
+        return ctx.forbidden();
+      }
+
       if(model === 'application::project.project' ){
         const { title, team } = body;
         const project = await strapi.services.project.findOne({ id });
@@ -177,23 +194,6 @@ module.exports = {
         });
         //gives the remainder of the google group reader acl for the calendar
         await strapi.services['google-manager'].grantAcl(project.calendarId, group.email, 'reader', 'group');
-      }
-
-      const entityManager = getService('entity-manager');
-      const permissionChecker = getService('permission-checker').create({ userAbility, model });
-
-      if (permissionChecker.cannot.update()) {
-        return ctx.forbidden();
-      }
-
-      const entity = await entityManager.findOneWithCreatorRoles(id, model);
-
-      if (!entity) {
-        return ctx.notFound();
-      }
-
-      if (permissionChecker.cannot.update(entity)) {
-        return ctx.forbidden();
       }
 
       const pickWritables = pickWritableAttributes({ model });
