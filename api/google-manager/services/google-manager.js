@@ -92,6 +92,7 @@ class GoogleManager {
         console.warn(`${user_email} already in the Google Group`);
       } else {
         console.error(`Google Admin Directory API returned error ${err} when adding user`);
+        throw new Error(err);
       }
     }
   }
@@ -110,6 +111,7 @@ class GoogleManager {
       return group.data;
     } catch(err) {
       console.error(`Google Admin Directory API returned error ${err} when getting group`);
+      throw new Error(err);
     }
   }
 
@@ -128,6 +130,7 @@ class GoogleManager {
       return createdCalendar.data;
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when creating calendar`);
+      throw new Error(err);
     }
   }
 
@@ -150,6 +153,7 @@ class GoogleManager {
       });
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when granting acl`);
+      throw new Error(err);
     }
   }
 
@@ -209,6 +213,7 @@ class GoogleManager {
 
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when creating event`);
+      throw new Error(err);
     }
   }
 
