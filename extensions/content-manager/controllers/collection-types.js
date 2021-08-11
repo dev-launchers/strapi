@@ -7,8 +7,6 @@ const { setCreatorFields } = require('strapi-utils');
 const { getService, wrapBadRequest, pickWritableAttributes } = require('../utils');
 const { validateBulkDeleteInput, validatePagination } = require('./validation');
 
-const TEAM_EMAIL = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT;
-
 module.exports = {
   async find(ctx) {
     const { userAbility } = ctx.state;

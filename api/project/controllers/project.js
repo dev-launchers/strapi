@@ -6,8 +6,6 @@
  */
 const { sanitizeEntity } = require('strapi-utils');
 
-const TEAM_EMAIL = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT;
-
 module.exports = {
   async find(ctx) {
     let entities;
@@ -63,7 +61,7 @@ module.exports = {
       await strapi.services.project.giveTeamGroup(team, group);
 
       //Lets team@devlaunchers.com be owner of the google group to fix google meets auto admit problem
-      await strapi.services['google-manager'].joinGroup(group.id, TEAM_EMAIL, 'OWNER');
+      await strapi.services['google-manager'].joinGroup(group.id, process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT, 'OWNER');
 
       const calendar = await strapi.services['google-manager'].createCalendar(title);
 
