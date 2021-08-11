@@ -5,7 +5,7 @@
  * to customize this service
  */
 
-const isEmpty = (team) => {
+const isNotEmpty = (team) => {
   if((team) && (!(team.length === 0))) {
     return true;
   }
@@ -14,7 +14,7 @@ const isEmpty = (team) => {
 
 module.exports = {
   async giveTeamGroup(team, group) {
-    if(isEmpty(team.leaders)){
+    if(isNotEmpty(team.leaders)){
       //lets leaders join google group
       team.leaders.forEach(async (leader) => {
         try {
@@ -28,7 +28,7 @@ module.exports = {
       });
     }
 
-    if(isEmpty(team.members)) {
+    if(isNotEmpty(team.members)) {
       //lets members join google group
       team.members.forEach(async (member) => {
         try {
@@ -44,7 +44,7 @@ module.exports = {
   },
 
   async giveTeamAcl(team, calendarId, group) {
-    if(isEmpty(team.leaders)){
+    if(isNotEmpty(team.leaders)){
       //gives project leads owner acl of calendar
       team.leaders.forEach(async (leader) => {
         try {
