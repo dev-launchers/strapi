@@ -42,7 +42,7 @@ class GoogleManager {
     this.auditFreqMilliSecs = minuteToMilliSeconds(auditFreqMins);
   }
 
-  async createGroup(groupEmail, description, name) {
+  async createGroup(description, name) {
     try {
       const admin = await google.admin({
         version: 'directory_v1',
@@ -51,7 +51,7 @@ class GoogleManager {
 
       const group = await admin.groups.insert({
         requestBody: {
-          email: groupEmail,
+          email: this.formatEmail(name),
           name,
           description,
         }
@@ -97,7 +97,7 @@ class GoogleManager {
     }
   }
 
-  async getGroup(groupEmail) {
+  async getGroup(title) {
     try {
       const admin = await google.admin({
         version: 'directory_v1',
@@ -105,7 +105,7 @@ class GoogleManager {
       });
 
       const group = await admin.groups.get({
-        groupKey: groupEmail
+        groupKey: this.formatEmail(title),
       });
 
       return group.data;
@@ -219,7 +219,7 @@ class GoogleManager {
 
   formatEmail(title){
     const titleRegEx = title.replace(/[^a-zA-Z0-9 ]/g, '');
-    return titleRegEx.split(' ').join('-').toLowerCase();
+    return `${titleRegEx.split(' ').join('-').toLowerCase()}@devlaunchers.com`;
   }
 
   getCurrentDate() {

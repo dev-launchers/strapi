@@ -67,39 +67,13 @@ module.exports = {
     //model lets us check which collection where creating
     if(model === 'application::project.project'){
       const { title, description, team } = body;
-      //formats email based on the title of the project
-      const formatedEmail = strapi.services['google-manager'].formatEmail(title);
 
-      const group = await strapi.services['google-manager'].createGroup(`${formatedEmail}@devlaunchers.com`, description, title);
+      const group = await strapi.services['google-manager'].createGroup(description, title);
 
-      if(team.leaders){
-        //lets leaders join google group
-        team.leaders.forEach(async (leader) => {
-          try {
-            const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
-
-            await strapi.services['google-manager'].joinGroup(group.id, user.email, 'OWNER');
-          } catch(err) {
-            console.error('error letting leaders join google group: ', err);
-          }
-        });
-      }
-
-      if(team.members) {
-        //lets members join google group
-        team.members.forEach(async (member) => {
-          try {
-            const user = await strapi.query('user', 'users-permissions').findOne({id: member.member});
-
-            await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
-          } catch(err) {
-            console.error('error letting members join google group: ', err);
-          }
-        });
-      }
+      await strapi.services.project.giveTeamGroup(team, group);
 
       //Lets team@devlaunchers.com be owner of the google group to fix google meets auto admit problem
-      await strapi.services['google-manager'].joinGroup(group.id, TEAM_EMAIL, 'OWNER');
+      await strapi.services['google-manager'].joinGroup(group.id, process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT, 'OWNER');
 
       const calendar = await strapi.services['google-manager'].createCalendar(title);
 
@@ -107,21 +81,7 @@ module.exports = {
 
       await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
 
-      if(team.leaders){
-        //gives project leads owner acl of calendar
-        team.leaders.forEach(async (leader) => {
-          try {
-            const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
-
-            await strapi.services['google-manager'].grantAcl(calendar.id, user.email, 'owner', 'user');
-          } catch(err) {
-            console.error(err);
-          }
-        });
-      }
-
-      //gives the remainder of the google group reader acl for the calendar
-      await strapi.services['google-manager'].grantAcl(calendar.id, group.email, 'reader', 'group');
+      await strapi.services.project.giveTeamAcl(team, calendar, group);
     }
 
 
@@ -172,35 +132,8 @@ module.exports = {
 
       if(model === 'application::project.project' ){
         const { title, team, calendarId } = body;
-        const formatedEmail = strapi.services['google-manager'].formatEmail(title);
-        const group = await strapi.services['google-manager'].getGroup(`${formatedEmail}@devlaunchers.com`);
-
-        if(team.leaders){
-          //lets leaders join google group and gives them owner acl for calendar
-          team.leaders.forEach(async (leader) => {
-            try {
-              const user = await strapi.query('user', 'users-permissions').findOne({id: leader.leader});
-
-              await strapi.services['google-manager'].joinGroup(group.id, user.email, 'OWNER');
-              await strapi.services['google-manager'].grantAcl(calendarId, user.email, 'owner', 'user');
-            } catch(err) {
-              console.error('error letting leaders join google group: ', err);
-            }
-          });
-        }
-
-        if(team.members){
-          //lets members join google group
-          team.members.forEach(async (member) => {
-            try {
-              const user = await strapi.query('user', 'users-permissions').findOne({id: member.member});
-
-              await strapi.services['google-manager'].joinGroup(group.id, user.email, 'MEMBER');
-            } catch(err) {
-              console.error('error letting members join google group: ', err);
-            }
-          });
-        }
+        const group = await strapi.services['google-manager'].getGroup(title);
+        await strapi.services.project.giveTeamGroup(team, group);
 
         //gives the remainder of the google group reader acl for the calendar
         await strapi.services['google-manager'].grantAcl(calendarId, group.email, 'reader', 'group');
