@@ -10,7 +10,7 @@ const isEmpty = (team) => {
     return true;
   }
   return false;
-}
+};
 
 module.exports = {
   async giveTeamGroup(team, group) {
