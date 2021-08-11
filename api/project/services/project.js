@@ -5,9 +5,16 @@
  * to customize this service
  */
 
+const isEmpty = (team) => {
+  if((team) && (!team.length === 0)) {
+    return true;
+  }
+  return false;
+}
+
 module.exports = {
   async giveTeamGroup(team, group) {
-    if(team.leaders){
+    if(isEmpty(team.leaders)){
       //lets leaders join google group
       team.leaders.forEach(async (leader) => {
         try {
@@ -21,7 +28,7 @@ module.exports = {
       });
     }
 
-    if(team.members) {
+    if(isEmpty(team.members)) {
       //lets members join google group
       team.members.forEach(async (member) => {
         try {
@@ -37,7 +44,7 @@ module.exports = {
   },
 
   async giveTeamAcl(team, calendarId, group) {
-    if(team.leaders){
+    if(isEmpty(team.leaders)){
       //gives project leads owner acl of calendar
       team.leaders.forEach(async (leader) => {
         try {
@@ -53,5 +60,5 @@ module.exports = {
 
     //gives the remainder of the google group reader acl for the calendar
     await strapi.services['google-manager'].grantAcl(calendarId, group.email, 'reader', 'group');
-  }
+  },
 };
