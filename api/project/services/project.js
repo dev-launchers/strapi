@@ -6,7 +6,7 @@
  */
 
 const isEmpty = (team) => {
-  if((team) && (!team.length === 0)) {
+  if((team) && (!(team.length === 0))) {
     return true;
   }
   return false;
