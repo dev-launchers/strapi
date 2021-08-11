@@ -79,7 +79,7 @@ module.exports = {
 
       await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
 
-      await strapi.services.project.giveTeamAcl(team, calendar, group);
+      await strapi.services.project.giveTeamAcl(team, calendar.id, group);
     }
 
 
@@ -132,9 +132,7 @@ module.exports = {
         const { title, team, calendarId } = body;
         const group = await strapi.services['google-manager'].getGroup(title);
         await strapi.services.project.giveTeamGroup(team, group);
-
-        //gives the remainder of the google group reader acl for the calendar
-        await strapi.services['google-manager'].grantAcl(calendarId, group.email, 'reader', 'group');
+        await strapi.services.project.giveTeamAcl(team, calendarId, group)
       }
 
       const pickWritables = pickWritableAttributes({ model });

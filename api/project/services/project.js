@@ -36,7 +36,7 @@ module.exports = {
     }
   },
 
-  async giveTeamAcl(team, calendar, group) {
+  async giveTeamAcl(team, calendarId, group) {
     if(team.leaders){
       //gives project leads owner acl of calendar
       team.leaders.forEach(async (leader) => {
@@ -44,7 +44,7 @@ module.exports = {
           const id = leader.leader.id ? leader.leader.id : leader.leader;
           const user = await strapi.query('user', 'users-permissions').findOne({ id });
 
-          await strapi.services['google-manager'].grantAcl(calendar.id, user.email, 'owner', 'user');
+          await strapi.services['google-manager'].grantAcl(calendarId, user.email, 'owner', 'user');
         } catch(err) {
           console.error(err);
         }
@@ -52,6 +52,6 @@ module.exports = {
     }
 
     //gives the remainder of the google group reader acl for the calendar
-    await strapi.services['google-manager'].grantAcl(calendar.id, group.email, 'reader', 'group');
+    await strapi.services['google-manager'].grantAcl(calendarId, group.email, 'reader', 'group');
   }
 };
