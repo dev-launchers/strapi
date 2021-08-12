@@ -373,9 +373,7 @@
             }
           }
         ]
-      }
-    },
-    "/projects/{id}": {
+      },
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -438,7 +436,7 @@
         },
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -501,7 +499,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
