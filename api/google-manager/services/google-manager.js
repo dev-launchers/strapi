@@ -22,27 +22,27 @@ class GoogleManager {
       'https://www.googleapis.com/auth/calendar.events'
     ];
 
-    this.devlaunchersEmail = 'team@devlaunchers.com';
+    this.subject = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT;
     // https://www.npmjs.com/package/google-auth-library#json-web-tokens
     this.adminAuth = new JWT({
       email: email,
       key: key,
       // Subject is needed https://github.com/googleapis/google-api-nodejs-client/issues/1884#issuecomment-625062805
-      subject: this.devlaunchersEmail,
+      subject: this.subject,
       scopes: adminScopes,
     });
 
     this.calendarAuth = new JWT({
       email: email,
       key: key,
-      subject: this.devlaunchersEmail,
+      subject: this.subject,
       scopes: calendarScopes,
     });
     this.serverBaseURL = serverBaseURL;
     this.auditFreqMilliSecs = minuteToMilliSeconds(auditFreqMins);
   }
 
-  async createGroup(groupEmail, description, name) {
+  async createGroup(description, name) {
     try {
       const admin = await google.admin({
         version: 'directory_v1',
@@ -51,7 +51,7 @@ class GoogleManager {
 
       const group = await admin.groups.insert({
         requestBody: {
-          email: groupEmail,
+          email: this.formatEmail(name),
           name,
           description,
         }
@@ -92,7 +92,26 @@ class GoogleManager {
         console.warn(`${user_email} already in the Google Group`);
       } else {
         console.error(`Google Admin Directory API returned error ${err} when adding user`);
+        throw new Error(err);
       }
+    }
+  }
+
+  async getGroup(title) {
+    try {
+      const admin = await google.admin({
+        version: 'directory_v1',
+        auth: this.adminAuth
+      });
+
+      const group = await admin.groups.get({
+        groupKey: this.formatEmail(title),
+      });
+
+      return group.data;
+    } catch(err) {
+      console.error(`Google Admin Directory API returned error ${err} when getting group`);
+      throw new Error(err);
     }
   }
 
@@ -111,6 +130,7 @@ class GoogleManager {
       return createdCalendar.data;
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when creating calendar`);
+      throw new Error(err);
     }
   }
 
@@ -133,6 +153,7 @@ class GoogleManager {
       });
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when granting acl`);
+      throw new Error(err);
     }
   }
 
@@ -192,12 +213,13 @@ class GoogleManager {
 
     } catch(err) {
       console.error(`Google Calendar API returned error ${err} when creating event`);
+      throw new Error(err);
     }
   }
 
   formatEmail(title){
     const titleRegEx = title.replace(/[^a-zA-Z0-9 ]/g, '');
-    return titleRegEx.split(' ').join('-').toLowerCase();
+    return `${titleRegEx.split(' ').join('-').toLowerCase()}@devlaunchers.com`;
   }
 
   getCurrentDate() {
@@ -280,7 +302,6 @@ class GoogleManager {
 }
 
 class MockGoogleManager {
-
   async createGroup(groupEmail, description, name) {
     const mockGroup = {
       id: uuidv4(),
@@ -292,6 +313,16 @@ class MockGoogleManager {
 
   async joinGroup(user_email) {
     console.log(`${user_email} joined mock Google Group`);
+  }
+
+  async getGroup(groupEmail) {
+    const mockGroup = {
+      id: uuidv4(),
+      email: groupEmail
+    };
+    console.log(`${groupEmail} has been fetched from google group`);
+
+    return mockGroup;
   }
 
   async createCalendar(title) {
