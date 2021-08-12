@@ -113,6 +113,14 @@
     "isListed": {
       "type": "boolean",
       "required": true
+    },
+    "subProjects": {
+      "collection": "project",
+      "via": "parenProject"
+    },
+    "parenProject": {
+      "model": "project",
+      "via": "subProjects"
     }
   }
 }

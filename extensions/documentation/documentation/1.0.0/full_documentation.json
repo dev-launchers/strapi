@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/12/2021 4:02:12 PM"
+    "x-generation-date": "08/12/2021 10:18:38 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6527,6 +6527,15 @@
                 "isListed": {
                   "type": "boolean"
                 },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parenProject": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -7738,6 +7747,217 @@
           "isListed": {
             "type": "boolean"
           },
+          "subProjects": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "catchPhrase",
+                "title",
+                "heroImage",
+                "vision",
+                "description",
+                "commitmentLevel",
+                "signupFormUrl",
+                "meetingLinkURLs",
+                "meetingTimes",
+                "keywords",
+                "team",
+                "isListed"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heroImage": {
+                  "type": "string"
+                },
+                "vision": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "commitmentLevel": {
+                  "type": "string"
+                },
+                "signupFormUrl": {
+                  "type": "string"
+                },
+                "meetingLinkURLs": {
+                  "type": "component"
+                },
+                "meetingTimes": {
+                  "type": "component"
+                },
+                "keywords": {
+                  "type": "component"
+                },
+                "projectReferenceURLs": {
+                  "type": "component"
+                },
+                "openPositions": {
+                  "type": "component"
+                },
+                "team": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "calendarId": {
+                  "type": "string"
+                },
+                "board": {
+                  "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
+                },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parenProject": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "parenProject": {
+            "required": [
+              "id",
+              "slug",
+              "catchPhrase",
+              "title",
+              "heroImage",
+              "vision",
+              "description",
+              "commitmentLevel",
+              "signupFormUrl",
+              "meetingLinkURLs",
+              "meetingTimes",
+              "keywords",
+              "team",
+              "isListed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "catchPhrase": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "heroImage": {
+                "type": "string"
+              },
+              "vision": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "commitmentLevel": {
+                "type": "string"
+              },
+              "signupFormUrl": {
+                "type": "string"
+              },
+              "meetingLinkURLs": {
+                "type": "component"
+              },
+              "meetingTimes": {
+                "type": "component"
+              },
+              "keywords": {
+                "type": "component"
+              },
+              "projectReferenceURLs": {
+                "type": "component"
+              },
+              "openPositions": {
+                "type": "component"
+              },
+              "team": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "Images": {
+                "type": "component"
+              },
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "calendarId": {
+                "type": "string"
+              },
+              "board": {
+                "type": "component"
+              },
+              "isListed": {
+                "type": "boolean"
+              },
+              "subProjects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "parenProject": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8295,6 +8515,15 @@
           "isListed": {
             "type": "boolean"
           },
+          "subProjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "parenProject": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8845,6 +9074,15 @@
                 },
                 "isListed": {
                   "type": "boolean"
+                },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parenProject": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
