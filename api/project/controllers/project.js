@@ -32,9 +32,9 @@ module.exports = {
     });
   },
   async findOne(ctx) {
-    const { id } = ctx.params;
+    const { slug } = ctx.params;
 
-    const entity = await strapi.services.project.findOne({ id });
+    const entity = await strapi.services.project.findOne({ slug });
     entity.team.leaders = entity.team.leaders.map((leader) => ({
       id: leader.leader.id,
       name: leader.leader.username,
