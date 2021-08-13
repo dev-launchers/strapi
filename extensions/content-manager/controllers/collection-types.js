@@ -131,15 +131,8 @@ module.exports = {
       if(model === 'application::project.project' ){
         const { title, team, calendarId } = body;
         const group = await strapi.services['google-manager'].getGroup(title);
-        /*
-         * If there isn't a google group associated to a project,
-         * proceed with the strapi code since we still want to let
-         * users be able to update their project without getting an error
-         */
-        if(group) {
-          await strapi.services.project.giveTeamGroup(team, group);
-          await strapi.services.project.giveTeamAcl(team, calendarId, group);
-        }
+        await strapi.services.project.giveTeamGroup(team, group);
+        await strapi.services.project.giveTeamAcl(team, calendarId, group);
       }
 
       const pickWritables = pickWritableAttributes({ model });

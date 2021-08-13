@@ -69,7 +69,7 @@ module.exports = {
 
       await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
 
-      await strapi.services.project.giveTeamAcl(team, calendar.id, group);
+      await strapi.services.project.giveTeamAcl(team, calendar, group);
 
       return ctx.send('successfully created google resources');
     } catch(err) {
