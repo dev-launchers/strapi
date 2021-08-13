@@ -110,8 +110,12 @@ class GoogleManager {
 
       return group.data;
     } catch(err) {
-      console.error(`Google Admin Directory API returned error ${err} when getting group`);
-      throw new Error(err);
+      if(err.code == 404) {
+        console.error('Google group does not exist');
+        return undefined;
+      } else {
+        console.error(`Google Admin Directory API returned error ${err} when fetching Google Group`)
+      }
     }
   }
 
@@ -382,5 +386,14 @@ if (!isDevEnv()) {
 
   module.exports = manager;
 } else {
-  module.exports = new MockGoogleManager();
+  const rawKey = fs.readFileSync('/srv/app/google-service-key.json');
+  const googleKey = JSON.parse(rawKey);
+  const email = googleKey.client_email;
+  const privateKey = googleKey.private_key;
+  const serverBaseURL = process.env.URL;
+  const auditFreq = process.env.AUDIT_FREQ_MINUTES;
+
+  const manager = new GoogleManager(email, privateKey, serverBaseURL, auditFreq);
+  module.exports = manager;
+  //module.exports = new MockGoogleManager();
 }

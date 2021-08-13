@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pure-phalanx-300410",
+  "private_key_id": "e752ac74ea819e69ec2213dd5a955307cc9b3c71",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCPzAdBiwQYcMsp\ntM8WSudwtlq7rQ4iXQygr3FREE9tS+xO0xRIOqldjacCQGkZ+2n383LzBstCg5w/\nAeCBFTtURsYuZoUEaTF5X0KIiMEYYEZR2WCBp20aDvW/oi0T4aK7Sdihb4eBIR5Y\nZ3Twp054B4Q/DNE+JKtSZTNKFQctcE3DfzQF/WThLot5sAni61jaRYLeoWXpOTLT\nb6s6IRjy7FGz/zKadKUKp7Cib2iMTNQGw7aSwAz+bCUwWeH8t5rbppdu8HUunHbR\nrCt5ThHuKRzjinxNaAg5z6Q9ebZM/XpsrJAe9VREzvcXznZRK8ncZ2RaZD8dCvP6\nohkxE+XhAgMBAAECggEADups/kF7RUW97S+SI4/Vff2MX9dNlgbs3mYUbQIyGvY7\nJtoCSpO7Kbcd0b/4pvdLQKsCC29y+g1I0chSD1Gye8VznTCJL7HxrdNRxXPaA7tI\n0AiqWAiT6pYOq7gY0O0gwiigze4RsjVLPoRMvwG7w/uTni6oLbgEBWH19gNEYVQT\nDL59f0EqORxjYYk2mjvYm5RW0GsOVXg7Wx8DtD7wUfQMoRUheCd6F1gdMsQqlzbh\nFSuJDvosJCXAUymXaPF5VagIBB4la72WU80r2PVJAY4Jrs4OOzYJFa47EJEF737f\nxSXCD00uMMmFAJ0dWJ7ddpYQm1hdA+sROWZ5p2ZwOQKBgQDECkbnIhAYNOuSpFu8\nWyxDy+LguRalWuECCRpaeUpKSocsXAtmRpNojOwaD7c67s+GDCDA/0DJvM/3AKPd\nD1Y8UYryzWMmOEHe5TlMDsXwtMjrnmuiZlkGVlUXa8no+KcOHSCgxVwY8Gbr3JdM\nwBLidRf4blWYSV6ApXYhezTq1wKBgQC7xyu2pNy/5XqcuXCd1pXtiWqaInV8EuE8\nL/8MF7rX9qKBtsjY22nZy8CwcuJ0b5EGul5WaeBNo0yg7xfCGgJ12E9lz8pBtf7u\nVZvu7SmvPS11P7UkuCBk8K9RlymlF00JRN6WNgCo/c26kARmlTtR/ypld5TtT/E/\nHvSSCcUWBwKBgQC1Thfi/ZLLAG56Mb2RxvR6Qx8x3JwAE7uTiV2xHQnDCYhYU0xL\nq6v6/pIBTFWWkHSnMaI9PBTsPs5LT3E9KkkEAhoykhdHqrHo9jB2khcoldpYZyx+\nho+BF+kcfxi+ePDvUaryZXTWr8dQDbR0TBNrEwY3Qbux2vEmo2BMeMkpAwKBgGbt\nZo2n0oSxMcNEdnFeFTJt92vjZYiMBL/sAx5Kx5TnUO5PFcqggmXqpIVTg8OU/+az\nM1CkmlmUIEW6qMgxX5Xe6q6A9nmMW9+iN2YAw6+VlhxFvnIRJ1iNAVx0wlQG8Kgb\nAvNNSJFZBXK0zGS6ehiZCFEz+gMWpcMWobKG/mvzAoGBAJ5NMWKWMnJ4pu3gMbvX\ncv77v4iexM2HYIu/r0GY8ln+iN+JoiB0LieeVjKJz+E3aEmEK/bskZFKkjblX0pS\nGfQCCQAfSFDVFbvTmmsKpQUjUAX8NMfKs8Vnbh3Sne4W3D/FAYUDsl3fDtcy7tpx\nrRW9maE/YI1I6e8lJOEArE6R\n-----END PRIVATE KEY-----\n",
+  "client_email": "platform-api-google-group@pure-phalanx-300410.iam.gserviceaccount.com",
+  "client_id": "111699214974801939940",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/platform-api-google-group%40pure-phalanx-300410.iam.gserviceaccount.com"
+}
