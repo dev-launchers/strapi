@@ -112,6 +112,10 @@ class GoogleManager {
     } catch(err) {
       if(err.code == 404) {
         console.error('Google group does not exist');
+        /*
+          we have to return undefined to allow strapi's code
+          to work even if the project doesn't have a google group
+        */
         return undefined;
       } else {
         console.error(`Google Admin Directory API returned error ${err} when fetching Google Group`)
