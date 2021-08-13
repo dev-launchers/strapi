@@ -118,7 +118,7 @@ class GoogleManager {
         */
         return undefined;
       } else {
-        console.error(`Google Admin Directory API returned error ${err} when fetching Google Group`)
+        console.error(`Google Admin Directory API returned error ${err} when fetching Google Group`);
       }
     }
   }
