@@ -14,8 +14,6 @@ const isNotEmpty = (team) => {
 
 module.exports = {
   async giveTeamGroup(team, group) {
-    console.log('team: ', team);
-    console.log('team.leader: ', team.leaders);
     if(isNotEmpty(team.leaders)){
       //lets leaders join google group
       team.leaders.forEach(async (leader) => {
