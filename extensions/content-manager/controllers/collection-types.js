@@ -131,8 +131,10 @@ module.exports = {
       if(model === 'application::project.project' ){
         const { title, team, calendarId } = body;
         const group = await strapi.services['google-manager'].getGroup(title);
-        await strapi.services.project.giveTeamGroup(team, group);
-        await strapi.services.project.giveTeamAcl(team, calendarId, group);
+        if(group) {
+          await strapi.services.project.giveTeamGroup(team, group);
+          await strapi.services.project.giveTeamAcl(team, calendarId, group);
+        }
       }
 
       const pickWritables = pickWritableAttributes({ model });
