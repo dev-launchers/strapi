@@ -1361,7 +1361,7 @@
                     "type": "string"
                   }
                 },
-                "parenProject": {
+                "parentProject": {
                   "type": "string"
                 },
                 "published_at": {
@@ -1376,7 +1376,7 @@
               }
             }
           },
-          "parenProject": {
+          "parentProject": {
             "required": [
               "id",
               "slug",
@@ -1466,7 +1466,7 @@
                   "type": "string"
                 }
               },
-              "parenProject": {
+              "parentProject": {
                 "type": "string"
               },
               "published_at": {
@@ -2043,7 +2043,7 @@
               "type": "string"
             }
           },
-          "parenProject": {
+          "parentProject": {
             "type": "string"
           },
           "published_at": {

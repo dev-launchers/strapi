@@ -724,7 +724,7 @@
                     "type": "string"
                   }
                 },
-                "parenProject": {
+                "parentProject": {
                   "type": "string"
                 },
                 "published_at": {

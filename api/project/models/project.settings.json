@@ -116,9 +116,9 @@
     },
     "subProjects": {
       "collection": "project",
-      "via": "parenProject"
+      "via": "parentProject"
     },
-    "parenProject": {
+    "parentProject": {
       "model": "project",
       "via": "subProjects"
     }
