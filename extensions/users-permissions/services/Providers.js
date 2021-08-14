@@ -115,7 +115,8 @@ const connect = (provider, query) => {
         const createdUser = await strapi.query('user', 'users-permissions').create(params);
 
         // Add new user to Google Group
-        await strapi.services['google-manager'].joinGroup(profile.email);
+        const groupID = process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_GROUP_ID;
+        await strapi.services['google-manager'].joinGroup(groupID, profile.email, 'MEMBER');
 
         return resolve([createdUser, null]);
       } catch (err) {

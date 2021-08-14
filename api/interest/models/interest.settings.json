@@ -24,8 +24,8 @@
       "dominant": true
     },
     "projects": {
-      "collection": "project",
       "via": "interests",
+      "collection": "project",
       "dominant": true
     }
   }

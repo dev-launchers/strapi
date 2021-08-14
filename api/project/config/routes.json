@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/projects/:id",
+      "path": "/projects/:slug",
       "handler": "project.update",
       "config": {
         "policies": []
@@ -42,8 +42,16 @@
     },
     {
       "method": "DELETE",
-      "path": "/projects/:id",
+      "path": "/projects/:slug",
       "handler": "project.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/:slug/google-resources",
+      "handler": "project.giveGoogleResources",
       "config": {
         "policies": []
       }
