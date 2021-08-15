@@ -214,7 +214,7 @@ module.exports = {
           domain: 'staging.devlaunchers.com'
         });
       }
-       else {
+      else {
         ctx.cookies.set('token', token, {
           httpOnly: true,
           secure: true,
