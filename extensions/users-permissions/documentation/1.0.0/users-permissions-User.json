@@ -1338,6 +1338,15 @@
                 "isListed": {
                   "type": "boolean"
                 },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parentProject": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
