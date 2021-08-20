@@ -58,8 +58,8 @@ class GoogleManager {
       });
 
       return group.data;
-    } catch(err) {
-      if(err.code === 409){
+    } catch (err) {
+      if (err.code === 409) {
         console.warn('Google group already exists');
       } else {
         throw new Error(`Google Admin Directory API returned ${err} when creating google group`);
@@ -109,8 +109,8 @@ class GoogleManager {
       });
 
       return group.data;
-    } catch(err) {
-      if(err.code === 404) {
+    } catch (err) {
+      if (err.code === 404) {
         console.error('Google group does not exist');
         /*
           we have to return undefined to allow strapi's code
@@ -137,7 +137,7 @@ class GoogleManager {
         }
       });
       return createdCalendar.data;
-    } catch(err) {
+    } catch (err) {
       console.error(`Google Calendar API returned error ${err} when creating calendar`);
       throw new Error(err);
     }
@@ -160,7 +160,7 @@ class GoogleManager {
           }
         }
       });
-    } catch(err) {
+    } catch (err) {
       console.error(`Google Calendar API returned error ${err} when granting acl`);
       throw new Error(err);
     }
@@ -204,7 +204,7 @@ class GoogleManager {
         }
       });
 
-      const {id, summary, conferenceData } = createdEvent.data;
+      const { id, summary, conferenceData } = createdEvent.data;
 
       /*
         gets meetingcode from uri
@@ -220,13 +220,13 @@ class GoogleManager {
         calendarEventId: id,
       });
 
-    } catch(err) {
+    } catch (err) {
       console.error(`Google Calendar API returned error ${err} when creating event`);
       throw new Error(err);
     }
   }
 
-  formatEmail(title){
+  formatEmail(title) {
     const titleRegEx = title.replace(/[^a-zA-Z0-9 ]/g, '');
     return `${titleRegEx.split(' ').join('-').toLowerCase()}@devlaunchers.com`;
   }
@@ -244,7 +244,7 @@ class GoogleManager {
    * https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities/watch
    */
   async watchAuditLogs(userKey, applicationName, eventName) {
-    const auth = this.auth;
+    const auth = this.adminAuth;
     const service = google.admin({ version: 'reports_v1', auth });
     const requestBody = {
       id: uuid(),
@@ -271,7 +271,7 @@ class GoogleManager {
   }
 
   async stopAuditLogs(channelId, resourceId) {
-    const auth = this.auth;
+    const auth = this.adminAuth;
     const service = google.admin({ version: 'reports_v1', auth });
     const requestBody = {
       id: channelId,
@@ -289,7 +289,7 @@ class GoogleManager {
   }
 
   async listAuditReports(userKey, applicationName, eventName) {
-    const auth = this.auth;
+    const auth = this.adminAuth;
     const service = google.admin({ version: 'reports_v1', auth });
     const currentTime = new Date();
     const startTime = new Date(currentTime - this.auditFreqMilliSecs).toISOString();
