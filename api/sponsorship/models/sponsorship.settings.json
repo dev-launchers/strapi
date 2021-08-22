@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sponsorships",
+  "info": {
+    "name": "Sponsorship"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Contact": {
+      "type": "string"
+    },
+    "Assignee": {
+      "type": "string"
+    },
+    "InitialContact": {
+      "type": "date"
+    },
+    "LastContact": {
+      "type": "date"
+    },
+    "ContactEmail": {
+      "type": "email"
+    },
+    "ValueProposition": {
+      "type": "text"
+    },
+    "TargetTier": {
+      "type": "enumeration",
+      "enum": [
+        "Sponsor",
+        "EventSponsor",
+        "ProjectSponsor"
+      ]
+    },
+    "Lifecycle": {
+      "type": "enumeration",
+      "enum": [
+        "Candidate",
+        "IntroductionEmail",
+        "FollowupEmails",
+        "Postpone",
+        "Declined",
+        "Sponsor"
+      ]
+    }
+  }
+}
