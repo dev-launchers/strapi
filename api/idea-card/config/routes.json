@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/users/:id/idea-cards",
+      "handler": "idea-card.findByUserId",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/idea-cards",
       "handler": "idea-card.create",

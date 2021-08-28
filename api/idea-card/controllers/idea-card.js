@@ -5,4 +5,21 @@
  * to customize this controller
  */
 
-module.exports = {};
+const { sanitizeEntity } = require('strapi-utils');
+
+module.exports = {
+  async findByUserId(ctx) {
+    try {
+      const { id } = ctx.params;
+      const params = {
+        user: id,
+        ...ctx.query
+      };
+      const entity = await strapi.services['idea-card'].find(params);
+      return sanitizeEntity(entity, { model: strapi.models['idea-card'] });
+    } catch(err) {
+      console.error(err);
+      ctx.badRequest(err);
+    }
+  }
+};
