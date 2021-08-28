@@ -1195,10 +1195,6 @@
           "id": {
             "type": "string"
           },
-          "username": {
-            "type": "string",
-            "minLength": 3
-          },
           "email": {
             "type": "string",
             "minLength": 6
@@ -1251,6 +1247,10 @@
                 "type": "string"
               }
             }
+          },
+          "username": {
+            "type": "string",
+            "minLength": 3
           },
           "projects": {
             "type": "array",
@@ -1554,6 +1554,65 @@
                 }
               }
             }
+          },
+          "idea_cards": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "ideaName",
+                "tagline",
+                "description",
+                "targetAudience",
+                "timeCommitmentMin",
+                "timeCommitmentMax",
+                "difficultyLevel"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "ideaName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "targetAudience": {
+                  "type": "string"
+                },
+                "timeCommitmentMin": {
+                  "type": "integer"
+                },
+                "timeCommitmentMax": {
+                  "type": "integer"
+                },
+                "difficultyLevel": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "component"
+                },
+                "openPositions": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1564,10 +1623,6 @@
           "userId"
         ],
         "properties": {
-          "username": {
-            "type": "string",
-            "minLength": 3
-          },
           "email": {
             "type": "string",
             "minLength": 6
@@ -1596,6 +1651,10 @@
           },
           "role": {
             "type": "string"
+          },
+          "username": {
+            "type": "string",
+            "minLength": 3
           },
           "projects": {
             "type": "array",
@@ -1650,6 +1709,12 @@
             "type": "boolean"
           },
           "interests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "idea_cards": {
             "type": "array",
             "items": {
               "type": "string"

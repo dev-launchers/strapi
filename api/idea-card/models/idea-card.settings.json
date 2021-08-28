@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "idea_cards",
+  "info": {
+    "name": "IdeaCard"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ideaName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tagline": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "targetAudience": {
+      "type": "text",
+      "required": true
+    },
+    "timeCommitmentMin": {
+      "type": "integer",
+      "required": true
+    },
+    "timeCommitmentMax": {
+      "type": "integer",
+      "required": true
+    },
+    "difficultyLevel": {
+      "type": "string",
+      "required": true
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skills"
+    },
+    "openPositions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "positions.open-positions"
+    },
+    "user": {
+      "via": "idea_cards",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

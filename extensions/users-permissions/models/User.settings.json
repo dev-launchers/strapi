@@ -10,13 +10,6 @@
     "timestamps": true
   },
   "attributes": {
-    "username": {
-      "type": "string",
-      "minLength": 3,
-      "unique": true,
-      "configurable": true,
-      "required": false
-    },
     "email": {
       "type": "email",
       "minLength": 6,
@@ -58,6 +51,12 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "required": false
     },
     "projects": {
       "via": "user",
@@ -113,6 +112,10 @@
     "interests": {
       "via": "users_permissions_users",
       "collection": "interest"
+    },
+    "idea_cards": {
+      "collection": "idea-card",
+      "via": "user"
     }
   }
 }

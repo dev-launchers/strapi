@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/users/profiles": {
+    "/idea-cards": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Profile"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Idea-card"
         ],
         "parameters": [
           {
@@ -201,72 +202,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Profile"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewProfile"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/profiles/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -306,12 +244,22 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Idea-card"
         ],
-        "parameters": []
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewIdea-card"
+              }
+            }
+          }
+        }
       }
     },
-    "/users/{id}/profiles": {
+    "/idea-cards/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +269,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Profile"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -359,7 +311,64 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Idea-card"
+        ],
+        "parameters": []
+      }
+    },
+    "/idea-cards/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Idea-card"
         ],
         "parameters": [
           {
@@ -383,7 +392,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Profile"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -421,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Idea-card"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProfile"
+                "$ref": "#/components/schemas/NewIdea-card"
               }
             }
           }
@@ -495,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Idea-card"
         ],
         "parameters": [
           {
@@ -514,39 +527,81 @@
   },
   "components": {
     "schemas": {
-      "Profile": {
+      "Idea-card": {
         "required": [
-          "id"
+          "id",
+          "ideaName",
+          "tagline",
+          "description",
+          "targetAudience",
+          "timeCommitmentMin",
+          "timeCommitmentMax",
+          "difficultyLevel"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "bio": {
+          "ideaName": {
             "type": "string"
           },
-          "profilePictureUrl": {
+          "tagline": {
             "type": "string"
           },
-          "socialMediaLinks": {
+          "description": {
+            "type": "string"
+          },
+          "targetAudience": {
+            "type": "string"
+          },
+          "timeCommitmentMin": {
+            "type": "integer"
+          },
+          "timeCommitmentMax": {
+            "type": "integer"
+          },
+          "difficultyLevel": {
+            "type": "string"
+          },
+          "skills": {
             "type": "array",
             "items": {
               "type": "object",
               "required": [
-                "id"
+                "id",
+                "skill"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "socialMediaLink": {
+                "skill": {
                   "type": "string"
                 }
               }
             }
           },
-          "level": {
-            "type": "integer"
+          "openPositions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "title",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "user": {
             "required": [
@@ -657,47 +712,85 @@
               }
             }
           },
-          "displayName": {
-            "type": "string"
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewProfile": {
+      "NewIdea-card": {
+        "required": [
+          "ideaName",
+          "tagline",
+          "description",
+          "targetAudience",
+          "timeCommitmentMin",
+          "timeCommitmentMax",
+          "difficultyLevel"
+        ],
         "properties": {
-          "bio": {
+          "ideaName": {
             "type": "string"
           },
-          "profilePictureUrl": {
+          "tagline": {
             "type": "string"
           },
-          "socialMediaLinks": {
+          "description": {
+            "type": "string"
+          },
+          "targetAudience": {
+            "type": "string"
+          },
+          "timeCommitmentMin": {
+            "type": "integer"
+          },
+          "timeCommitmentMax": {
+            "type": "integer"
+          },
+          "difficultyLevel": {
+            "type": "string"
+          },
+          "skills": {
             "type": "array",
             "items": {
               "type": "object",
               "required": [
-                "id"
+                "id",
+                "skill"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "socialMediaLink": {
+                "skill": {
                   "type": "string"
                 }
               }
             }
           },
-          "level": {
-            "type": "integer"
+          "openPositions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "title",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "user": {
-            "type": "string"
-          },
-          "displayName": {
             "type": "string"
           },
           "published_at": {
@@ -714,9 +807,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Profile"
-    }
-  ]
+  "tags": []
 }
