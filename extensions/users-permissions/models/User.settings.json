@@ -114,8 +114,8 @@
       "collection": "interest"
     },
     "idea_cards": {
-      "collection": "idea-card",
-      "via": "user"
+      "via": "user",
+      "collection": "idea-card"
     }
   }
 }

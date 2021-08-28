@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/28/2021 6:18:40 PM"
+    "x-generation-date": "08/28/2021 9:25:54 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7019,9 +7019,6 @@
           "timeCommitmentMax": {
             "type": "integer"
           },
-          "difficultyLevel": {
-            "type": "string"
-          },
           "skills": {
             "type": "array",
             "items": {
@@ -7171,6 +7168,14 @@
               }
             }
           },
+          "difficultyLevel": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -7205,9 +7210,6 @@
           },
           "timeCommitmentMax": {
             "type": "integer"
-          },
-          "difficultyLevel": {
-            "type": "string"
           },
           "skills": {
             "type": "array",
@@ -7251,6 +7253,14 @@
           },
           "user": {
             "type": "string"
+          },
+          "difficultyLevel": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -10328,9 +10338,6 @@
                 "timeCommitmentMax": {
                   "type": "integer"
                 },
-                "difficultyLevel": {
-                  "type": "string"
-                },
                 "skills": {
                   "type": "component"
                 },
@@ -10339,6 +10346,14 @@
                 },
                 "user": {
                   "type": "string"
+                },
+                "difficultyLevel": {
+                  "type": "string",
+                  "enum": [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced"
+                  ]
                 },
                 "published_at": {
                   "type": "string"

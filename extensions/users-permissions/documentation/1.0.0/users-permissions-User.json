@@ -1590,9 +1590,6 @@
                 "timeCommitmentMax": {
                   "type": "integer"
                 },
-                "difficultyLevel": {
-                  "type": "string"
-                },
                 "skills": {
                   "type": "component"
                 },
@@ -1601,6 +1598,14 @@
                 },
                 "user": {
                   "type": "string"
+                },
+                "difficultyLevel": {
+                  "type": "string",
+                  "enum": [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced"
+                  ]
                 },
                 "published_at": {
                   "type": "string"

@@ -628,9 +628,6 @@
           "timeCommitmentMax": {
             "type": "integer"
           },
-          "difficultyLevel": {
-            "type": "string"
-          },
           "skills": {
             "type": "array",
             "items": {
@@ -780,6 +777,14 @@
               }
             }
           },
+          "difficultyLevel": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -814,9 +819,6 @@
           },
           "timeCommitmentMax": {
             "type": "integer"
-          },
-          "difficultyLevel": {
-            "type": "string"
           },
           "skills": {
             "type": "array",
@@ -860,6 +862,14 @@
           },
           "user": {
             "type": "string"
+          },
+          "difficultyLevel": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
           },
           "published_at": {
             "type": "string",

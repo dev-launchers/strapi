@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "idea_cards",
   "info": {
-    "name": "IdeaCard"
+    "name": "IdeaCard",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -36,10 +37,6 @@
       "type": "integer",
       "required": true
     },
-    "difficultyLevel": {
-      "type": "string",
-      "required": true
-    },
     "skills": {
       "type": "component",
       "repeatable": true,
@@ -54,6 +51,15 @@
       "via": "idea_cards",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "difficultyLevel": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "required": true
     }
   }
 }
