@@ -114,7 +114,7 @@
       "collection": "interest"
     },
     "idea_cards": {
-      "via": "user",
+      "via": "author",
       "collection": "idea-card"
     }
   }

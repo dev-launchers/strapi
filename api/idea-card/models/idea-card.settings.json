@@ -29,11 +29,11 @@
       "type": "text",
       "required": true
     },
-    "timeCommitmentMin": {
+    "hourCommitmentMin": {
       "type": "integer",
       "required": true
     },
-    "timeCommitmentMax": {
+    "hourCommitmentMax": {
       "type": "integer",
       "required": true
     },
@@ -47,10 +47,10 @@
       "repeatable": true,
       "component": "positions.open-positions"
     },
-    "user": {
-      "via": "idea_cards",
+    "author": {
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "idea_cards"
     },
     "difficultyLevel": {
       "type": "enumeration",

@@ -602,8 +602,8 @@
           "tagline",
           "description",
           "targetAudience",
-          "timeCommitmentMin",
-          "timeCommitmentMax",
+          "hourCommitmentMin",
+          "hourCommitmentMax",
           "difficultyLevel"
         ],
         "properties": {
@@ -622,10 +622,10 @@
           "targetAudience": {
             "type": "string"
           },
-          "timeCommitmentMin": {
+          "hourCommitmentMin": {
             "type": "integer"
           },
-          "timeCommitmentMax": {
+          "hourCommitmentMax": {
             "type": "integer"
           },
           "skills": {
@@ -668,7 +668,7 @@
               }
             }
           },
-          "user": {
+          "author": {
             "required": [
               "id",
               "email",
@@ -797,8 +797,8 @@
           "tagline",
           "description",
           "targetAudience",
-          "timeCommitmentMin",
-          "timeCommitmentMax",
+          "hourCommitmentMin",
+          "hourCommitmentMax",
           "difficultyLevel"
         ],
         "properties": {
@@ -814,10 +814,10 @@
           "targetAudience": {
             "type": "string"
           },
-          "timeCommitmentMin": {
+          "hourCommitmentMin": {
             "type": "integer"
           },
-          "timeCommitmentMax": {
+          "hourCommitmentMax": {
             "type": "integer"
           },
           "skills": {
@@ -860,7 +860,7 @@
               }
             }
           },
-          "user": {
+          "author": {
             "type": "string"
           },
           "difficultyLevel": {

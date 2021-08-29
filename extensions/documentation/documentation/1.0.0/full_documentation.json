@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/28/2021 9:25:54 PM"
+    "x-generation-date": "08/29/2021 4:59:54 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6993,8 +6993,8 @@
           "tagline",
           "description",
           "targetAudience",
-          "timeCommitmentMin",
-          "timeCommitmentMax",
+          "hourCommitmentMin",
+          "hourCommitmentMax",
           "difficultyLevel"
         ],
         "properties": {
@@ -7013,10 +7013,10 @@
           "targetAudience": {
             "type": "string"
           },
-          "timeCommitmentMin": {
+          "hourCommitmentMin": {
             "type": "integer"
           },
-          "timeCommitmentMax": {
+          "hourCommitmentMax": {
             "type": "integer"
           },
           "skills": {
@@ -7059,7 +7059,7 @@
               }
             }
           },
-          "user": {
+          "author": {
             "required": [
               "id",
               "email",
@@ -7188,8 +7188,8 @@
           "tagline",
           "description",
           "targetAudience",
-          "timeCommitmentMin",
-          "timeCommitmentMax",
+          "hourCommitmentMin",
+          "hourCommitmentMax",
           "difficultyLevel"
         ],
         "properties": {
@@ -7205,10 +7205,10 @@
           "targetAudience": {
             "type": "string"
           },
-          "timeCommitmentMin": {
+          "hourCommitmentMin": {
             "type": "integer"
           },
-          "timeCommitmentMax": {
+          "hourCommitmentMax": {
             "type": "integer"
           },
           "skills": {
@@ -7251,7 +7251,7 @@
               }
             }
           },
-          "user": {
+          "author": {
             "type": "string"
           },
           "difficultyLevel": {
@@ -10312,8 +10312,8 @@
                 "tagline",
                 "description",
                 "targetAudience",
-                "timeCommitmentMin",
-                "timeCommitmentMax",
+                "hourCommitmentMin",
+                "hourCommitmentMax",
                 "difficultyLevel"
               ],
               "properties": {
@@ -10332,10 +10332,10 @@
                 "targetAudience": {
                   "type": "string"
                 },
-                "timeCommitmentMin": {
+                "hourCommitmentMin": {
                   "type": "integer"
                 },
-                "timeCommitmentMax": {
+                "hourCommitmentMax": {
                   "type": "integer"
                 },
                 "skills": {
@@ -10344,7 +10344,7 @@
                 "openPositions": {
                   "type": "component"
                 },
-                "user": {
+                "author": {
                   "type": "string"
                 },
                 "difficultyLevel": {

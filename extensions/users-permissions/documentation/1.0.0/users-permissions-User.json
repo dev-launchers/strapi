@@ -1564,8 +1564,8 @@
                 "tagline",
                 "description",
                 "targetAudience",
-                "timeCommitmentMin",
-                "timeCommitmentMax",
+                "hourCommitmentMin",
+                "hourCommitmentMax",
                 "difficultyLevel"
               ],
               "properties": {
@@ -1584,10 +1584,10 @@
                 "targetAudience": {
                   "type": "string"
                 },
-                "timeCommitmentMin": {
+                "hourCommitmentMin": {
                   "type": "integer"
                 },
-                "timeCommitmentMax": {
+                "hourCommitmentMax": {
                   "type": "integer"
                 },
                 "skills": {
@@ -1596,7 +1596,7 @@
                 "openPositions": {
                   "type": "component"
                 },
-                "user": {
+                "author": {
                   "type": "string"
                 },
                 "difficultyLevel": {

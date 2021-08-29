@@ -12,7 +12,7 @@ module.exports = {
     try {
       const { id } = ctx.params;
       const params = {
-        user: id,
+        author: id,
         ...ctx.query
       };
       const entity = await strapi.services['idea-card'].find(params);
