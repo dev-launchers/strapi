@@ -206,12 +206,13 @@ module.exports = {
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
           domain: 'localhost'
         });
-      } else {
+      }
+      else {
         ctx.cookies.set('token', token, {
           httpOnly: true,
           secure: true,
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
-          domain: 'devlaunchers.com'
+          domain: process.env.DOMAIN
         });
       }
 
