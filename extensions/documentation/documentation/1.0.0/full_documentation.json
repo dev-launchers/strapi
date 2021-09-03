@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/29/2021 4:59:54 AM"
+    "x-generation-date": "09/03/2021 1:24:21 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7044,7 +7044,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -7055,6 +7056,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -7236,7 +7241,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -7247,6 +7253,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -8161,7 +8171,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -8172,6 +8183,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -9079,7 +9094,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -9090,6 +9106,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
