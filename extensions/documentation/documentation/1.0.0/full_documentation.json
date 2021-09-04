@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/13/2021 9:41:15 PM"
+    "x-generation-date": "09/04/2021 4:52:21 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6278,6 +6278,113 @@
                 }
               }
             }
+          },
+          "project": {
+            "required": [
+              "id",
+              "slug",
+              "catchPhrase",
+              "title",
+              "heroImage",
+              "vision",
+              "description",
+              "commitmentLevel",
+              "signupFormUrl",
+              "meetingLinkURLs",
+              "meetingTimes",
+              "keywords",
+              "team",
+              "isListed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "catchPhrase": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "heroImage": {
+                "type": "string"
+              },
+              "vision": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "commitmentLevel": {
+                "type": "string"
+              },
+              "signupFormUrl": {
+                "type": "string"
+              },
+              "meetingLinkURLs": {
+                "type": "component"
+              },
+              "meetingTimes": {
+                "type": "component"
+              },
+              "keywords": {
+                "type": "component"
+              },
+              "projectReferenceURLs": {
+                "type": "component"
+              },
+              "openPositions": {
+                "type": "component"
+              },
+              "team": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "Images": {
+                "type": "component"
+              },
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "calendarId": {
+                "type": "string"
+              },
+              "board": {
+                "type": "component"
+              },
+              "isListed": {
+                "type": "boolean"
+              },
+              "subProjects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "parentProject": {
+                "type": "string"
+              },
+              "google_meet": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -6314,6 +6421,9 @@
                 }
               }
             }
+          },
+          "project": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -6534,6 +6644,9 @@
                   }
                 },
                 "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
                   "type": "string"
                 },
                 "published_at": {
@@ -7842,6 +7955,9 @@
                 "parentProject": {
                   "type": "string"
                 },
+                "google_meet": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -7947,7 +8063,44 @@
               "parentProject": {
                 "type": "string"
               },
+              "google_meet": {
+                "type": "string"
+              },
               "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "google_meet": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "meetingCode": {
+                "type": "string"
+              },
+              "conferenceId": {
+                "type": "string"
+              },
+              "calendarEventId": {
+                "type": "string"
+              },
+              "participants": {
+                "type": "component"
+              },
+              "project": {
                 "type": "string"
               },
               "created_by": {
@@ -8524,6 +8677,9 @@
           "parentProject": {
             "type": "string"
           },
+          "google_meet": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -9082,6 +9238,9 @@
                   }
                 },
                 "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
                   "type": "string"
                 },
                 "published_at": {
