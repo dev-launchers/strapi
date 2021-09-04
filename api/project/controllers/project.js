@@ -6,7 +6,6 @@
  */
 const { sanitizeEntity } = require('strapi-utils');
 
-
 module.exports = {
   async find(ctx) {
     let entities;
@@ -48,4 +47,34 @@ module.exports = {
     }));
     return sanitizeEntity(entity, {model: strapi.models.project});
   },
+
+  async giveGoogleResources(ctx) {
+    try {
+      const { slug } = ctx.params;
+
+      const project = await strapi.services.project.findOne({ slug });
+
+      const { title, description, team } = project;
+
+      const group = await strapi.services['google-manager'].createGroup(description, title);
+
+      await strapi.services.project.giveTeamGroup(team, group);
+
+      //Lets team@devlaunchers.com be owner of the google group to fix google meets auto admit problem
+      await strapi.services['google-manager'].joinGroup(group.id, process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT, 'OWNER');
+
+      const calendar = await strapi.services['google-manager'].createCalendar(title);
+
+      await strapi.services.project.update({ slug }, { calendarId: calendar.id });
+
+      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
+
+      await strapi.services.project.giveTeamAcl(team, calendar.id, group);
+
+      return ctx.send('successfully created google resources');
+    } catch(err) {
+      console.log('error trying to give project google resources: ', err);
+      ctx.send(err, 500);
+    }
+  }
 };

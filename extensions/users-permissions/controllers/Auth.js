@@ -206,30 +206,14 @@ module.exports = {
           maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
           domain: 'localhost'
         });
-      } else if(process.env.NODE_ENV === 'staging') {
-        ctx.cookies.set('token', token, {
-          httpOnly: true,
-          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
-          secure: true,
-          sameSite: 'None'
-        });
-      } else {
-        ctx.cookies.set('token', token, {
-          httpOnly: true,
-          secure: true,
-          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
-          domain: 'devlaunchers.com'
-        });
       }
-
-      const { hostname } = ctx.request;
-      console.log('HOSTNAME: ', hostname);
-      if(!user.username && hostname === 'localhost'){
-        console.log(`REDIRECTING TO SIGNUP, hostname: ${hostname}`);
-        ctx.redirect('http://localhost:3000/signup');
-      } else if(user.username && hostname === 'localhost') {
-        console.log(`REDIRECTING TO USER PROFILE, hostname: ${hostname}`);
-        ctx.redirect('http://localhost:3000/user-profile');
+      else {
+        ctx.cookies.set('token', token, {
+          httpOnly: true,
+          secure: true,
+          maxAge: 1000 * 60 * 60 * 24 * 14, // 14 Day Age,
+          domain: process.env.DOMAIN
+        });
       }
 
       if(!user.username){

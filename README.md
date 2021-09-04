@@ -1,6 +1,4 @@
-# Strapi application
-
-A quick description of your strapi application
+# Dev Launchers Strapi Service
 
 # Contributing
 Follow the [contributing guide](./CONTRIBUTING.md)
