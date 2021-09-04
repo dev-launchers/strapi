@@ -201,6 +201,7 @@ class GoogleManager {
             }
           },
           summary: `${title} Common Room`,
+          transparency: 'transparent'
         }
       });
 
