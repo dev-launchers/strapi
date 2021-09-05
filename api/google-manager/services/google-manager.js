@@ -201,6 +201,7 @@ class GoogleManager {
             }
           },
           summary: `${title} Common Room`,
+          //This prevents the event from blocking time on the calendar
           transparency: 'transparent'
         }
       });
