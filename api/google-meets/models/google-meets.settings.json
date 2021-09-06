@@ -28,6 +28,10 @@
       "type": "component",
       "repeatable": true,
       "component": "meet-participant.meet-participant"
+    },
+    "project": {
+      "via": "google_meet",
+      "model": "project"
     }
   }
 }

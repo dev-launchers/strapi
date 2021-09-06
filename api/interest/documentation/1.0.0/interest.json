@@ -733,6 +733,9 @@
                 "parentProject": {
                   "type": "string"
                 },
+                "google_meet": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },

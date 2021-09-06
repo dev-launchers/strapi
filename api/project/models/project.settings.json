@@ -121,6 +121,10 @@
     "parentProject": {
       "model": "project",
       "via": "subProjects"
+    },
+    "google_meet": {
+      "model": "google-meets",
+      "via": "project"
     }
   }
 }
