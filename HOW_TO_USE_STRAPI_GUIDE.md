@@ -70,7 +70,7 @@
 - There are two types of components
   - Repeatable Components which are best used for multiple instances(If you need an array use this)
   - Single Component which are best for grouping fields like full addresses, main information, etc.
-- click on either repeatable component or single component(whichever one fits best for your purposes)
+- click on either repeatable component or single component(whichever fits best for your purposes)
 - After that you can add fields to your component by clicking on the "+ Add field to this component"
 
 # Roles
