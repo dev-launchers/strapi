@@ -4,7 +4,7 @@ metadata:
   name: strapi-config
 data:
   url: "https://cms-api-staging.devlaunchers.com"
-  frontend_url: "https://staging.devlaunchers.com"
+  frontend_url: "https://staging.devlaunchers.org"
   node_env: "staging"
   redirect_url: "https://cms-api-staging.devlaunchers.com/auth/discord/redirect"
-  domain: "staging.devlaunchers.com"
+  domain: "staging.devlaunchers.org"
