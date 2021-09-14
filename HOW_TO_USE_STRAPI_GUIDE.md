@@ -25,7 +25,7 @@
   normally since it doesn't require any authentication
 - If one of your endpoints is protected by authentication, and you try to make a request to it without signing in as your test user,
   you'll get a 403 forbidden error ![Forbidden](./images/how-to-use-strapi/forbidden.png).
-- To sign in as your test user, make sure to make a POST request to https://localhost:1337/auth/local
+- To sign in as your test user, make sure to make a POST request to http://localhost:1337/auth/local
   with a JSON object with the keys identifier and password then click the purple send button. Identifier is just your username or email
   of the test user. ![Sign in as Test User](./images/how-to-use-strapi/sign-in.png)
 - After signing in, you should get a 200 status code and a response that looks something like this ![Response](./images/how-to-use-strapi/response.png)
