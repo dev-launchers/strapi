@@ -539,9 +539,6 @@
                 "id": {
                   "type": "string"
                 },
-                "username": {
-                  "type": "string"
-                },
                 "email": {
                   "type": "string"
                 },
@@ -564,6 +561,9 @@
                   "type": "boolean"
                 },
                 "role": {
+                  "type": "string"
+                },
+                "username": {
                   "type": "string"
                 },
                 "projects": {
@@ -618,6 +618,12 @@
                   "type": "boolean"
                 },
                 "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "idea_cards": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -717,6 +723,18 @@
                 },
                 "isListed": {
                   "type": "boolean"
+                },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"

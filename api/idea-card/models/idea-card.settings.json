@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "idea_cards",
+  "info": {
+    "name": "IdeaCard",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ideaName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tagline": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "targetAudience": {
+      "type": "text",
+      "required": true
+    },
+    "hourCommitmentMin": {
+      "type": "integer",
+      "required": true
+    },
+    "hourCommitmentMax": {
+      "type": "integer",
+      "required": true
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skills"
+    },
+    "openPositions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "positions.open-positions"
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "idea_cards"
+    },
+    "difficultyLevel": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "required": true
+    }
+  }
+}

@@ -18,9 +18,9 @@
       "unique": true
     },
     "users_permissions_users": {
+      "via": "interests",
       "plugin": "users-permissions",
       "collection": "user",
-      "via": "interests",
       "dominant": true
     },
     "projects": {

@@ -89,9 +89,9 @@
       "required": true
     },
     "user": {
+      "via": "projects",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "projects"
+      "model": "user"
     },
     "Images": {
       "type": "component",
@@ -113,6 +113,18 @@
     "isListed": {
       "type": "boolean",
       "required": true
+    },
+    "subProjects": {
+      "collection": "project",
+      "via": "parentProject"
+    },
+    "parentProject": {
+      "model": "project",
+      "via": "subProjects"
+    },
+    "google_meet": {
+      "model": "google-meets",
+      "via": "project"
     }
   }
 }

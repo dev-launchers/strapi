@@ -832,9 +832,6 @@
                         "id": {
                           "type": "string"
                         },
-                        "username": {
-                          "type": "string"
-                        },
                         "email": {
                           "type": "string"
                         },
@@ -857,6 +854,9 @@
                           "type": "boolean"
                         },
                         "role": {
+                          "type": "string"
+                        },
+                        "username": {
                           "type": "string"
                         },
                         "projects": {
@@ -911,6 +911,12 @@
                           "type": "boolean"
                         },
                         "interests": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "idea_cards": {
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -953,9 +959,6 @@
                         "id": {
                           "type": "string"
                         },
-                        "username": {
-                          "type": "string"
-                        },
                         "email": {
                           "type": "string"
                         },
@@ -978,6 +981,9 @@
                           "type": "boolean"
                         },
                         "role": {
+                          "type": "string"
+                        },
+                        "username": {
                           "type": "string"
                         },
                         "projects": {
@@ -1037,6 +1043,12 @@
                             "type": "string"
                           }
                         },
+                        "idea_cards": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1064,9 +1076,6 @@
               "id": {
                 "type": "string"
               },
-              "username": {
-                "type": "string"
-              },
               "email": {
                 "type": "string"
               },
@@ -1089,6 +1098,9 @@
                 "type": "boolean"
               },
               "role": {
+                "type": "string"
+              },
+              "username": {
                 "type": "string"
               },
               "projects": {
@@ -1143,6 +1155,12 @@
                 "type": "boolean"
               },
               "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "idea_cards": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -1340,6 +1358,257 @@
           "isListed": {
             "type": "boolean"
           },
+          "subProjects": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "catchPhrase",
+                "title",
+                "heroImage",
+                "vision",
+                "description",
+                "commitmentLevel",
+                "signupFormUrl",
+                "meetingLinkURLs",
+                "meetingTimes",
+                "keywords",
+                "team",
+                "isListed"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heroImage": {
+                  "type": "string"
+                },
+                "vision": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "commitmentLevel": {
+                  "type": "string"
+                },
+                "signupFormUrl": {
+                  "type": "string"
+                },
+                "meetingLinkURLs": {
+                  "type": "component"
+                },
+                "meetingTimes": {
+                  "type": "component"
+                },
+                "keywords": {
+                  "type": "component"
+                },
+                "projectReferenceURLs": {
+                  "type": "component"
+                },
+                "openPositions": {
+                  "type": "component"
+                },
+                "team": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "calendarId": {
+                  "type": "string"
+                },
+                "board": {
+                  "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
+                },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "parentProject": {
+            "required": [
+              "id",
+              "slug",
+              "catchPhrase",
+              "title",
+              "heroImage",
+              "vision",
+              "description",
+              "commitmentLevel",
+              "signupFormUrl",
+              "meetingLinkURLs",
+              "meetingTimes",
+              "keywords",
+              "team",
+              "isListed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "catchPhrase": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "heroImage": {
+                "type": "string"
+              },
+              "vision": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "commitmentLevel": {
+                "type": "string"
+              },
+              "signupFormUrl": {
+                "type": "string"
+              },
+              "meetingLinkURLs": {
+                "type": "component"
+              },
+              "meetingTimes": {
+                "type": "component"
+              },
+              "keywords": {
+                "type": "component"
+              },
+              "projectReferenceURLs": {
+                "type": "component"
+              },
+              "openPositions": {
+                "type": "component"
+              },
+              "team": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "Images": {
+                "type": "component"
+              },
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "calendarId": {
+                "type": "string"
+              },
+              "board": {
+                "type": "component"
+              },
+              "isListed": {
+                "type": "boolean"
+              },
+              "subProjects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "parentProject": {
+                "type": "string"
+              },
+              "google_meet": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "google_meet": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "meetingCode": {
+                "type": "string"
+              },
+              "conferenceId": {
+                "type": "string"
+              },
+              "calendarEventId": {
+                "type": "string"
+              },
+              "participants": {
+                "type": "component"
+              },
+              "project": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1521,9 +1790,6 @@
                         "id": {
                           "type": "string"
                         },
-                        "username": {
-                          "type": "string"
-                        },
                         "email": {
                           "type": "string"
                         },
@@ -1546,6 +1812,9 @@
                           "type": "boolean"
                         },
                         "role": {
+                          "type": "string"
+                        },
+                        "username": {
                           "type": "string"
                         },
                         "projects": {
@@ -1600,6 +1869,12 @@
                           "type": "boolean"
                         },
                         "interests": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "idea_cards": {
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -1642,9 +1917,6 @@
                         "id": {
                           "type": "string"
                         },
-                        "username": {
-                          "type": "string"
-                        },
                         "email": {
                           "type": "string"
                         },
@@ -1667,6 +1939,9 @@
                           "type": "boolean"
                         },
                         "role": {
+                          "type": "string"
+                        },
+                        "username": {
                           "type": "string"
                         },
                         "projects": {
@@ -1721,6 +1996,12 @@
                           "type": "boolean"
                         },
                         "interests": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "idea_cards": {
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -1896,6 +2177,18 @@
           },
           "isListed": {
             "type": "boolean"
+          },
+          "subProjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "parentProject": {
+            "type": "string"
+          },
+          "google_meet": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
