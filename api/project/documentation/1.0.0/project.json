@@ -1458,6 +1458,9 @@
                 "parentProject": {
                   "type": "string"
                 },
+                "google_meet": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1563,7 +1566,44 @@
               "parentProject": {
                 "type": "string"
               },
+              "google_meet": {
+                "type": "string"
+              },
               "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "google_meet": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "meetingCode": {
+                "type": "string"
+              },
+              "conferenceId": {
+                "type": "string"
+              },
+              "calendarEventId": {
+                "type": "string"
+              },
+              "participants": {
+                "type": "component"
+              },
+              "project": {
                 "type": "string"
               },
               "created_by": {
@@ -2155,6 +2195,9 @@
             }
           },
           "parentProject": {
+            "type": "string"
+          },
+          "google_meet": {
             "type": "string"
           },
           "published_at": {
