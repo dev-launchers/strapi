@@ -1389,6 +1389,9 @@
               "user": {
                 "type": "string"
               },
+              "projectMeetingMinutes": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },

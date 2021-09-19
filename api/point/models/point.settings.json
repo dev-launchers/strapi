@@ -36,6 +36,11 @@
       "via": "point",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "projectMeetingMinutes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "meeting-minutes.meeting-minutes"
     }
   }
 }
