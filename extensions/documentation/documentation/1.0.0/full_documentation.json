@@ -7044,7 +7044,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -7055,6 +7056,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -7353,7 +7358,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -7364,6 +7370,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -8284,7 +8294,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -8295,6 +8306,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -9242,7 +9257,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -9253,6 +9269,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
