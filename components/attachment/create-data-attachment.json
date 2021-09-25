@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_attachment_create_data_attachments",
+  "info": {
+    "name": "CreateDataAttachment",
+    "icon": "id-card-alt"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}
