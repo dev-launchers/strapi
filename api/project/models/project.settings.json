@@ -123,8 +123,8 @@
       "via": "subProjects"
     },
     "google_meet": {
-      "model": "google-meets",
-      "via": "project"
+      "via": "project",
+      "model": "google-meets"
     }
   }
 }

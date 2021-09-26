@@ -717,6 +717,130 @@
               }
             }
           },
+          "projectMeetingMinutes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "project": {
+                  "required": [
+                    "id",
+                    "slug",
+                    "catchPhrase",
+                    "title",
+                    "heroImage",
+                    "vision",
+                    "description",
+                    "commitmentLevel",
+                    "signupFormUrl",
+                    "meetingLinkURLs",
+                    "meetingTimes",
+                    "keywords",
+                    "team",
+                    "isListed"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "catchPhrase": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "heroImage": {
+                      "type": "string"
+                    },
+                    "vision": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "commitmentLevel": {
+                      "type": "string"
+                    },
+                    "signupFormUrl": {
+                      "type": "string"
+                    },
+                    "meetingLinkURLs": {
+                      "type": "component"
+                    },
+                    "meetingTimes": {
+                      "type": "component"
+                    },
+                    "keywords": {
+                      "type": "component"
+                    },
+                    "projectReferenceURLs": {
+                      "type": "component"
+                    },
+                    "openPositions": {
+                      "type": "component"
+                    },
+                    "team": {
+                      "type": "component"
+                    },
+                    "user": {
+                      "type": "string"
+                    },
+                    "Images": {
+                      "type": "component"
+                    },
+                    "interests": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "calendarId": {
+                      "type": "string"
+                    },
+                    "board": {
+                      "type": "component"
+                    },
+                    "isListed": {
+                      "type": "boolean"
+                    },
+                    "subProjects": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "parentProject": {
+                      "type": "string"
+                    },
+                    "google_meet": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "minutes": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -749,6 +873,130 @@
           },
           "user": {
             "type": "string"
+          },
+          "projectMeetingMinutes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "project": {
+                  "required": [
+                    "id",
+                    "slug",
+                    "catchPhrase",
+                    "title",
+                    "heroImage",
+                    "vision",
+                    "description",
+                    "commitmentLevel",
+                    "signupFormUrl",
+                    "meetingLinkURLs",
+                    "meetingTimes",
+                    "keywords",
+                    "team",
+                    "isListed"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "catchPhrase": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "heroImage": {
+                      "type": "string"
+                    },
+                    "vision": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "commitmentLevel": {
+                      "type": "string"
+                    },
+                    "signupFormUrl": {
+                      "type": "string"
+                    },
+                    "meetingLinkURLs": {
+                      "type": "component"
+                    },
+                    "meetingTimes": {
+                      "type": "component"
+                    },
+                    "keywords": {
+                      "type": "component"
+                    },
+                    "projectReferenceURLs": {
+                      "type": "component"
+                    },
+                    "openPositions": {
+                      "type": "component"
+                    },
+                    "team": {
+                      "type": "component"
+                    },
+                    "user": {
+                      "type": "string"
+                    },
+                    "Images": {
+                      "type": "component"
+                    },
+                    "interests": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "calendarId": {
+                      "type": "string"
+                    },
+                    "board": {
+                      "type": "component"
+                    },
+                    "isListed": {
+                      "type": "boolean"
+                    },
+                    "subProjects": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "parentProject": {
+                      "type": "string"
+                    },
+                    "google_meet": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "minutes": {
+                  "type": "integer"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",

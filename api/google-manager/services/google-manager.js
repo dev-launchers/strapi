@@ -310,6 +310,75 @@ class GoogleManager {
       throw err.message;
     }
   }
+
+  async addGoogleMeetPoints(reports) {
+    for (const item of reports.items) {
+      let { email, meetingCode, duration } = this.parseMeetingReport(item);
+      // Make sure all values are set
+      if (email != undefined && meetingCode != undefined && duration != undefined) {
+        const googleMeet = await strapi.query(`google-meets`).findOne({ meetingCode });
+        if (!googleMeet) {
+          continue;
+        }
+        const project = googleMeet.project;
+        const user = await strapi.query('user', 'users-permissions').findOne({ email });
+        if (!user) {
+          continue
+        }
+        const currentPoints = await strapi.query('point').findOne({ user: user.id });
+        // Not all meeting participants have a user profile
+        if (currentPoints) {
+          await strapi.services['point'].updateProjectMeetingMinutes(currentPoints, user, project, duration);
+        } else {
+          await strapi.services['point'].createProjectMeetingMinutes(user, project, duration);
+        }
+      }
+    }
+  }
+
+  parseMeetingReport(report) {
+    let email, meetingCode, duration;
+    for (const param of report.events[0].parameters) {
+      switch (param.name) {
+        case "identifier":
+          email = param.value;
+          break;
+        case "meeting_code":
+          // Meeting code stored in GoogleMeets collection contains hyphen
+          meetingCode = `${param.value.substring(0, 3)}-${param.value.substring(3, 7)}-${param.value.substring(7, 10)}`;
+          // Meeting code are stored in lowercase
+          meetingCode = meetingCode.toLowerCase();
+          break;
+        case "duration_seconds":
+          // Round to nearest minute
+          duration = Math.round(parseInt(param.intValue) / 60);
+          break;
+      }
+    }
+    return {
+      email,
+      meetingCode,
+      duration
+    }
+  }
+
+  async addMinutes(userID, project, minutes, projectMinutes) {
+    for (projectMinute of projectMinutes) {
+      if (projectMinute.project.id == project.id) {
+        projectMinute.minutes = projectMinute.minutes + minutes;
+        await strapi.query('point').update(
+          { user: user.id },
+          { projectMinutes },
+        );
+        return
+      }
+    }
+    projectMinutes.push({ project, minutes });
+    await strapi.query('point').update(
+      { user: userID },
+      { projectMinutes },
+    );
+  }
 }
 
 class MockGoogleManager {
@@ -364,6 +433,10 @@ class MockGoogleManager {
   async stopAuditLogs(channelId, resourceId) {
     console.log(`Mock Google Manager stop watching channel ${channelId} for resoruce ${resourceId}`);
   }
+
+  async addGoogleMeetPoints(reports) {
+    console.log(`Mock Google Manager adding points from ${reports}`);
+  }
 }
 
 function minuteToMilliSeconds(minutes) {
@@ -384,9 +457,10 @@ if (!isDevEnv()) {
   const cronTime = `0 */${auditFreq} * * * *`;
   const job = new CronJob(cronTime, function () {
     manager.listAuditReports('all', 'meet', 'call_ended').then(reports => {
-      reports.items.forEach(r => {
-        strapi.log.info('Report for Google Meet', r.events[0].parameters);
-      });
+      manager.addGoogleMeetPoints(reports);
+      if ("items" in reports) {
+        manager.addGoogleMeetPoints(reports);
+      }
     });
   });
   job.start();
