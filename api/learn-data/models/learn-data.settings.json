@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learn_data",
+  "info": {
+    "name": "learnData"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isActive": {
+      "type": "boolean"
+    },
+    "tab": {
+      "type": "string"
+    },
+    "section": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "format_": {
+      "type": "string"
+    },
+    "imageSrc": {
+      "type": "string"
+    },
+    "attachmens": {
+      "type": "text"
+    },
+    "extraTagsCSV": {
+      "type": "text"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
