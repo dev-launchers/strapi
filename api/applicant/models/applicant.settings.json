@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applicants",
+  "info": {
+    "name": "Applicant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "name": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "datetime"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "role": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "biginteger"
+    },
+    "experience": {
+      "type": "string"
+    },
+    "commitment": {
+      "type": "float"
+    },
+    "accepted": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "text"
+    },
+    "project": {
+      "model": "project"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skills"
+    }
+  }
+}
