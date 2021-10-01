@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "applicants",
   "info": {
-    "name": "Applicant"
+    "name": "Applicant",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -23,20 +24,11 @@
     "age": {
       "type": "integer"
     },
-    "project": {
-      "type": "string"
-    },
     "role": {
       "type": "string"
     },
-    "level": {
-      "type": "integer"
-    },
     "zip": {
       "type": "biginteger"
-    },
-    "skills": {
-      "type": "text"
     },
     "experience": {
       "type": "string"
@@ -49,6 +41,22 @@
     },
     "reason": {
       "type": "text"
+    },
+    "project": {
+      "model": "project"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skills"
     }
   }
 }
