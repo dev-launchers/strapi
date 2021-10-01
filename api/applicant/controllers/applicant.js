@@ -47,6 +47,6 @@ module.exports = {
 
     const entity = await strapi.services.applicant.create(application);
 
-    return sanitizeEntity(entity, { model: strapi.models.applicant})
+    return sanitizeEntity(entity, { model: strapi.models.applicant});
   }
 };
