@@ -12,8 +12,6 @@ module.exports = {
   lifecycles: {
     async afterCreate(result, data) {
 
-      const { model } = data;
-      //model lets us check which collection where creating
       const { title, description, team, slug } = data;
 
       const group = await strapi.services['google-manager'].createGroup(description, title);
