@@ -12,7 +12,7 @@ module.exports = {
   lifecycles: {
     async afterCreate(result, data) {
 
-      const { title, description, team, slug } = data;
+      const { title, description, team } = data;
 
       const group = await strapi.services['google-manager'].createGroup(description, title);
 
