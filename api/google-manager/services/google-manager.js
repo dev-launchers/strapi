@@ -55,7 +55,6 @@ class GoogleManager {
           description,
         }
       });
-      console.log("inserted the group");
       return group.data;
     } catch (err) {
       if (err.code === 409) {
@@ -350,7 +349,7 @@ class MockGoogleManager {
   }
 
   async createEvent(calendarId, title, groupEmail, projectID) {
-    console.log(`event has been created for ${title} and email: ${groupEmail}`);
+    console.log(`event has been created for ${title} and email: ${groupEmail} with projectID: ${projectID}`);
   }
 
   async formatEmail(title) {
@@ -393,6 +392,6 @@ if (!isDevEnv()) {
 
   module.exports = manager;
 } else {
-  
+
   module.exports = new MockGoogleManager();
 }

@@ -58,7 +58,7 @@ module.exports = {
 
   async create(ctx) {
     const { userAbility, user } = ctx.state;
-    const { model, id } = ctx.params;
+    const { model } = ctx.params;
     const { body } = ctx.request;
     let newBody = {};
 
