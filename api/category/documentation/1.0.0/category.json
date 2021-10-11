@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/interests": {
+    "/categories": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Interest"
+                    "$ref": "#/components/schemas/Category"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Interest"
+          "Category"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Interest"
+                  "$ref": "#/components/schemas/Category"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Interest"
+          "Category"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewInterest"
+                "$ref": "#/components/schemas/NewCategory"
               }
             }
           }
         }
       }
     },
-    "/interests/count": {
+    "/categories/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Interest"
+          "Category"
         ],
         "parameters": []
       }
     },
-    "/interests/{id}": {
+    "/categories/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Interest"
+                  "$ref": "#/components/schemas/Category"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Interest"
+          "Category"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Interest"
+                  "$ref": "#/components/schemas/Category"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Interest"
+          "Category"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewInterest"
+                "$ref": "#/components/schemas/NewCategory"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Interest"
+          "Category"
         ],
         "parameters": [
           {
@@ -514,57 +514,37 @@
   },
   "components": {
     "schemas": {
-      "Interest": {
+      "Category": {
         "required": [
           "id",
-          "interests"
+          "category"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "interests": {
+          "category": {
             "type": "string"
           },
-          "users_permissions_users": {
+          "interests": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "email",
-                "googleId",
-                "userId"
+                "interests"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "email": {
+                "interests": {
                   "type": "string"
                 },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
+                "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "projects": {
                   "type": "array",
@@ -572,197 +552,7 @@
                     "type": "string"
                   }
                 },
-                "point": {
-                  "type": "string"
-                },
-                "profile": {
-                  "type": "string"
-                },
-                "discordId": {
-                  "type": "string"
-                },
-                "googleId": {
-                  "type": "string"
-                },
-                "discordAvatar": {
-                  "type": "string"
-                },
-                "discordDiscriminator": {
-                  "type": "string"
-                },
-                "discordUsername": {
-                  "type": "string"
-                },
-                "userId": {
-                  "type": "uid"
-                },
-                "time_capsules": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "birthday": {
-                  "type": "string"
-                },
-                "country": {
-                  "type": "string"
-                },
-                "zipCode": {
-                  "type": "integer"
-                },
-                "hasAcceptedTermsOfService": {
-                  "type": "boolean"
-                },
-                "hasSubscribedEmails": {
-                  "type": "boolean"
-                },
-                "interests": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "idea_cards": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "projects": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "slug",
-                "catchPhrase",
-                "title",
-                "heroImage",
-                "vision",
-                "description",
-                "commitmentLevel",
-                "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
-                "team",
-                "isListed"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "catchPhrase": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "heroImage": {
-                  "type": "string"
-                },
-                "vision": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "commitmentLevel": {
-                  "type": "string"
-                },
-                "signupFormUrl": {
-                  "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
-                },
-                "openPositions": {
-                  "type": "component"
-                },
-                "team": {
-                  "type": "component"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "Images": {
-                  "type": "component"
-                },
-                "interests": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "calendarId": {
-                  "type": "string"
-                },
-                "board": {
-                  "type": "component"
-                },
-                "isListed": {
-                  "type": "boolean"
-                },
-                "subProjects": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "parentProject": {
-                  "type": "string"
-                },
-                "google_meet": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "categories": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "category"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "interests": {
+                "categories": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -786,27 +576,15 @@
           }
         }
       },
-      "NewInterest": {
+      "NewCategory": {
         "required": [
-          "interests"
+          "category"
         ],
         "properties": {
-          "interests": {
+          "category": {
             "type": "string"
           },
-          "users_permissions_users": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "projects": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "categories": {
+          "interests": {
             "type": "array",
             "items": {
               "type": "string"
@@ -828,7 +606,7 @@
   },
   "tags": [
     {
-      "name": "Interest"
+      "name": "Category"
     }
   ]
 }

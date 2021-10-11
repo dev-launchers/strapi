@@ -27,6 +27,10 @@
       "via": "interests",
       "collection": "project",
       "dominant": true
+    },
+    "categories": {
+      "via": "interests",
+      "collection": "category"
     }
   }
 }

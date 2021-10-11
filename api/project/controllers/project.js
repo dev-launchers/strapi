@@ -78,5 +78,21 @@ module.exports = {
       console.log('error trying to give project google resources: ', err);
       ctx.send(err, 500);
     }
+  },
+
+  async recommendProjectToUsers(ctx) {
+    try {
+
+      const { interests: userInterests } = ctx.state.user;
+      const interests = await strapi.services.interest.find();
+
+      console.log('user: ', ctx.state.user);
+      console.log('interests: ', interests);
+
+      return ctx.send('hello bozo');
+
+    } catch(err) {
+      console.error(err);
+    }
   }
 };
