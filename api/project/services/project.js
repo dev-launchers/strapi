@@ -13,7 +13,7 @@ const isNotEmpty = (team) => {
 };
 
 module.exports = {
-  find(params, populate){
+  find(params){
     return strapi.query('project').find(params, ['interests', 'interests.categories']);
   },
 
