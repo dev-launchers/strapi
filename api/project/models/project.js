@@ -24,9 +24,14 @@ module.exports = {
 
       const calendar = await strapi.services['google-manager'].createCalendar(title);
 
-      result.calendarId = calendar.id;
+      const calendarId = calendar.id;
 
-      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email, result.id);
+      const projectID = result.id;
+
+      // update calendarId to the project according to projectID
+      strapi.query('project').update({ id: projectID }, { calendarId });
+
+      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email, projectID);
 
       await strapi.services.project.giveTeamAcl(team, calendar.id, group);
     },
