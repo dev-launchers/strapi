@@ -18,13 +18,13 @@ module.exports = {
     return entities.map((entity) => {
       entity.team.leaders = entity.team.leaders.map((leader) => ({
         id: leader.leader.id,
-        name: leader.leader.username,
+        username: leader.leader.username,
         email: leader.leader.email,
         role: leader.role,
       }));
       entity.team.members = entity.team.members.map((member) => ({
         id: member.member.id,
-        name: member.member.username,
+        username: member.member.username,
         role: member.role,
       }));
       return sanitizeEntity(entity, {model: strapi.models.project});
@@ -33,16 +33,18 @@ module.exports = {
   async findOne(ctx) {
     const { slug } = ctx.params;
 
-    const entity = await strapi.services.project.findOne({ slug });
+    const entity = await strapi.services.project.findOne({ slug }, ['team.leaders.leader.profile', 'team.members.member.profile']);
     entity.team.leaders = entity.team.leaders.map((leader) => ({
       id: leader.leader.id,
-      name: leader.leader.username,
+      username: leader.leader.username,
+      profile: leader.leader.profile,
       email: leader.leader.email,
       role: leader.role,
     }));
     entity.team.members = entity.team.members.map((member) => ({
       id: member.member.id,
-      name: member.member.username,
+      username: member.member.username,
+      profile: member.member.profile,
       role: member.role,
     }));
     return sanitizeEntity(entity, {model: strapi.models.project});

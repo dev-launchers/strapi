@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: strapi-config
 data:
-  url: "https://cms-api-staging.devlaunchers.com"
+  url: "https://api-staging.devlaunchers.org"
   frontend_url: "https://staging.devlaunchers.org"
   node_env: "staging"
-  redirect_url: "https://cms-api-staging.devlaunchers.com/auth/discord/redirect"
+  redirect_url: "https://api-staging.devlaunchers.org/auth/discord/redirect"
   domain: "staging.devlaunchers.org"

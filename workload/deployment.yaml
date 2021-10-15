@@ -136,10 +136,10 @@ spec:
           mountPath: "/etc/google-directory"
         resources:
           limits:
-            cpu: 256m
-            memory: 256Mi
-          requests:
             cpu: 128m
+            memory: 200Mi
+          requests:
+            cpu: 32m
             memory: 128Mi
         livenessProbe:
           httpGet:
