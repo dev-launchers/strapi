@@ -62,28 +62,6 @@ module.exports = {
     const { body } = ctx.request;
     let newBody = {};
 
-    //model lets us check which collection where creating
-    if(model === 'application::project.project'){
-      const { title, description, team } = body;
-
-      const group = await strapi.services['google-manager'].createGroup(description, title);
-
-      await strapi.services.project.giveTeamGroup(team, group);
-
-      //Lets team@devlaunchers.com be owner of the google group to fix google meets auto admit problem
-      await strapi.services['google-manager'].joinGroup(group.id, process.env.DEVLAUNCHERS_GOOGLE_DIRECTORY_JWT_SUBJECT, 'OWNER');
-
-      const calendar = await strapi.services['google-manager'].createCalendar(title);
-
-      newBody.calendarId = calendar.id;
-
-      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
-
-      await strapi.services.project.giveTeamAcl(team, calendar.id, group);
-    }
-
-
-
     const entityManager = getService('entity-manager');
     const permissionChecker = getService('permission-checker').create({ userAbility, model });
 

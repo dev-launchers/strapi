@@ -52,7 +52,7 @@ module.exports = {
 
   async giveGoogleResources(ctx) {
     try {
-      const { slug } = ctx.params;
+      const { slug, id } = ctx.params;
 
       const project = await strapi.services.project.findOne({ slug });
 
@@ -69,7 +69,7 @@ module.exports = {
 
       await strapi.services.project.update({ slug }, { calendarId: calendar.id });
 
-      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
+      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email, id);
 
       await strapi.services.project.giveTeamAcl(team, calendar.id, group);
 
