@@ -19,6 +19,18 @@ if (process.env.NODE_ENV == 'development') {
         defaultPath: 'assets',
         maxConcurrent: 10
       }
+    },
+    email: {
+      provider: 'sendgrid',
+      providerOptions: {
+        apiKey: env('SENDGRID_API_KEY'),
+      },
+      settings: {
+        defaultFrom: 'juliasedefdjian@strapi.io',
+        defaultReplyTo: 'juliasedefdjian@strapi.io',
+        testAddress: 'juliasedefdjian@strapi.io',
+      },
     }
+    
   });
 }
