@@ -84,22 +84,15 @@ module.exports = {
     try {
       const { interests } = ctx.state.user;
       const projects = await strapi.services.project.find();
-      const recommendedProjectSlugs = [];
-      const recommendedProjects = [];
+      const recommendedProjectsSet = new Set();
 
-      /*
-        This loops through the users interest's categories and compares them
-        with the project interest's categories and see if they match
-        NOTE: It pushes duplicates into the array so I prevent it from happening
-      */
-      for(const interest of interests){
-        for(const category of interest.categories){
-          for(const project of projects){
-            for(const projectInterest of project.interests){
-              for(const projectCategories of projectInterest.categories){
-                if((projectCategories.category === category.category) && (!(recommendedProjectSlugs.includes(project.slug)))){
-                  recommendedProjectSlugs.push(project.slug);
-                }
+      const addProjectsToSet = (projects, userCategory) => {
+        for(const project of projects){
+          for(const projectInterest of project.interests){
+            for(const projectCategories of projectInterest.categories){
+              if((projectCategories.category === userCategory.category)){
+                const projectJSON = JSON.stringify(project);
+                recommendedProjectsSet.add(projectJSON);
               }
             }
           }
@@ -107,13 +100,18 @@ module.exports = {
       }
 
       /*
-        Using the project slugs, I get the project and add them to
-        the recommendedProjects array
+        This loops through the users interest's categories and compares them
+        with the project interest's categories and see if they match
+        NOTE: It pushes duplicates into the array so I prevent it from happening by using sets
       */
-      for(const recommendedProjectSlug of recommendedProjectSlugs){
-        const recommendedProject = await strapi.services.project.findOne({slug: recommendedProjectSlug});
-        recommendedProjects.push(recommendedProject);
+      for(const interest of interests){
+        for(const category of interest.categories){
+          addProjectsToSet(projects, category);
+        }
       }
+
+      const recommendedProjectsJSON = [...recommendedProjectsSet];
+      const recommendedProjects = recommendedProjectsJSON.map(recommendedProjectJSON => JSON.parse(recommendedProjectJSON));
 
       return ctx.send(recommendedProjects);
     } catch(err) {
