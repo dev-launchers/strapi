@@ -97,7 +97,7 @@ module.exports = {
             }
           }
         }
-      }
+      };
 
       /*
         This loops through the users interest's categories and compares them
