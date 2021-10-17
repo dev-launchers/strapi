@@ -18,8 +18,8 @@
       "required": true
     },
     "interests": {
-      "collection": "interest",
       "via": "categories",
+      "collection": "interest",
       "dominant": true
     }
   }
