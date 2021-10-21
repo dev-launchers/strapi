@@ -34,7 +34,6 @@ module.exports = {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.project.findOne({ slug }, ['team.leaders.leader.profile', 'team.members.member.profile', 'heroImage']);
-    console.log(entity);
     entity.team.leaders = entity.team.leaders.map((leader) => ({
       id: leader.leader.id,
       username: leader.leader.username,
