@@ -33,7 +33,7 @@ module.exports = {
   async findOne(ctx) {
     const { slug } = ctx.params;
 
-    const entity = await strapi.services.project.findOne({ slug }, ['team.leaders.leader.profile', 'team.members.member.profile']);
+    const entity = await strapi.services.project.findOne({ slug }, ['team.leaders.leader.profile', 'team.members.member.profile', 'heroImage']);
     entity.team.leaders = entity.team.leaders.map((leader) => ({
       id: leader.leader.id,
       username: leader.leader.username,
@@ -52,7 +52,7 @@ module.exports = {
 
   async giveGoogleResources(ctx) {
     try {
-      const { slug } = ctx.params;
+      const { slug, id } = ctx.params;
 
       const project = await strapi.services.project.findOne({ slug });
 
@@ -69,7 +69,7 @@ module.exports = {
 
       await strapi.services.project.update({ slug }, { calendarId: calendar.id });
 
-      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email);
+      await strapi.services['google-manager'].createEvent(calendar.id, calendar.summary, group.email, id);
 
       await strapi.services.project.giveTeamAcl(team, calendar.id, group);
 

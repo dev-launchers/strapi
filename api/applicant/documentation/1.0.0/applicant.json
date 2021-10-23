@@ -516,7 +516,17 @@
     "schemas": {
       "Applicant": {
         "required": [
-          "id"
+          "id",
+          "email",
+          "name",
+          "age",
+          "role",
+          "zip",
+          "experience",
+          "commitment",
+          "accepted",
+          "reason",
+          "level"
         ],
         "properties": {
           "id": {
@@ -527,10 +537,6 @@
           },
           "name": {
             "type": "string"
-          },
-          "timestamp": {
-            "type": "string",
-            "format": "date-time"
           },
           "age": {
             "type": "integer"
@@ -693,16 +699,24 @@
         }
       },
       "NewApplicant": {
+        "required": [
+          "email",
+          "name",
+          "age",
+          "role",
+          "zip",
+          "experience",
+          "commitment",
+          "accepted",
+          "reason",
+          "level"
+        ],
         "properties": {
           "email": {
             "type": "string"
           },
           "name": {
             "type": "string"
-          },
-          "timestamp": {
-            "type": "string",
-            "format": "date-time"
           },
           "age": {
             "type": "integer"
