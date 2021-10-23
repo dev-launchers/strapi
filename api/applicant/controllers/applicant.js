@@ -7,6 +7,12 @@
 
 const { sanitizeEntity } = require('strapi-utils');
 
+const isNotEmpty = (team) => {
+  if((team) && (!(team.length === 0))) {
+    return true;
+  }
+  return false;
+};
 module.exports = {
 
   async create(ctx){
@@ -47,12 +53,11 @@ module.exports = {
     };
 
     const entity = await strapi.services.applicant.create(application);
-    console.log(entity);
 
     if (applicantProject){
       const team = applicantProject.team;
       console.log(team);
-      if(team.leaders){
+      if(isNotEmpty(team.leaders)){
         //lets leaders join google group
         team.leaders.forEach(async (leader) => {
           try {
