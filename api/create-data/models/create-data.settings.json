@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "create_data",
+  "info": {
+    "name": "createData",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isActive": {
+      "type": "boolean"
+    },
+    "ID": {
+      "type": "string"
+    },
+    "tab": {
+      "type": "string"
+    },
+    "section": {
+      "type": "text"
+    },
+    "group": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "FORMAT": {
+      "type": "text"
+    },
+    "imageSrc": {
+      "type": "string"
+    },
+    "extraTagsCSV": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "attachments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "attachment.attachments"
+    }
+  }
+}
