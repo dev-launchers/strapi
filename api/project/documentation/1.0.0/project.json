@@ -311,6 +311,63 @@
         "parameters": []
       }
     },
+    "/projects/interests": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Project"
+        ],
+        "parameters": []
+      }
+    },
     "/projects/{slug}": {
       "get": {
         "deprecated": false,
@@ -1268,13 +1325,13 @@
             "items": {
               "required": [
                 "id",
-                "interests"
+                "interest"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "interests": {
+                "interest": {
                   "type": "string"
                 },
                 "users_permissions_users": {
@@ -1284,6 +1341,12 @@
                   }
                 },
                 "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "categories": {
                   "type": "array",
                   "items": {
                     "type": "string"
