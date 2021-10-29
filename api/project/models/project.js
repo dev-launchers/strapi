@@ -52,7 +52,7 @@ module.exports = {
               embeds: [
                 {
                   title: `${projectBeforeModification.title} Project Page`,
-                  url: `https://devlaunchers.org/projects/${projectBeforeModification.slug}`,
+                  url: `${process.env.DOMAIN}/projects/${projectBeforeModification.slug}`,
                   description: `*someone* **__UPDATED__** the open roles => [Link to the strapi page](${process.env.FRONTEND_URL}/admin/plugins/content-manager/collectionType/application::project.project/${params.id})`,
                   color: 15258703,
                   fields: [
