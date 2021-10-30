@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "create_data",
   "info": {
-    "name": "createData",
+    "name": "createPage",
     "description": ""
   },
   "options": {
