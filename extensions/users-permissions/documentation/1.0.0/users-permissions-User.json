@@ -1525,13 +1525,13 @@
             "items": {
               "required": [
                 "id",
-                "interests"
+                "interest"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "interests": {
+                "interest": {
                   "type": "string"
                 },
                 "users_permissions_users": {
@@ -1541,6 +1541,12 @@
                   }
                 },
                 "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "categories": {
                   "type": "array",
                   "items": {
                     "type": "string"

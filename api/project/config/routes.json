@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/projects/interests",
+      "handler": "project.recommendProjectToUsers",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/projects/:slug",
       "handler": "project.findOne",
       "config": {

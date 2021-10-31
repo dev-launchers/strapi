@@ -48,7 +48,6 @@ class GoogleManager {
         version: 'directory_v1',
         auth: this.adminAuth
       });
-
       const group = await admin.groups.insert({
         requestBody: {
           email: this.formatEmail(name),
@@ -56,7 +55,6 @@ class GoogleManager {
           description,
         }
       });
-
       return group.data;
     } catch (err) {
       if (err.code === 409) {
@@ -166,7 +164,7 @@ class GoogleManager {
     }
   }
 
-  async createEvent(calendarId, title, groupEmail) {
+  async createEvent(calendarId, title, groupEmail, projectID) {
     try {
       const calendar = await google.calendar({
         version: 'v3',
@@ -217,6 +215,7 @@ class GoogleManager {
 
       await strapi.services['google-meets'].create({
         name: summary,
+        project: projectID,
         meetingCode,
         conferenceId: conferenceData.conferenceId,
         calendarEventId: id,
@@ -349,8 +348,8 @@ class MockGoogleManager {
     console.log(`${role} acl has been given to ${email}`);
   }
 
-  async createEvent(calendarId, title, groupEmail) {
-    console.log(`event has been created for ${title} and email: ${groupEmail}`);
+  async createEvent(calendarId, title, groupEmail, projectID) {
+    console.log(`event has been created for ${title} and email: ${groupEmail} with projectID: ${projectID}`);
   }
 
   async formatEmail(title) {
@@ -393,5 +392,6 @@ if (!isDevEnv()) {
 
   module.exports = manager;
 } else {
+
   module.exports = new MockGoogleManager();
 }
