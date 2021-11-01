@@ -131,6 +131,11 @@ spec:
           value: info
         - name: AUDIT_FREQ_MINUTES
           value: "60"
+        - name: OPEN_POSITIONS_DISCORD_WEBHOOK
+          valueFrom:
+            secretKeyRef:
+              name: site-projects
+              key: discord-webhook
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
