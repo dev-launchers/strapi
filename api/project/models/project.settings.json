@@ -64,12 +64,6 @@
       "component": "dates.meeting-times",
       "required": true
     },
-    "keywords": {
-      "type": "component",
-      "repeatable": true,
-      "component": "keywords.keywords",
-      "required": true
-    },
     "projectReferenceURLs": {
       "type": "component",
       "repeatable": true,

@@ -655,7 +655,6 @@
           "signupFormUrl",
           "meetingLinkURLs",
           "meetingTimes",
-          "keywords",
           "team",
           "isListed"
         ],
@@ -790,24 +789,6 @@
                   "type": "string"
                 },
                 "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
                   "type": "string"
                 }
               }
@@ -1441,7 +1422,6 @@
                 "signupFormUrl",
                 "meetingLinkURLs",
                 "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -1477,9 +1457,6 @@
                   "type": "component"
                 },
                 "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
                   "type": "component"
                 },
                 "projectReferenceURLs": {
@@ -1549,7 +1526,6 @@
               "signupFormUrl",
               "meetingLinkURLs",
               "meetingTimes",
-              "keywords",
               "team",
               "isListed"
             ],
@@ -1585,9 +1561,6 @@
                 "type": "component"
               },
               "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
                 "type": "component"
               },
               "projectReferenceURLs": {
@@ -1694,7 +1667,6 @@
           "signupFormUrl",
           "meetingLinkURLs",
           "meetingTimes",
-          "keywords",
           "team",
           "isListed"
         ],
@@ -1759,24 +1731,6 @@
                   "type": "string"
                 },
                 "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
                   "type": "string"
                 }
               }

@@ -653,7 +653,6 @@
                 "signupFormUrl",
                 "meetingLinkURLs",
                 "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -689,9 +688,6 @@
                   "type": "component"
                 },
                 "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
                   "type": "component"
                 },
                 "projectReferenceURLs": {

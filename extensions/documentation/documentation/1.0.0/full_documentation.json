@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/18/2021 5:29:55 AM"
+    "x-generation-date": "11/12/2021 8:24:34 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8001,7 +8001,6 @@
               "signupFormUrl",
               "meetingLinkURLs",
               "meetingTimes",
-              "keywords",
               "team",
               "isListed"
             ],
@@ -8037,9 +8036,6 @@
                 "type": "component"
               },
               "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
                 "type": "component"
               },
               "projectReferenceURLs": {
@@ -8350,7 +8346,6 @@
               "signupFormUrl",
               "meetingLinkURLs",
               "meetingTimes",
-              "keywords",
               "team",
               "isListed"
             ],
@@ -8386,9 +8381,6 @@
                 "type": "component"
               },
               "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
                 "type": "component"
               },
               "projectReferenceURLs": {
@@ -8928,7 +8920,6 @@
                 "signupFormUrl",
                 "meetingLinkURLs",
                 "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -8964,9 +8955,6 @@
                   "type": "component"
                 },
                 "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
                   "type": "component"
                 },
                 "projectReferenceURLs": {
@@ -9530,7 +9518,6 @@
           "signupFormUrl",
           "meetingLinkURLs",
           "meetingTimes",
-          "keywords",
           "team",
           "isListed"
         ],
@@ -9665,24 +9652,6 @@
                   "type": "string"
                 },
                 "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
                   "type": "string"
                 }
               }
@@ -10316,7 +10285,6 @@
                 "signupFormUrl",
                 "meetingLinkURLs",
                 "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -10352,9 +10320,6 @@
                   "type": "component"
                 },
                 "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
                   "type": "component"
                 },
                 "projectReferenceURLs": {
@@ -10424,7 +10389,6 @@
               "signupFormUrl",
               "meetingLinkURLs",
               "meetingTimes",
-              "keywords",
               "team",
               "isListed"
             ],
@@ -10460,9 +10424,6 @@
                 "type": "component"
               },
               "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
                 "type": "component"
               },
               "projectReferenceURLs": {
@@ -10569,7 +10530,6 @@
           "signupFormUrl",
           "meetingLinkURLs",
           "meetingTimes",
-          "keywords",
           "team",
           "isListed"
         ],
@@ -10634,24 +10594,6 @@
                   "type": "string"
                 },
                 "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
                   "type": "string"
                 }
               }
@@ -11630,7 +11572,6 @@
                 "signupFormUrl",
                 "meetingLinkURLs",
                 "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -11666,9 +11607,6 @@
                   "type": "component"
                 },
                 "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
                   "type": "component"
                 },
                 "projectReferenceURLs": {
