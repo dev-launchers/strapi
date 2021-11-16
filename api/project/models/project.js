@@ -58,7 +58,7 @@ module.exports = {
               {
                 title: `${projectBeforeModification.title} Project Page`,
                 url: `${process.env.FRONTEND_URL}/projects/${projectBeforeModification.slug}`,
-                description: `*someone* **__UPDATED__** the open roles => [Link to the strapi page](${process.env.FRONTEND_URL}/admin/plugins/content-manager/collectionType/application::project.project/${params.id})`,
+                description: `*someone* **__UPDATED__** the open roles => [Link to the strapi page](${process.env.URL}/admin/plugins/content-manager/collectionType/application::project.project/${params.id})`,
                 color: 15258703, // A yellow color in "decimal value"
                 fields: [
                   {
