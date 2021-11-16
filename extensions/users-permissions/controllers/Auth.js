@@ -219,7 +219,7 @@ module.exports = {
       if(!user.username){
         ctx.redirect(`${process.env.FRONTEND_URL}/signup`);
       } else {
-        ctx.redirect(`${process.env.FRONTEND_URL}/user-profile`);
+        ctx.redirect(`${process.env.FRONTEND_URL}/users/me`);
       }
 
       /*
