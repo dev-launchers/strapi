@@ -60,7 +60,6 @@ module.exports = {
     const { userAbility, user } = ctx.state;
     const { model } = ctx.params;
     const { body } = ctx.request;
-    let newBody = {};
 
     const entityManager = getService('entity-manager');
     const permissionChecker = getService('permission-checker').create({ userAbility, model });
@@ -76,7 +75,7 @@ module.exports = {
     const sanitizeFn = pipe([pickWritables, pickPermittedFields, setCreator]);
 
     await wrapBadRequest(async () => {
-      const entity = await entityManager.create(sanitizeFn({...body, ...newBody}), model);
+      const entity = await entityManager.create(sanitizeFn({...body}), model);
       ctx.body = permissionChecker.sanitizeOutput(entity);
 
       await strapi.telemetry.send('didCreateFirstContentTypeEntry', { model });
