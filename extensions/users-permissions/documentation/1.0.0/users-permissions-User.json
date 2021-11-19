@@ -1265,9 +1265,6 @@
                 "description",
                 "commitmentLevel",
                 "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -1298,18 +1295,6 @@
                 },
                 "signupFormUrl": {
                   "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
                 },
                 "openPositions": {
                   "type": "component"
