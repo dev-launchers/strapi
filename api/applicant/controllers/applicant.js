@@ -32,9 +32,7 @@ module.exports = {
       level
     } = ctx.request.body;
 
-    console.log('new application');
-
-    const applicantProject = await strapi.services.project.findOne({ slug: project });
+    const applicantProject = await strapi.query('project').findOne({ slug: project });
 
     const application = {
       email,
@@ -61,9 +59,7 @@ module.exports = {
         //lets leaders join google group
         team.leaders.forEach(async (leader) => {
           try {
-            const id = leader.leader.id ? leader.leader.id : leader.leader;
             const email = leader.leader.email ? leader.leader.email: null;
-            console.log(email)
             // Send an email to project lead.
             await strapi.services.sendmail.send('kuikuigaocn@gmail.com', email, 'New applicant notificaton', `Hi Leaders, ${application.name} joined the project of "${applicantProject.title}".`);
             
