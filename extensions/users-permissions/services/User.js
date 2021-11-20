@@ -73,7 +73,7 @@ module.exports = {
    * @return {Promise}
    */
   fetchAuthenticatedUser(id) {
-    return strapi.query('user', 'users-permissions').findOne({ id }, ['role', 'profile', 'point']);
+    return strapi.query('user', 'users-permissions').findOne({ id }, ['role', 'profile', 'point', 'interests', 'interests.categories']);
   },
 
   /**

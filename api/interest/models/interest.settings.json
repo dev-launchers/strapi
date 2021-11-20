@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "interests": {
+    "interest": {
       "type": "string",
       "required": true,
       "unique": true
@@ -27,6 +27,10 @@
       "via": "interests",
       "collection": "project",
       "dominant": true
+    },
+    "categories": {
+      "via": "interests",
+      "collection": "category"
     }
   }
 }
