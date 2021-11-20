@@ -67,7 +67,7 @@ module.exports = {
             console.error('error: can not notify the project leader.', err);
           }
         });
-      };
+      }
     }
     
     return sanitizeEntity(entity, { model: strapi.models.applicant});
