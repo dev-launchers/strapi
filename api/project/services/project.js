@@ -85,7 +85,7 @@ module.exports = {
       id: project.team.id,
       leaders: oldLeaders,
       members: oldMembers
-    }
+    };
 
     return oldTeam;
   },

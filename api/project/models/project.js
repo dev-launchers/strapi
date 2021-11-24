@@ -16,7 +16,7 @@ module.exports = {
   lifecycles: {
     async beforeUpdate(params, data) {
       try {
-        const { title, team, calendarId } = data;
+        const { title, calendarId } = data;
 
         const group = await strapi.services['google-manager'].getGroup(title);
         const project = await strapi.services.project.findOne(params);
