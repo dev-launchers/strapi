@@ -18,34 +18,14 @@ module.exports = {
       try {
         const { title, team, calendarId } = data;
 
+        const group = await strapi.services['google-manager'].getGroup(title);
         const project = await strapi.services.project.findOne(params);
 
-        const oldLeaders = project.team.leaders.map(leader => ({
-          id: leader.id,
-          role: leader.role,
-          leader: leader.leader.id
-        }));
-
-        const oldMembers = project.team.members.map(member => ({
-          id: member.id,
-          role: member.role,
-          member: member.member.id
-        }));
-
-        const oldTeam = {
-          id: project.team.id,
-          leaders: oldLeaders,
-          members: oldMembers
-        }
-
+        const oldTeam = strapi.services.project.returnOldTeam(project);
         const newTeam = data.team;
 
-        if(!_.isEqual(oldTeam, newTeam)){
-          const group = await strapi.services['google-manager'].getGroup(title);
-          if(group) {
-            await strapi.services.project.giveTeamGroup(team, group);
-            await strapi.services.project.giveTeamAcl(team, calendarId, group);
-          }
+        if(group){
+          await strapi.services.project.addNewMembersToGoogleResources(oldTeam, newTeam, calendarId, group);
         }
 
         let projectBeforeModification = await strapi

@@ -105,15 +105,6 @@ module.exports = {
         return ctx.forbidden();
       }
 
-      if(model === 'application::project.project' ){
-        const { title, team, calendarId } = body;
-        const group = await strapi.services['google-manager'].getGroup(title);
-        if(group) {
-          await strapi.services.project.giveTeamGroup(team, group);
-          await strapi.services.project.giveTeamAcl(team, calendarId, group);
-        }
-      }
-
       const pickWritables = pickWritableAttributes({ model });
       const pickPermittedFields = permissionChecker.sanitizeUpdateInput(entity);
       const setCreator = setCreatorFields({ user, isEdition: true });
