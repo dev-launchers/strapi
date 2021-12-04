@@ -10,7 +10,7 @@ to format the commit messages.
 Once you are ready to create a new release, create a PR to merge main branch to release branch.
 
 # Staging
-Staging URL is https://cms-api-staging.devlaunchers.com
+Staging URL is https://api-staging.devlaunchers.org
 
 # Production
-Production URL is https://cms-api.devlaunchers.com
+Production URL is https://api.devlaunchers.org
