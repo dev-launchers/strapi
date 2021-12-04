@@ -52,30 +52,6 @@
       "required": true,
       "unique": false
     },
-    "meetingLinkURLs": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.meeting-link-ur-ls",
-      "required": true
-    },
-    "meetingTimes": {
-      "type": "component",
-      "repeatable": true,
-      "component": "dates.meeting-times",
-      "required": true
-    },
-    "keywords": {
-      "type": "component",
-      "repeatable": true,
-      "component": "keywords.keywords",
-      "required": true
-    },
-    "projectReferenceURLs": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.project-reference-ur-ls",
-      "required": false
-    },
     "openPositions": {
       "type": "component",
       "repeatable": true,
