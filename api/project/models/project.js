@@ -5,8 +5,11 @@
  * to customize this model
  */
 
-const axios = require('axios');
 const _ = require('lodash');
+const { Webhook, MessageBuilder } = require('discord-webhook-node');
+const hook = new Webhook(
+  'https://discord.com/api/webhooks/904084196962750514/vLHvC-cJpsv1z3YrsqMlXWIMBb_ExULJ9vgiQtWsLnzp8RcwX-o_0ZXW1WRZ1uKI-HJs'
+);
 
 const formatJSON = (jsonData) => {
   return `\`\`\`JSON\n${JSON.stringify(jsonData, null, 1)}\n\`\`\``;
@@ -37,6 +40,17 @@ module.exports = {
           )
           .slice(projectBeforeModification.openPositions.length);
 
+        // We're only showing the modified fields before modification in an array
+        const modifiedFieldsBeforeModification = [];
+        projectBeforeModification.openPositions.forEach((b4Pos) => {
+          concatinated.forEach((afterPos) => {
+            b4Pos.id === afterPos.id &&
+              (b4Pos.title !== afterPos.title ||
+                b4Pos.description !== afterPos.description) &&
+              modifiedFieldsBeforeModification.push(b4Pos);
+          });
+        });
+
         const deletedFields = _.differenceBy(
           projectBeforeModification.openPositions,
           data.openPositions,
@@ -50,53 +64,58 @@ module.exports = {
           ) &&
           process.env.NODE_ENV == 'production'
         ) {
-          await axios.post(process.env.OPEN_POSITIONS_DISCORD_WEBHOOK, {
-            username: `${projectBeforeModification.title} Notifier`,
-            avatar_url:
-              'https://avatars.githubusercontent.com/u/53379976?s=200&v=4',
-            embeds: [
-              {
-                title: `${projectBeforeModification.title} Project Page`,
-                url: `${process.env.FRONTEND_URL}/projects/${projectBeforeModification.slug}`,
-                description: `*someone* **__UPDATED__** the open roles => [Link to the strapi page](${process.env.URL}/admin/plugins/content-manager/collectionType/application::project.project/${params.id})`,
-                color: 15258703, // A yellow color in "decimal value"
-                fields: [
-                  {
-                    name: 'Before Modification',
-                    value: formatJSON(projectBeforeModification.openPositions),
-                    inline: false,
-                  },
-                  {
-                    name: 'Updated Fields',
-                    value: formatJSON(
-                      concatinated.filter((pos) => pos.id && !pos.isHidden)
-                    ),
-                    inline: false,
-                  },
-                  {
-                    name: 'Added Fields',
-                    value: formatJSON(concatinated.filter((pos) => !pos.id)),
-                    inline: true,
-                  },
-                  {
-                    name: 'Deleted/Hidden Fields',
-                    value: formatJSON([
-                      ...deletedFields,
-                      ...concatinated.filter((pos) => pos.isHidden),
-                    ]),
-                    inline: true,
-                  },
-                  {
-                    name: 'Thanks!',
-                    value: ':DevLaunchers:',
-                  },
-                ],
-                image: {
-                  url: `${projectBeforeModification.heroImage.url}`,
-                },
-              },
-            ],
-          });
+          const embedBeforeModification = new MessageBuilder()
+            .setTitle(`${projectBeforeModification.title} Project Page`)
+            .setURL(
+              `${process.env.FRONTEND_URL}/projects/${projectBeforeModification.slug}`
+            )
+            .setDescription(
+              `*someone* **__UPDATED__** the open roles => [Link to the strapi page](${
+                process.env.URL
+              }/admin/plugins/content-manager/collectionType/application::project.project/${
+                params.id
+              })\n**Before Modification**${formatJSON(
+                modifiedFieldsBeforeModification
+              )}`
+            )
+            .setColor(15258703);
+
+          const embedUpdatedFields = new MessageBuilder()
+            .setTitle('**Updated Fields**')
+            .setDescription(
+              formatJSON(concatinated.filter((pos) => pos.id && !pos.isHidden))
+            )
+            .setColor(16744206);
+
+          const embedAddedFields = new MessageBuilder()
+            .setTitle('**Added Fields**')
+            .setDescription(formatJSON(concatinated.filter((pos) => !pos.id)))
+            .setColor(8504279);
+
+          const embedDeletedFields = new MessageBuilder()
+            .setTitle('**Deleted/Hidden Fields**')
+            .setDescription(
+              formatJSON([
+                ...deletedFields,
+                ...concatinated.filter((pos) => pos.isHidden),
+              ])
+            )
+            .setColor(12956064);
+
+          hook.setUsername(`${projectBeforeModification.title} Notifier`);
+          hook.setAvatar(
+            'https://avatars.githubusercontent.com/u/53379976?s=200&v=4'
+          );
+
+          hook
+            .send(embedBeforeModification)
+            .then(() => {
+              hook.send(embedUpdatedFields).then(() => {
+                hook.send(embedAddedFields).then(() => {
+                  hook.send(embedDeletedFields);
+                });
+              });
+            });
         }
       } catch (error) {
         console.error(error);
