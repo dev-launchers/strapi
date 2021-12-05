@@ -8,7 +8,7 @@
 const _ = require('lodash');
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const hook = new Webhook(
-  'https://discord.com/api/webhooks/904084196962750514/vLHvC-cJpsv1z3YrsqMlXWIMBb_ExULJ9vgiQtWsLnzp8RcwX-o_0ZXW1WRZ1uKI-HJs'
+  process.env.OPEN_POSITIONS_DISCORD_WEBHOOK
 );
 
 const formatJSON = (jsonData) => {
