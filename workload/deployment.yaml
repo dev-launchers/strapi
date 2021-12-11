@@ -136,6 +136,16 @@ spec:
             secretKeyRef:
               name: site-projects
               key: discord-webhook
+        - name: NODEMAILER_USER
+          valueFrom:
+            secretKeyRef:
+              name: nodemailer
+              key: user
+        - name: NODEMAILER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: nodemailer
+              key: password
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"

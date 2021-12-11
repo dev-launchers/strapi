@@ -7,6 +7,12 @@
 
 const { sanitizeEntity } = require('strapi-utils');
 
+const isNotEmpty = (team) => {
+  if((team) && (!(team.length === 0))) {
+    return true;
+  }
+  return false;
+};
 module.exports = {
 
   async create(ctx){
@@ -26,8 +32,7 @@ module.exports = {
       level
     } = ctx.request.body;
 
-
-    const applicantProject = await strapi.services.project.findOne({ slug: project });
+    const applicantProject = await strapi.query('project').findOne({ slug: project });
 
     const application = {
       email,
@@ -41,12 +46,29 @@ module.exports = {
       commitment,
       accepted,
       reason,
-      project: applicantProject.id,
+      project: applicantProject ? applicantProject : null,
       level
     };
 
     const entity = await strapi.services.applicant.create(application);
 
+    if (applicantProject){
+      const team = applicantProject.team;
+      if(isNotEmpty(team.leaders)){
+        //lets leaders join google group
+        team.leaders.forEach(async (leader) => {
+          try {
+            const email = leader.leader.email ? leader.leader.email: null;
+            // Send an email to project lead.
+            await strapi.services.sendmail.send(process.env.NODEMAILER_USER,email, 'New applicant notificaton', `Hi Leaders, ${application.name} joined the project of "${applicantProject.title}".`);
+            
+          } catch(err) {
+            console.error('error: can not notify the project leader.', err);
+          }
+        });
+      }
+    }
+    
     return sanitizeEntity(entity, { model: strapi.models.applicant});
-  }
+  },
 };
