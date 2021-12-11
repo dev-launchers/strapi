@@ -54,14 +54,13 @@ module.exports = {
 
     if (applicantProject){
       const team = applicantProject.team;
-      console.log(team);
       if(isNotEmpty(team.leaders)){
         //lets leaders join google group
         team.leaders.forEach(async (leader) => {
           try {
             const email = leader.leader.email ? leader.leader.email: null;
             // Send an email to project lead.
-            await strapi.services.sendmail.send('kuikuigaocn@gmail.com', email, 'New applicant notificaton', `Hi Leaders, ${application.name} joined the project of "${applicantProject.title}".`);
+            await strapi.services.sendmail.send(process.env.NODEMAILER_USER,email, 'New applicant notificaton', `Hi Leaders, ${application.name} joined the project of "${applicantProject.title}".`);
             
           } catch(err) {
             console.error('error: can not notify the project leader.', err);
