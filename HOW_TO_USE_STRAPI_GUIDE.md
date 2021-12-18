@@ -41,7 +41,7 @@
   ![Provideres](./images/how-to-use-strapi/providers.png)
 - Click on the google provider then ping #Alejandro Armas#4672 in the backend chat to get the client id and client secret
 - After receiving the client secret, click the enable toggle and fill out the fields
-  ![Google Provider](./images/how-to-use-strapi/google.png)
+  ![Google Provider](./images/how-to-use-strapi/google-provider.png)
 - After doing that, click save
 - You can now login with google using http://localhost:1337/connect/google
 
