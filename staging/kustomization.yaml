@@ -8,6 +8,7 @@ images:
   - name: devlaunchers/cms-api
     newName: devlaunchers/cms-api
     newTag: f8032ad-202112201908 # {"$imagepolicy": "strapi:strapi:tag"}
+# ACI yaml definition https://docs.microsoft.com/en-us/azure/container-instances/container-instances-reference-yaml
 patchesStrategicMerge:
 - |-
   apiVersion: apps/v1
@@ -22,13 +23,13 @@ patchesStrategicMerge:
       spec:
         containers:
         - name: strapi
-          livenessProbe:
-            $patch: replace
-            exec:
-              command:
-              - "curl"
-              - "http://localhost:1337"
-            periodSeconds: 10
+          resources:
+            limits:
+              cpu: 0.1
+              memoryInGB: 0.2
+            requests:
+              cpu: 0.03
+              memoryInGB: 0.12
         nodeSelector:
           type: virtual-kubelet
         tolerations:
