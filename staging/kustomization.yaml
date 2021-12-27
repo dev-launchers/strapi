@@ -23,13 +23,17 @@ patchesStrategicMerge:
       spec:
         containers:
         - name: strapi
+          livenessProbe:
+            $patch: delete
           resources:
+            # Because of https://github.com/virtual-kubelet/azure-aci/issues/17
+            # limits and requests have to be equal
             limits:
-              cpu: 0.1
-              memoryInGB: 0.2
+              cpu: 0.03
+              memory: 0.2
             requests:
               cpu: 0.03
-              memoryInGB: 0.12
+              memory: 0.2
         nodeSelector:
           type: virtual-kubelet
         tolerations:
