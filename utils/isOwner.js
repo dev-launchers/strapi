@@ -3,7 +3,7 @@ const isOwner = async (collection, userId, id) => {
     const singleCollection = await collection.findOne({ id });
 
     if(userId === singleCollection.user.id){
-        return true;
+      return true;
     }
 
     return false;
