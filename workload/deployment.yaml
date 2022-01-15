@@ -136,6 +136,21 @@ spec:
             secretKeyRef:
               name: site-projects
               key: discord-webhook
+        - name: V_MATCH_USER
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: user
+        - name: V_MATCH_ID
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: id
+        - name: V_MATCH_PREFERENCE
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: preference
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
@@ -150,7 +165,7 @@ spec:
           httpGet:
             path: /
             port: 1337
-          initialDelaySeconds: 120
+          initialDelaySeconds: 300
           periodSeconds: 10
           timeoutSeconds: 10
           failureThreshold: 5
