@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/attachments",
+      "handler": "attachments.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/attachments",
+      "handler": "attachments.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/attachments",
+      "handler": "attachments.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
