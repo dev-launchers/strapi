@@ -150,7 +150,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: v-match
-              key: preference
+              key: preferences
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
