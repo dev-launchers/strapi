@@ -100,6 +100,10 @@ To prevent formatting wars and be consistent, here are the coding style guidelin
     ```
 - After loging in, you should be able test any endpoint you've created that requires authentication
 
+## User Authentication
+You need to log in as an user to have access to `ctx.state.user`. We use Google as the identity provider.
+To set up Google as a provider for testing, go to http://localhost:1337/admin/settings/users-permissions/providers, click on Google and enable it. Message Alejandro Armas#4672 or cthuang#2709 for the `Client ID` and `Client Secret`. 
+
 
 # Running
 In the root of the [platform__dev-env](https://github.com/dev-launchers/platform__dev-env) repo, run `./run.sh` to spin up all services.
