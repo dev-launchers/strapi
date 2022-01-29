@@ -19,6 +19,18 @@ module.exports = {
   lifecycles: {
     async beforeUpdate(params, data) {
       try {
+        const { title, calendarId } = data;
+
+        const group = await strapi.services['google-manager'].getGroup(title);
+        const project = await strapi.services.project.findOne(params);
+
+        const oldTeam = strapi.services.project.returnOldTeam(project);
+        const newTeam = data.team;
+
+        if(group){
+          await strapi.services.project.addNewMembersToGoogleResources(oldTeam, newTeam, calendarId, group);
+        }
+
         let projectBeforeModification = await strapi
           .query('project')
           .findOne(params, ['heroImage', 'heroImage.formats']);
