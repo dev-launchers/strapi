@@ -51,7 +51,8 @@
   screen ![Content Builder](./images/how-to-use-strapi/content.png)
 - Once on that page, click on "+ create new collection type" ![Create New Collection](./images/how-to-use-strapi/create_new_collection.png)
 - When you click on "+ create new collection type" you should see this ![Display Name](./images/how-to-use-strapi/display_name.png)
-- Make sure when typing in the name of the collection to do so in PascalCase
+- Make sure when typing in the name of the collection to do so in PascalCase and keep the name singular
+- For example, `UserProfile`
 - Now you should be able to define all the fields and its data types for your collection ![Schema](./images/how-to-use-strapi/schema.png)
 - After defining your collection, all you have to do is click the green save button on the top right of the screen
   ![Save Button](./images/how-to-use-strapi/save_button.png)
