@@ -13,7 +13,7 @@ const isOwner = async (collection, userId, id) => {
     return false;
   } catch(err) {
     strapi.errors.badRequest(err);
-    return false
+    return false;
   }
 };
 
