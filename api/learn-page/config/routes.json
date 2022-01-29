@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/learn-pages",
+      "handler": "learn-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/learn-pages/count",
+      "handler": "learn-page.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/learn-pages/:id",
+      "handler": "learn-page.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/learn-pages",
+      "handler": "learn-page.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/learn-pages/:id",
+      "handler": "learn-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/learn-pages/:id",
+      "handler": "learn-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_attachment_attachments",
+  "info": {
+    "name": "attachment",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}

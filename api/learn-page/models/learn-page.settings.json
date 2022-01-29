@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learn_pages",
+  "info": {
+    "name": "LearnPage"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isActive": {
+      "type": "boolean"
+    },
+    "tab": {
+      "type": "string"
+    },
+    "section": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "LearnPageformat": {
+      "type": "string"
+    },
+    "imageSrc": {
+      "type": "string"
+    },
+    "attachments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "attachment.attachment"
+    },
+    "extraTagsCSV": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

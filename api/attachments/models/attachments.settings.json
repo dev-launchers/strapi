@@ -1,0 +1,15 @@
+{
+  "kind": "singleType",
+  "collectionName": "attachments",
+  "info": {
+    "name": "attachments",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

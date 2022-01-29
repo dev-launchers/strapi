@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "create_pages",
+  "info": {
+    "name": "CreatePage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isActive": {
+      "type": "boolean"
+    },
+    "tab": {
+      "type": "string"
+    },
+    "section": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "CreatePageformat": {
+      "type": "string"
+    },
+    "imageSrc": {
+      "type": "string"
+    },
+    "extraTagsCSV": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "attachment": {
+      "type": "component",
+      "repeatable": true,
+      "component": "attachment.attachment"
+    }
+  }
+}
