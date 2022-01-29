@@ -2,9 +2,9 @@ const isOwner = async (collection, userId, id) => {
   try {
     const singleCollection = await collection.findOne({ id });
 
-    if(!singleCollection) return strapi.errors.badRequest('A record with that id was not found');
+    if(!singleCollection) throw strapi.errors.badRequest('A record with that id was not found');
 
-    if(!singleCollection.user?.id) return strapi.errors.badRequest('This collection does not have a user id');
+    if(!singleCollection.user?.id) throw strapi.errors.badRequest('This collection does not have a user id');
 
     if(userId === singleCollection.user.id){
       return true;
@@ -12,8 +12,7 @@ const isOwner = async (collection, userId, id) => {
 
     return false;
   } catch(err) {
-    strapi.errors.badRequest(err);
-    return false;
+    throw new Error(err);
   }
 };
 
