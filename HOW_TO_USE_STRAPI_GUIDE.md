@@ -25,7 +25,7 @@
   normally since it doesn't require any authentication
 - If one of your endpoints is protected by authentication, and you try to make a request to it without signing in as your test user,
   you'll get a 403 forbidden error ![Forbidden](./images/how-to-use-strapi/forbidden.png).
-- To sign in as your test user, make sure to make a POST request to https://localhost:1337/auth/local
+- To sign in as your test user, make sure to make a POST request to http://localhost:1337/auth/local
   with a JSON object with the keys identifier and password then click the purple send button. Identifier is just your username or email
   of the test user. ![Sign in as Test User](./images/how-to-use-strapi/sign-in.png)
 - After signing in, you should get a 200 status code and a response that looks something like this ![Response](./images/how-to-use-strapi/response.png)
@@ -51,7 +51,8 @@
   screen ![Content Builder](./images/how-to-use-strapi/content.png)
 - Once on that page, click on "+ create new collection type" ![Create New Collection](./images/how-to-use-strapi/create_new_collection.png)
 - When you click on "+ create new collection type" you should see this ![Display Name](./images/how-to-use-strapi/display_name.png)
-- Make sure when typing in the name of the collection to do so in PascalCase
+- Make sure when typing in the name of the collection to do so in PascalCase and keep the name singular
+- For example, `UserProfile`
 - Now you should be able to define all the fields and its data types for your collection ![Schema](./images/how-to-use-strapi/schema.png)
 - After defining your collection, all you have to do is click the green save button on the top right of the screen
   ![Save Button](./images/how-to-use-strapi/save_button.png)

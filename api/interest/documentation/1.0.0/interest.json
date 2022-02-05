@@ -517,13 +517,13 @@
       "Interest": {
         "required": [
           "id",
-          "interests"
+          "interest"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "interests": {
+          "interest": {
             "type": "string"
           },
           "users_permissions_users": {
@@ -651,9 +651,6 @@
                 "description",
                 "commitmentLevel",
                 "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -684,18 +681,6 @@
                 },
                 "signupFormUrl": {
                   "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
                 },
                 "openPositions": {
                   "type": "component"
@@ -751,6 +736,38 @@
               }
             }
           },
+          "categories": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "category"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -759,10 +776,10 @@
       },
       "NewInterest": {
         "required": [
-          "interests"
+          "interest"
         ],
         "properties": {
-          "interests": {
+          "interest": {
             "type": "string"
           },
           "users_permissions_users": {
@@ -772,6 +789,12 @@
             }
           },
           "projects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "categories": {
             "type": "array",
             "items": {
               "type": "string"

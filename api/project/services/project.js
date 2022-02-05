@@ -13,6 +13,10 @@ const isNotEmpty = (team) => {
 };
 
 module.exports = {
+  find(params){
+    return strapi.query('project').find(params, ['interests', 'interests.categories']);
+  },
+
   async giveTeamGroup(team, group) {
     if(isNotEmpty(team.leaders)){
       //lets leaders join google group

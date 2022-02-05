@@ -75,6 +75,7 @@ To prevent formatting wars and be consistent, here are the coding style guidelin
       ```
     - This ensures that you are working on the newest copy of the app.
     - When naming branches, add your github username followed by a "/" then the name of your branch
+    - For instance, `alearm246/implementing-sockets`
 - We are using semantic versioning for commits to tag releases:
     - Follow the [Format Guide](https://github.com/semantic-release/semantic-release#commit-message-format)
 - Create a new branch for each new feature you add.
@@ -100,10 +101,12 @@ To prevent formatting wars and be consistent, here are the coding style guidelin
     ```
 - After loging in, you should be able test any endpoint you've created that requires authentication
 
+## User Authentication
+You need to log in as an user to have access to `ctx.state.user`. We use Google as the identity provider.
+To set up Google as a provider for testing, go to http://localhost:1337/admin/settings/users-permissions/providers, click on Google and enable it. Message Alejandro Armas#4672 or cthuang#2709 for the `Client ID` and `Client Secret`. 
+
 
 # Running
-In the root of the [platform__dev-env](https://github.com/dev-launchers/platform__dev-env) repo, run `./run.sh` to spin up all services.
-If you only want to run a subset of services run `./run.sh <service 1>, <service 2> ... <service n>`.
-For example, if you only want to run the api, run `./run.sh strapi`. If you want to run the bot, run `./run.sh bot`.
+In the root of the [platform__dev-env](https://github.com/dev-launchers/platform__dev-env) repo, run `./run.sh strapi` to run the backend
 Tilt will automatically detect change in source and handle restarts.
 It also provides an UI to read logs from each container, and restart them at http://localhost:10350/.

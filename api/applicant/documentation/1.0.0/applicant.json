@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/idea-cards": {
+    "/applicants": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Applicant"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Applicant"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Applicant"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Applicant"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewIdea-card"
+                "$ref": "#/components/schemas/NewApplicant"
               }
             }
           }
         }
       }
     },
-    "/idea-cards/count": {
+    "/applicants/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Applicant"
         ],
         "parameters": []
       }
     },
-    "/idea-cards/{id}": {
+    "/applicants/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Applicant"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Applicant"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Applicant"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Applicant"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewIdea-card"
+                "$ref": "#/components/schemas/NewApplicant"
               }
             }
           }
@@ -508,75 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/users/{id}/idea-cards": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Idea-card"
+          "Applicant"
         ],
         "parameters": [
           {
@@ -595,172 +514,104 @@
   },
   "components": {
     "schemas": {
-      "Idea-card": {
+      "Applicant": {
         "required": [
           "id",
-          "ideaName",
-          "tagline",
-          "description",
-          "targetAudience",
-          "hourCommitmentMin",
-          "hourCommitmentMax",
-          "difficultyLevel"
+          "email",
+          "name",
+          "age",
+          "role",
+          "zip",
+          "experience",
+          "commitment",
+          "accepted",
+          "reason",
+          "level"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "ideaName": {
+          "email": {
             "type": "string"
           },
-          "tagline": {
+          "name": {
             "type": "string"
           },
-          "description": {
-            "type": "string"
-          },
-          "targetAudience": {
-            "type": "string"
-          },
-          "hourCommitmentMin": {
+          "age": {
             "type": "integer"
           },
-          "hourCommitmentMax": {
+          "role": {
+            "type": "string"
+          },
+          "zip": {
             "type": "integer"
           },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "skill"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "skill": {
-                  "type": "string"
-                }
-              }
-            }
+          "experience": {
+            "type": "string"
           },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
+          "commitment": {
+            "type": "number"
           },
-          "author": {
+          "accepted": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "project": {
             "required": [
               "id",
-              "email",
-              "googleId",
-              "userId"
+              "slug",
+              "catchPhrase",
+              "title",
+              "heroImage",
+              "vision",
+              "description",
+              "commitmentLevel",
+              "signupFormUrl",
+              "team",
+              "isListed"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "email": {
+              "slug": {
                 "type": "string"
               },
-              "provider": {
+              "catchPhrase": {
                 "type": "string"
               },
-              "password": {
+              "title": {
                 "type": "string"
               },
-              "resetPasswordToken": {
+              "heroImage": {
                 "type": "string"
               },
-              "confirmationToken": {
+              "vision": {
                 "type": "string"
               },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
+              "description": {
                 "type": "string"
               },
-              "username": {
+              "commitmentLevel": {
                 "type": "string"
               },
-              "projects": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "point": {
+              "signupFormUrl": {
                 "type": "string"
               },
-              "profile": {
+              "openPositions": {
+                "type": "component"
+              },
+              "team": {
+                "type": "component"
+              },
+              "user": {
                 "type": "string"
               },
-              "discordId": {
-                "type": "string"
-              },
-              "googleId": {
-                "type": "string"
-              },
-              "discordAvatar": {
-                "type": "string"
-              },
-              "discordDiscriminator": {
-                "type": "string"
-              },
-              "discordUsername": {
-                "type": "string"
-              },
-              "userId": {
-                "type": "uid"
-              },
-              "time_capsules": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "birthday": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "zipCode": {
-                "type": "integer"
-              },
-              "hasAcceptedTermsOfService": {
-                "type": "boolean"
-              },
-              "hasSubscribedEmails": {
-                "type": "boolean"
+              "Images": {
+                "type": "component"
               },
               "interests": {
                 "type": "array",
@@ -768,11 +619,29 @@
                   "type": "string"
                 }
               },
-              "idea_cards": {
+              "calendarId": {
+                "type": "string"
+              },
+              "board": {
+                "type": "component"
+              },
+              "isListed": {
+                "type": "boolean"
+              },
+              "subProjects": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "parentProject": {
+                "type": "string"
+              },
+              "google_meet": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -782,48 +651,13 @@
               }
             }
           },
-          "difficultyLevel": {
+          "level": {
             "type": "string",
             "enum": [
-              "Beginner",
-              "Intermediate",
-              "Advanced"
+              "beginner",
+              "intermediate",
+              "advanced"
             ]
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "NewIdea-card": {
-        "required": [
-          "ideaName",
-          "tagline",
-          "description",
-          "targetAudience",
-          "hourCommitmentMin",
-          "hourCommitmentMax",
-          "difficultyLevel"
-        ],
-        "properties": {
-          "ideaName": {
-            "type": "string"
-          },
-          "tagline": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "targetAudience": {
-            "type": "string"
-          },
-          "hourCommitmentMin": {
-            "type": "integer"
-          },
-          "hourCommitmentMax": {
-            "type": "integer"
           },
           "skills": {
             "type": "array",
@@ -843,43 +677,81 @@
               }
             }
           },
-          "openPositions": {
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewApplicant": {
+        "required": [
+          "email",
+          "name",
+          "age",
+          "role",
+          "zip",
+          "experience",
+          "commitment",
+          "accepted",
+          "reason",
+          "level"
+        ],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer"
+          },
+          "role": {
+            "type": "string"
+          },
+          "zip": {
+            "type": "integer"
+          },
+          "experience": {
+            "type": "string"
+          },
+          "commitment": {
+            "type": "number"
+          },
+          "accepted": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "project": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "beginner",
+              "intermediate",
+              "advanced"
+            ]
+          },
+          "skills": {
             "type": "array",
             "items": {
               "type": "object",
               "required": [
                 "id",
-                "title",
-                "description",
-                "isHidden"
+                "skill"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "title": {
+                "skill": {
                   "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
                 }
               }
             }
-          },
-          "author": {
-            "type": "string"
-          },
-          "difficultyLevel": {
-            "type": "string",
-            "enum": [
-              "Beginner",
-              "Intermediate",
-              "Advanced"
-            ]
           },
           "published_at": {
             "type": "string",
@@ -895,5 +767,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Applicant"
+    }
+  ]
 }

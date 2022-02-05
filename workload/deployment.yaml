@@ -131,21 +131,41 @@ spec:
           value: info
         - name: AUDIT_FREQ_MINUTES
           value: "60"
+        - name: OPEN_POSITIONS_DISCORD_WEBHOOK
+          valueFrom:
+            secretKeyRef:
+              name: site-projects
+              key: discord-webhook
+        - name: V_MATCH_USER
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: user
+        - name: V_MATCH_ID
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: id
+        - name: V_MATCH_PREFERENCE
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: preferences
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
         resources:
           limits:
-            cpu: 256m
-            memory: 256Mi
-          requests:
             cpu: 128m
+            memory: 200Mi
+          requests:
+            cpu: 32m
             memory: 128Mi
         livenessProbe:
           httpGet:
             path: /
             port: 1337
-          initialDelaySeconds: 120
+          initialDelaySeconds: 300
           periodSeconds: 10
           timeoutSeconds: 10
           failureThreshold: 5

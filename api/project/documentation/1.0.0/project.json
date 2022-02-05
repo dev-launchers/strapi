@@ -311,6 +311,63 @@
         "parameters": []
       }
     },
+    "/projects/interests": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Project"
+        ],
+        "parameters": []
+      }
+    },
     "/projects/{slug}": {
       "get": {
         "deprecated": false,
@@ -596,9 +653,6 @@
           "description",
           "commitmentLevel",
           "signupFormUrl",
-          "meetingLinkURLs",
-          "meetingTimes",
-          "keywords",
           "team",
           "isListed"
         ],
@@ -694,90 +748,6 @@
           "signupFormUrl": {
             "type": "string"
           },
-          "meetingLinkURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "roomName",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "roomName": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "meetingTimes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "dateTime"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "projectReferenceURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "openPositions": {
             "type": "array",
             "items": {
@@ -785,7 +755,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -796,6 +767,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -1263,13 +1238,13 @@
             "items": {
               "required": [
                 "id",
-                "interests"
+                "interest"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "interests": {
+                "interest": {
                   "type": "string"
                 },
                 "users_permissions_users": {
@@ -1279,6 +1254,12 @@
                   }
                 },
                 "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "categories": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1371,9 +1352,6 @@
                 "description",
                 "commitmentLevel",
                 "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
                 "team",
                 "isListed"
               ],
@@ -1404,18 +1382,6 @@
                 },
                 "signupFormUrl": {
                   "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
                 },
                 "openPositions": {
                   "type": "component"
@@ -1482,9 +1448,6 @@
               "description",
               "commitmentLevel",
               "signupFormUrl",
-              "meetingLinkURLs",
-              "meetingTimes",
-              "keywords",
               "team",
               "isListed"
             ],
@@ -1515,18 +1478,6 @@
               },
               "signupFormUrl": {
                 "type": "string"
-              },
-              "meetingLinkURLs": {
-                "type": "component"
-              },
-              "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
-                "type": "component"
-              },
-              "projectReferenceURLs": {
-                "type": "component"
               },
               "openPositions": {
                 "type": "component"
@@ -1672,9 +1623,6 @@
           "description",
           "commitmentLevel",
           "signupFormUrl",
-          "meetingLinkURLs",
-          "meetingTimes",
-          "keywords",
           "team",
           "isListed"
         ],
@@ -1700,90 +1648,6 @@
           "signupFormUrl": {
             "type": "string"
           },
-          "meetingLinkURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "roomName",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "roomName": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "meetingTimes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "dateTime"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "projectReferenceURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "openPositions": {
             "type": "array",
             "items": {
@@ -1791,7 +1655,8 @@
               "required": [
                 "id",
                 "title",
-                "description"
+                "description",
+                "isHidden"
               ],
               "properties": {
                 "id": {
@@ -1802,6 +1667,10 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "isHidden": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
