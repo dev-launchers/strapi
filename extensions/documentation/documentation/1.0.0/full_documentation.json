@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/04/2021 4:52:21 PM"
+    "x-generation-date": "01/23/2022 10:25:25 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6941,6 +6941,116 @@
                 }
               }
             }
+          },
+          "project": {
+            "required": [
+              "id",
+              "slug",
+              "catchPhrase",
+              "title",
+              "heroImage",
+              "vision",
+              "description",
+              "commitmentLevel",
+              "signupFormUrl",
+              "meetingLinkURLs",
+              "meetingTimes",
+              "keywords",
+              "team",
+              "isListed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "catchPhrase": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "heroImage": {
+                "type": "string"
+              },
+              "vision": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "commitmentLevel": {
+                "type": "string"
+              },
+              "signupFormUrl": {
+                "type": "string"
+              },
+              "meetingLinkURLs": {
+                "type": "component"
+              },
+              "meetingTimes": {
+                "type": "component"
+              },
+              "keywords": {
+                "type": "component"
+              },
+              "projectReferenceURLs": {
+                "type": "component"
+              },
+              "openPositions": {
+                "type": "component"
+              },
+              "team": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "Images": {
+                "type": "component"
+              },
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "calendarId": {
+                "type": "string"
+              },
+              "board": {
+                "type": "component"
+              },
+              "isListed": {
+                "type": "boolean"
+              },
+              "subProjects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "parentProject": {
+                "type": "string"
+              },
+              "google_meet": {
+                "type": "string"
+              },
+              "newMeetingTimes": {
+                "type": "component"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -6977,6 +7087,9 @@
                 }
               }
             }
+          },
+          "project": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -7229,123 +7342,6 @@
               }
             }
           },
-          "project": {
-            "required": [
-              "id",
-              "slug",
-              "catchPhrase",
-              "title",
-              "heroImage",
-              "vision",
-              "description",
-              "commitmentLevel",
-              "signupFormUrl",
-              "meetingLinkURLs",
-              "meetingTimes",
-              "keywords",
-              "team",
-              "isListed"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "catchPhrase": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "heroImage": {
-                "type": "string"
-              },
-              "vision": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "commitmentLevel": {
-                "type": "string"
-              },
-              "signupFormUrl": {
-                "type": "string"
-              },
-              "meetingLinkURLs": {
-                "type": "component"
-              },
-              "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
-                "type": "component"
-              },
-              "projectReferenceURLs": {
-                "type": "component"
-              },
-              "openPositions": {
-                "type": "component"
-              },
-              "team": {
-                "type": "component"
-              },
-              "user": {
-                "type": "string"
-              },
-              "Images": {
-                "type": "component"
-              },
-              "interests": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "calendarId": {
-                "type": "string"
-              },
-              "board": {
-                "type": "component"
-              },
-              "isListed": {
-                "type": "boolean"
-              },
-              "subProjects": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "parentProject": {
-                "type": "string"
-              },
-              "google_meet": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "NewGoogle-meets": {
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "meetingCode": {
-            "type": "string"
-          },
           "openPositions": {
             "type": "array",
             "items": {
@@ -7367,9 +7363,6 @@
                 }
               }
             }
-          },
-          "project": {
-            "type": "string"
           },
           "author": {
             "type": "string"
@@ -7615,6 +7608,9 @@
                 },
                 "google_meet": {
                   "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"
@@ -8955,6 +8951,9 @@
                 "google_meet": {
                   "type": "string"
                 },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -9063,6 +9062,9 @@
               "google_meet": {
                 "type": "string"
               },
+              "newMeetingTimes": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -9105,6 +9107,48 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
               }
             }
           },
@@ -9689,6 +9733,48 @@
           "google_meet": {
             "type": "string"
           },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -10263,6 +10349,9 @@
                 },
                 "google_meet": {
                   "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"
