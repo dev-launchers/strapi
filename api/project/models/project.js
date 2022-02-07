@@ -8,7 +8,7 @@
 const _ = require('lodash');
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const hook = new Webhook(
-  process.env.OPEN_POSITIONS_DISCORD_WEBHOOK
+  process.env.OPEN_POSITIONS_DISCORD_WEBHOOK || 'Alejandro hack'
 );
 
 const formatJSON = (jsonData) => {
