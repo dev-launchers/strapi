@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/09/2022 4:59:44 PM"
+    "x-generation-date": "01/23/2022 10:25:25 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8335,6 +8335,9 @@
               "description",
               "commitmentLevel",
               "signupFormUrl",
+              "meetingLinkURLs",
+              "meetingTimes",
+              "keywords",
               "team",
               "isListed"
             ],
@@ -8365,6 +8368,18 @@
               },
               "signupFormUrl": {
                 "type": "string"
+              },
+              "meetingLinkURLs": {
+                "type": "component"
+              },
+              "meetingTimes": {
+                "type": "component"
+              },
+              "keywords": {
+                "type": "component"
+              },
+              "projectReferenceURLs": {
+                "type": "component"
               },
               "openPositions": {
                 "type": "component"
@@ -8404,6 +8419,9 @@
               },
               "google_meet": {
                 "type": "string"
+              },
+              "newMeetingTimes": {
+                "type": "component"
               },
               "published_at": {
                 "type": "string"
@@ -8999,6 +9017,15 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
+                  "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"
@@ -10254,6 +10281,9 @@
                 "google_meet": {
                   "type": "string"
                 },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -10347,6 +10377,9 @@
               "google_meet": {
                 "type": "string"
               },
+              "newMeetingTimes": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -10389,6 +10422,48 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
               }
             }
           },
@@ -10890,6 +10965,48 @@
           },
           "google_meet": {
             "type": "string"
+          },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -11450,6 +11567,9 @@
                 },
                 "google_meet": {
                   "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"

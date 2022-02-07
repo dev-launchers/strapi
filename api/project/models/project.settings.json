@@ -101,6 +101,11 @@
     "google_meet": {
       "model": "google-meets",
       "via": "project"
+    },
+    "newMeetingTimes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dates.new-meeting-times"
     }
   }
 }
