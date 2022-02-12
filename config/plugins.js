@@ -1,10 +1,14 @@
 if (process.env.NODE_ENV == 'development') {
-  module.exports = () => ({
+  module.exports = ({}) => ({
     upload: {
       providerOptions: {
         localServer: {
         }
       }
+    },
+    sentry: {
+      dsn: 'https://42e839acd2da431f8dc9cfe7a39135d5@o1124032.ingest.sentry.io/6162267',
+      sendMetadata: true,
     }
   });
 } else {
