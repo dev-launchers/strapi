@@ -721,6 +721,9 @@
                 "google_meet": {
                   "type": "string"
                 },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },

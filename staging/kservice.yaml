@@ -1,19 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: serving.knative.dev/v1
+kind: Service
 metadata:
-  namespace: strapi
+  namespace: strapi-staging
   name: strapi
-  labels:
-    app: strapi
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: strapi
   template:
-    metadata:
-      labels:
-        app: strapi
     spec:
       volumes:
         - name: google-directory-key
@@ -24,7 +15,7 @@ spec:
               path: google-service-key.json
       containers:
       - name: strapi
-        image: devlaunchers/cms-api:latest
+        image: devlaunchers/cms-api:190e6cd-202201292107
         ports:
         - containerPort: 1337
         env:
@@ -154,18 +145,3 @@ spec:
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
-        resources:
-          limits:
-            cpu: 128m
-            memory: 200Mi
-          requests:
-            cpu: 32m
-            memory: 128Mi
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 1337
-          initialDelaySeconds: 300
-          periodSeconds: 10
-          timeoutSeconds: 10
-          failureThreshold: 5
