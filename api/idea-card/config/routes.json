@@ -25,9 +25,9 @@
       }
     },
     {
-      "method": "GET",
-      "path": "/users/:id/idea-cards",
-      "handler": "idea-card.findByUserId",
+      "method": "POST",
+      "path": "/idea-cards/:id/comment",
+      "handler": "idea-card.comment",
       "config": {
         "policies": []
       }
