@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "opportunities",
+  "info": {
+    "name": "Opportunities",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "skills": {
+      "collection": "interest"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "required": true
+    },
+    "commitmentHoursPerWeek": {
+      "type": "integer",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "expectations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "positions.expectations",
+      "required": true
+    },
+    "isHidden": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

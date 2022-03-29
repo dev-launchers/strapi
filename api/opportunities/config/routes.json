@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/opportunities",
+      "handler": "opportunities.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/opportunities/count",
+      "handler": "opportunities.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/opportunities/:id",
+      "handler": "opportunities.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/opportunities",
+      "handler": "opportunities.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/opportunities/:id",
+      "handler": "opportunities.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/opportunities/:id",
+      "handler": "opportunities.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
