@@ -1,9 +1,20 @@
+const { isDevEnv } = require('../utils/isDevEnv');
+
+// all Devlaunchers internal projects domains
+const DevLaunchersSubdomains = [
+  'https://idea.devlaunchers.com',
+  'https://idea-staging.devlaunchers.com',
+  'https://projects.devlaunchers.org',
+  'https://projects-staging.devlaunchers.org'
+];
+
 module.exports = {
   //...
   settings: {
     cors: {
-      enabled: true,
-      origin: [process.env.FRONTEND_URL, process.env.URL, 'http://localhost:3000'],
+      // We don't need to have CORS enabled in Dev Environment
+      enabled: !isDevEnv(),
+      origin: [process.env.FRONTEND_URL, process.env.URL, 'http://localhost:3000', ...DevLaunchersSubdomains],
     },
     logger: {
       level: process.env.STRAPI_LOG_LEVEL,
