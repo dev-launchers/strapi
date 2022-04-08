@@ -52,12 +52,6 @@
       "required": true,
       "unique": false
     },
-    "openPositions": {
-      "type": "component",
-      "repeatable": true,
-      "component": "positions.open-positions",
-      "required": false
-    },
     "team": {
       "type": "component",
       "repeatable": false,

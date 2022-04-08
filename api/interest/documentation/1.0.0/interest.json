@@ -683,9 +683,6 @@
                 "signupFormUrl": {
                   "type": "string"
                 },
-                "openPositions": {
-                  "type": "component"
-                },
                 "team": {
                   "type": "component"
                 },

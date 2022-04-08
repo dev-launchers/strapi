@@ -749,33 +749,6 @@
           "signupFormUrl": {
             "type": "string"
           },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          },
           "team": {
             "type": "object",
             "required": [
@@ -1385,9 +1358,6 @@
                 "signupFormUrl": {
                   "type": "string"
                 },
-                "openPositions": {
-                  "type": "component"
-                },
                 "team": {
                   "type": "component"
                 },
@@ -1484,9 +1454,6 @@
               },
               "signupFormUrl": {
                 "type": "string"
-              },
-              "openPositions": {
-                "type": "component"
               },
               "team": {
                 "type": "component"
@@ -1660,33 +1627,6 @@
           },
           "signupFormUrl": {
             "type": "string"
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "team": {
             "type": "object",
