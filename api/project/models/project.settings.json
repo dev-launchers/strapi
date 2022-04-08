@@ -101,6 +101,10 @@
       "repeatable": true,
       "component": "dates.new-meeting-times"
     },
+    "opportunities": {
+      "via": "projects",
+      "collection": "opportunities"
+    },
     "isPlatform": {
       "type": "boolean",
       "required": true

@@ -1336,6 +1336,12 @@
                 "newMeetingTimes": {
                   "type": "component"
                 },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "isPlatform": {
                   "type": "boolean"
                 },

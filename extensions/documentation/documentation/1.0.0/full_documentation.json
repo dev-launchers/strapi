@@ -8581,6 +8581,12 @@
               "newMeetingTimes": {
                 "type": "component"
               },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "isPlatform": {
                 "type": "boolean"
               },
@@ -8918,6 +8924,12 @@
               },
               "newMeetingTimes": {
                 "type": "component"
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "isPlatform": {
                 "type": "boolean"
@@ -9486,6 +9498,12 @@
                 "newMeetingTimes": {
                   "type": "component"
                 },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "isPlatform": {
                   "type": "boolean"
                 },
@@ -9795,6 +9813,12 @@
                 },
                 "newMeetingTimes": {
                   "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "isPlatform": {
                   "type": "boolean"
@@ -11025,6 +11049,12 @@
                 "newMeetingTimes": {
                   "type": "component"
                 },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "isPlatform": {
                   "type": "boolean"
                 },
@@ -11122,6 +11152,12 @@
               "newMeetingTimes": {
                 "type": "component"
               },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "isPlatform": {
                 "type": "boolean"
               },
@@ -11208,6 +11244,69 @@
                 "endTime": {
                   "type": "string",
                   "format": "date-time"
+                }
+              }
+            }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "level",
+                "commitmentHoursPerWeek",
+                "description",
+                "expectations",
+                "isHidden"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced"
+                  ]
+                },
+                "commitmentHoursPerWeek": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "expectations": {
+                  "type": "component"
+                },
+                "isHidden": {
+                  "type": "boolean"
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
                 }
               }
             }
@@ -11728,6 +11827,12 @@
                   "format": "date-time"
                 }
               }
+            }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "isPlatform": {
@@ -12293,6 +12398,12 @@
                 },
                 "newMeetingTimes": {
                   "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "isPlatform": {
                   "type": "boolean"
