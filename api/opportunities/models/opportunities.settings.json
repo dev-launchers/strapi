@@ -46,6 +46,11 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "projects": {
+      "via": "opportunities",
+      "collection": "project",
+      "dominant": true
     }
   }
 }

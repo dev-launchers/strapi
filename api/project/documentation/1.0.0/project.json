@@ -654,7 +654,8 @@
           "commitmentLevel",
           "signupFormUrl",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "id": {
@@ -1353,7 +1354,8 @@
                 "commitmentLevel",
                 "signupFormUrl",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -1425,6 +1427,9 @@
                 "newMeetingTimes": {
                   "type": "component"
                 },
+                "isPlatform": {
+                  "type": "boolean"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1449,7 +1454,8 @@
               "commitmentLevel",
               "signupFormUrl",
               "team",
-              "isListed"
+              "isListed",
+              "isPlatform"
             ],
             "properties": {
               "id": {
@@ -1520,6 +1526,9 @@
               },
               "newMeetingTimes": {
                 "type": "component"
+              },
+              "isPlatform": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -1608,6 +1617,9 @@
               }
             }
           },
+          "isPlatform": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1624,7 +1636,8 @@
           "commitmentLevel",
           "signupFormUrl",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "slug": {
@@ -2148,6 +2161,9 @@
                 }
               }
             }
+          },
+          "isPlatform": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

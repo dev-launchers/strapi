@@ -652,7 +652,8 @@
                 "commitmentLevel",
                 "signupFormUrl",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -723,6 +724,9 @@
                 },
                 "newMeetingTimes": {
                   "type": "component"
+                },
+                "isPlatform": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

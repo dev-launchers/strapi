@@ -611,6 +611,105 @@
             "type": "boolean",
             "default": false
           },
+          "projects": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "catchPhrase",
+                "title",
+                "heroImage",
+                "vision",
+                "description",
+                "commitmentLevel",
+                "signupFormUrl",
+                "team",
+                "isListed",
+                "isPlatform"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heroImage": {
+                  "type": "string"
+                },
+                "vision": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "commitmentLevel": {
+                  "type": "string"
+                },
+                "signupFormUrl": {
+                  "type": "string"
+                },
+                "team": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "calendarId": {
+                  "type": "string"
+                },
+                "board": {
+                  "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
+                },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
+                  "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
+                "isPlatform": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -671,6 +770,12 @@
           "isHidden": {
             "type": "boolean",
             "default": false
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
