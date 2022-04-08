@@ -5,21 +5,18 @@
  * to customize this controller
  */
 
-const { sanitizeEntity } = require('strapi-utils');
+const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
 module.exports = {
-  async findByUserId(ctx) {
-    try {
-      const { id } = ctx.params;
-      const params = {
-        author: id,
-        ...ctx.query
-      };
-      const entity = await strapi.services['idea-card'].find(params);
-      return sanitizeEntity(entity, { model: strapi.models['idea-card'] });
-    } catch(err) {
-      console.error(err);
-      ctx.badRequest(err);
+  async comment(ctx) {
+    let entity;
+    if (ctx.is('multipart')) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services.comment.create(data, { files });
+    } else {
+      ctx.request.body.idea_card = ctx.params.id
+      entity = await strapi.services.comment.create(ctx.request.body);
     }
-  }
+    return sanitizeEntity(entity, { model: strapi.models.comment });
+  },
 };

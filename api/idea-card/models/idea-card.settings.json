@@ -60,6 +60,25 @@
         "Advanced"
       ],
       "required": true
+    },
+    "comments": {
+      "via": "idea_card",
+      "collection": "comment"
+    },
+    "discord": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "calendly": {
+      "type": "string"
+    },
+    "features": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "string"
     }
   }
 }

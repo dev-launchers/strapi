@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/idea-cards": {
+    "/comments": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comment"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Comment"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Comment"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Comment"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewIdea-card"
+                "$ref": "#/components/schemas/NewComment"
               }
             }
           }
         }
       }
     },
-    "/idea-cards/count": {
+    "/comments/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Comment"
         ],
         "parameters": []
       }
     },
-    "/idea-cards/{id}": {
+    "/comments/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Comment"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Comment"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Comment"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Comment"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewIdea-card"
+                "$ref": "#/components/schemas/NewComment"
               }
             }
           }
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Idea-card"
+          "Comment"
         ],
         "parameters": [
           {
@@ -523,259 +510,94 @@
           }
         ]
       }
-    },
-    "/idea-cards/{id}/comment": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Idea-card"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Idea-card": {
+      "Comment": {
         "required": [
-          "id",
-          "ideaName",
-          "tagline",
-          "description",
-          "targetAudience",
-          "hourCommitmentMin",
-          "hourCommitmentMax",
-          "difficultyLevel"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "ideaName": {
+          "text": {
             "type": "string"
           },
-          "tagline": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "targetAudience": {
-            "type": "string"
-          },
-          "hourCommitmentMin": {
-            "type": "integer"
-          },
-          "hourCommitmentMax": {
-            "type": "integer"
-          },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "skill"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "skill": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          },
-          "author": {
+          "idea_card": {
             "required": [
               "id",
-              "email",
-              "googleId",
-              "userId"
+              "ideaName",
+              "tagline",
+              "description",
+              "targetAudience",
+              "hourCommitmentMin",
+              "hourCommitmentMax",
+              "difficultyLevel"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
+              "ideaName": {
+                "type": "string"
+              },
+              "tagline": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "targetAudience": {
+                "type": "string"
+              },
+              "hourCommitmentMin": {
+                "type": "integer"
+              },
+              "hourCommitmentMax": {
+                "type": "integer"
+              },
+              "skills": {
+                "type": "component"
+              },
+              "openPositions": {
+                "type": "component"
+              },
+              "author": {
+                "type": "string"
+              },
+              "difficultyLevel": {
+                "type": "string",
+                "enum": [
+                  "Beginner",
+                  "Intermediate",
+                  "Advanced"
+                ]
+              },
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "discord": {
+                "type": "string"
+              },
               "email": {
                 "type": "string"
               },
-              "provider": {
+              "calendly": {
                 "type": "string"
               },
-              "password": {
+              "features": {
                 "type": "string"
               },
-              "resetPasswordToken": {
+              "experience": {
                 "type": "string"
               },
-              "confirmationToken": {
+              "published_at": {
                 "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "projects": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "point": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "discordId": {
-                "type": "string"
-              },
-              "googleId": {
-                "type": "string"
-              },
-              "discordAvatar": {
-                "type": "string"
-              },
-              "discordDiscriminator": {
-                "type": "string"
-              },
-              "discordUsername": {
-                "type": "string"
-              },
-              "userId": {
-                "type": "uid"
-              },
-              "time_capsules": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "birthday": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "zipCode": {
-                "type": "integer"
-              },
-              "hasAcceptedTermsOfService": {
-                "type": "boolean"
-              },
-              "hasSubscribedEmails": {
-                "type": "boolean"
-              },
-              "interests": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "idea_cards": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
               },
               "created_by": {
                 "type": "string"
@@ -785,58 +607,7 @@
               }
             }
           },
-          "difficultyLevel": {
-            "type": "string",
-            "enum": [
-              "Beginner",
-              "Intermediate",
-              "Advanced"
-            ]
-          },
-          "comments": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "idea_card": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "discord": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "calendly": {
-            "type": "string"
-          },
-          "features": {
-            "type": "string"
-          },
-          "experience": {
+          "author": {
             "type": "string"
           },
           "published_at": {
@@ -845,110 +616,15 @@
           }
         }
       },
-      "NewIdea-card": {
-        "required": [
-          "ideaName",
-          "tagline",
-          "description",
-          "targetAudience",
-          "hourCommitmentMin",
-          "hourCommitmentMax",
-          "difficultyLevel"
-        ],
+      "NewComment": {
         "properties": {
-          "ideaName": {
+          "text": {
             "type": "string"
           },
-          "tagline": {
+          "idea_card": {
             "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "targetAudience": {
-            "type": "string"
-          },
-          "hourCommitmentMin": {
-            "type": "integer"
-          },
-          "hourCommitmentMax": {
-            "type": "integer"
-          },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "skill"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "skill": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "author": {
-            "type": "string"
-          },
-          "difficultyLevel": {
-            "type": "string",
-            "enum": [
-              "Beginner",
-              "Intermediate",
-              "Advanced"
-            ]
-          },
-          "comments": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "discord": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "calendly": {
-            "type": "string"
-          },
-          "features": {
-            "type": "string"
-          },
-          "experience": {
             "type": "string"
           },
           "published_at": {
@@ -965,5 +641,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Comment"
+    }
+  ]
 }
