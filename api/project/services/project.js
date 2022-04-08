@@ -14,7 +14,7 @@ const isNotEmpty = (team) => {
 
 module.exports = {
   find(params){
-    return strapi.query('project').find(params, ['interests', 'interests.categories','heroImage','subProjects']);
+    return strapi.query('project').find(params, ['interests', 'interests.categories','heroImage','subProjects', 'opportunities']);
   },
 
   async giveTeamGroup(team, group) {
