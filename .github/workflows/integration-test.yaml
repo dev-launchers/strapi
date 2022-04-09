@@ -1,0 +1,48 @@
+name: postman-pull-request
+on: [push, pull_request] // this action runs on each new push 
+                         // and pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+        postgresql-version: [11]
+  services:
+    postgres:
+      image: postgres:12.3
+      env:
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_DB: postgres
+      options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+  steps:
+  - name: Check out Git repositor
+    uses: actions/checkout@v2
+
+  - name: Set up Node.js
+    uses: actions/setup-node@v1
+    with:
+      node-version: ${{ matrix.node-version }}
+      registry-url: https://registry.npmjs.org/
+
+  - name: Connect PostgreSQL
+    env:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+
+  - name: Install dependencies
+    run: npm install
+
+  - name: Install newman
+    run: npm install -g newman
+
+  - name: Run the API and Postman's tests
+    run: | 
+      npm run develop &
+      sleep 60
+      newman run "Strapi API.postman_collection.json"

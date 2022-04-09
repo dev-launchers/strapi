@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "65e9ffe8-7844-4b04-9604-fbf77063e7b2",
+		"name": "Strapi API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Time Capsule Requests",
+			"item": [
+				{
+					"name": "GET time capsules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{strapiApiUrl}}/users/:id/time-capsules",
+							"host": [
+								"{{strapiApiUrl}}"
+							],
+							"path": [
+								"users",
+								":id",
+								"time-capsules"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "96"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Time Capsule",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"generalDayInformation\": \"some random information\",\r\n    \"acquiredKnowledge\": \"some random information\",\r\n    \"sessionRating\": \"some random information\",\r\n    \"gaveHelp\": \"some random information\",\r\n    \"volunteerHours\": 343434,\r\n    \"receivedHelp\": \"some random information\",\r\n    \"pairUpQuestion\": \"some random information\",\r\n    \"extraInformation\": \"some random information\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{strapiApiUrl}}/users/time-capsules/:id",
+							"host": [
+								"{{strapiApiUrl}}"
+							],
+							"path": [
+								"users",
+								"time-capsules",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Time Capsule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"generalDayInformation\": \"new info\",\r\n    \"acquiredKnowledge\": \"new info\",\r\n    \"sessionRating\": \"new info\",\r\n    \"gaveHelp\": \"new info\",\r\n    \"volunteerHours\": 1,\r\n    \"receivedHelp\": \"new info\",\r\n    \"pairUpQuestion\": \"new info\",\r\n    \"extraInformation\": \"new info\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{strapiApiUrl}}/users/time-capsules",
+							"host": [
+								"{{strapiApiUrl}}"
+							],
+							"path": [
+								"users",
+								"time-capsules"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Requests",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"identifier\": \"test person\",\r\n  \"password\": \"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{strapiApiUrl}}/auth/local",
+							"host": [
+								"{{strapiApiUrl}}"
+							],
+							"path": [
+								"auth",
+								"local"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Authenticated User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{strapiApiUrl}}/users/me",
+							"host": [
+								"{{strapiApiUrl}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{strapiApiUrl}}/auth/logout",
+							"host": [
+								"{{strapiApiUrl}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
