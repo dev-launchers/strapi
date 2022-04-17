@@ -1,0 +1,8 @@
+{
+  "template": "node",
+  "container": {
+    "startScript": "sandbox",
+    "port": 1337,
+    "node": "14"
+  }
+}
