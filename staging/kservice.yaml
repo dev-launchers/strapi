@@ -145,3 +145,10 @@ spec:
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
+      nodeSelector:
+        type: virtual-kubelet
+      tolerations:
+      - key: virtual-kubelet.io/provider
+        operator: Exists
+      - key: azure.com/aci
+        effect: NoSchedule 
