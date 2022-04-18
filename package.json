@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
+    "presandbox": "wget -O cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && chmod +x cloudflared && ./cloudflared access tcp --hostname ct-dev.devlaunchers.com --url localhost:5432 &",
+    "sandbox": "strapi develop",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
