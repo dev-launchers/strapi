@@ -1,7 +1,8 @@
 {
   "template": "node",
-  "startScript": "sandbox",
   "container": {
-    "port": 1337
+    "startScript": "sandbox",
+    "port": 1337,
+    "node": "14"
   }
 }
