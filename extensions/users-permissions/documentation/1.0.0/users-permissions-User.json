@@ -1604,6 +1604,27 @@
                     "Advanced"
                   ]
                 },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discord": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "calendly": {
+                  "type": "string"
+                },
+                "features": {
+                  "type": "string"
+                },
+                "experience": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
