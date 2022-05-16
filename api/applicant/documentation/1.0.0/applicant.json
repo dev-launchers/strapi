@@ -687,6 +687,15 @@
               }
             }
           },
+          "discordUsername": {
+            "type": "string"
+          },
+          "extraInfo": {
+            "type": "string"
+          },
+          "portfolioLink": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -762,6 +771,15 @@
                 }
               }
             }
+          },
+          "discordUsername": {
+            "type": "string"
+          },
+          "extraInfo": {
+            "type": "string"
+          },
+          "portfolioLink": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
