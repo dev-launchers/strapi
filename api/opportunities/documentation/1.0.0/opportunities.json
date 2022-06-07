@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/users/{id}/time-capsules": {
+    "/opportunities": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the opportunities's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve opportunities document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Opportunities"
                   }
                 }
               }
@@ -52,19 +51,9 @@
         },
         "summary": "",
         "tags": [
-          "Time-capsule"
+          "Opportunities"
         ],
         "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "_limit",
             "in": "query",
@@ -203,18 +192,81 @@
           }
         ]
       },
-      "put": {
+      "post": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Create a new opportunities record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Opportunities"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOpportunities"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/opportunities/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of opportunities documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -254,7 +306,122 @@
         },
         "summary": "",
         "tags": [
-          "Time-capsule"
+          "Opportunities"
+        ],
+        "parameters": []
+      }
+    },
+    "/opportunities/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one opportunities record",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Opportunities"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single opportunities record",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Opportunities"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
         ],
         "requestBody": {
           "description": "",
@@ -262,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewTime-capsule"
+                "$ref": "#/components/schemas/NewOpportunities"
               }
             }
           }
@@ -282,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single opportunities record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single opportunities based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -328,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Time-capsule"
+          "Opportunities"
         ],
         "parameters": [
           {
@@ -343,272 +510,209 @@
           }
         ]
       }
-    },
-    "/users/time-capsules/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Time-capsule"
-        ],
-        "parameters": []
-      }
-    },
-    "/users/time-capsules": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Time-capsule"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewTime-capsule"
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Time-capsule": {
+      "Opportunities": {
         "required": [
-          "id"
+          "id",
+          "title",
+          "level",
+          "commitmentHoursPerWeek",
+          "description",
+          "expectations",
+          "isHidden"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "generalDayInformation": {
+          "title": {
             "type": "string"
           },
-          "acquiredKnowledge": {
-            "type": "string"
-          },
-          "sessionRating": {
-            "type": "string"
-          },
-          "gaveHelp": {
-            "type": "string"
-          },
-          "volunteerHours": {
-            "type": "number"
-          },
-          "receivedHelp": {
-            "type": "string"
-          },
-          "pairUpQuestion": {
-            "type": "string"
-          },
-          "extraInformation": {
-            "type": "string"
-          },
-          "user": {
-            "required": [
-              "id",
-              "email",
-              "googleId",
-              "userId"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "projects": {
-                "type": "array",
-                "items": {
+          "skills": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "interest"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "interest": {
+                  "type": "string"
+                },
+                "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "categories": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "point": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "discordId": {
-                "type": "string"
-              },
-              "googleId": {
-                "type": "string"
-              },
-              "discordAvatar": {
-                "type": "string"
-              },
-              "discordDiscriminator": {
-                "type": "string"
-              },
-              "discordUsername": {
-                "type": "string"
-              },
-              "userId": {
-                "type": "uid"
-              },
-              "time_capsules": {
-                "type": "array",
-                "items": {
+              }
+            }
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
+          },
+          "commitmentHoursPerWeek": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "expectation"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "expectation": {
                   "type": "string"
                 }
-              },
-              "birthday": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "zipCode": {
-                "type": "integer"
-              },
-              "hasAcceptedTermsOfService": {
-                "type": "boolean"
-              },
-              "hasSubscribedEmails": {
-                "type": "boolean"
-              },
-              "interests": {
-                "type": "array",
-                "items": {
+              }
+            }
+          },
+          "isHidden": {
+            "type": "boolean",
+            "default": false
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "catchPhrase",
+                "title",
+                "heroImage",
+                "vision",
+                "description",
+                "commitmentLevel",
+                "signupFormUrl",
+                "team",
+                "isListed",
+                "isPlatform"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heroImage": {
+                  "type": "string"
+                },
+                "vision": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "commitmentLevel": {
+                  "type": "string"
+                },
+                "signupFormUrl": {
+                  "type": "string"
+                },
+                "team": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "calendarId": {
+                  "type": "string"
+                },
+                "board": {
+                  "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
+                },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
+                  "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "idea_cards": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -618,34 +722,66 @@
           }
         }
       },
-      "NewTime-capsule": {
+      "NewOpportunities": {
+        "required": [
+          "title",
+          "level",
+          "commitmentHoursPerWeek",
+          "description",
+          "expectations",
+          "isHidden"
+        ],
         "properties": {
-          "generalDayInformation": {
+          "title": {
             "type": "string"
           },
-          "acquiredKnowledge": {
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
+          },
+          "commitmentHoursPerWeek": {
+            "type": "integer"
+          },
+          "description": {
             "type": "string"
           },
-          "sessionRating": {
-            "type": "string"
+          "expectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "expectation"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "expectation": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "gaveHelp": {
-            "type": "string"
+          "isHidden": {
+            "type": "boolean",
+            "default": false
           },
-          "volunteerHours": {
-            "type": "number"
-          },
-          "receivedHelp": {
-            "type": "string"
-          },
-          "pairUpQuestion": {
-            "type": "string"
-          },
-          "extraInformation": {
-            "type": "string"
-          },
-          "user": {
-            "type": "string"
+          "projects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -661,5 +797,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Opportunities"
+    }
+  ]
 }

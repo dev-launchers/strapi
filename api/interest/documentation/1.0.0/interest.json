@@ -652,7 +652,8 @@
                 "commitmentLevel",
                 "signupFormUrl",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -681,9 +682,6 @@
                 },
                 "signupFormUrl": {
                   "type": "string"
-                },
-                "openPositions": {
-                  "type": "component"
                 },
                 "team": {
                   "type": "component"
@@ -723,6 +721,15 @@
                 },
                 "newMeetingTimes": {
                   "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

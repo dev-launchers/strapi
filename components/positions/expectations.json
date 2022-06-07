@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_positions_expectations",
+  "info": {
+    "name": "expectations",
+    "icon": "list-ul",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "expectation": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

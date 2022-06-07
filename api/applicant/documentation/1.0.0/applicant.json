@@ -571,7 +571,8 @@
               "commitmentLevel",
               "signupFormUrl",
               "team",
-              "isListed"
+              "isListed",
+              "isPlatform"
             ],
             "properties": {
               "id": {
@@ -600,9 +601,6 @@
               },
               "signupFormUrl": {
                 "type": "string"
-              },
-              "openPositions": {
-                "type": "component"
               },
               "team": {
                 "type": "component"
@@ -640,6 +638,18 @@
               "google_meet": {
                 "type": "string"
               },
+              "newMeetingTimes": {
+                "type": "component"
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isPlatform": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -676,6 +686,15 @@
                 }
               }
             }
+          },
+          "discordUsername": {
+            "type": "string"
+          },
+          "extraInfo": {
+            "type": "string"
+          },
+          "portfolioLink": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -752,6 +771,15 @@
                 }
               }
             }
+          },
+          "discordUsername": {
+            "type": "string"
+          },
+          "extraInfo": {
+            "type": "string"
+          },
+          "portfolioLink": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

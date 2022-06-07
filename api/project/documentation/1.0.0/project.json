@@ -654,7 +654,8 @@
           "commitmentLevel",
           "signupFormUrl",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "id": {
@@ -747,33 +748,6 @@
           },
           "signupFormUrl": {
             "type": "string"
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "team": {
             "type": "object",
@@ -1353,7 +1327,8 @@
                 "commitmentLevel",
                 "signupFormUrl",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -1382,9 +1357,6 @@
                 },
                 "signupFormUrl": {
                   "type": "string"
-                },
-                "openPositions": {
-                  "type": "component"
                 },
                 "team": {
                   "type": "component"
@@ -1425,6 +1397,15 @@
                 "newMeetingTimes": {
                   "type": "component"
                 },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1449,7 +1430,8 @@
               "commitmentLevel",
               "signupFormUrl",
               "team",
-              "isListed"
+              "isListed",
+              "isPlatform"
             ],
             "properties": {
               "id": {
@@ -1478,9 +1460,6 @@
               },
               "signupFormUrl": {
                 "type": "string"
-              },
-              "openPositions": {
-                "type": "component"
               },
               "team": {
                 "type": "component"
@@ -1520,6 +1499,15 @@
               },
               "newMeetingTimes": {
                 "type": "component"
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isPlatform": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -1608,6 +1596,72 @@
               }
             }
           },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "level",
+                "commitmentHoursPerWeek",
+                "description",
+                "expectations",
+                "isHidden"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced"
+                  ]
+                },
+                "commitmentHoursPerWeek": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "expectations": {
+                  "type": "component"
+                },
+                "isHidden": {
+                  "type": "boolean"
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "isPlatform": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1624,7 +1678,8 @@
           "commitmentLevel",
           "signupFormUrl",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "slug": {
@@ -1647,33 +1702,6 @@
           },
           "signupFormUrl": {
             "type": "string"
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "team": {
             "type": "object",
@@ -2148,6 +2176,15 @@
                 }
               }
             }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isPlatform": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
