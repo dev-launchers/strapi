@@ -5,7 +5,9 @@ const DevLaunchersSubdomains = [
   'https://idea.devlaunchers.com',
   'https://idea-staging.devlaunchers.com',
   'https://projects.devlaunchers.org',
-  'https://projects-staging.devlaunchers.org'
+  'https://projects-staging.devlaunchers.org',
+  'https://dev-recruiters.vercel.app',
+  'https://recruiting-staging.devlaunchers.org',
 ];
 
 module.exports = {

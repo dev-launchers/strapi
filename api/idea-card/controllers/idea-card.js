@@ -14,7 +14,7 @@ module.exports = {
       const { data, files } = parseMultipartData(ctx);
       entity = await strapi.services.comment.create(data, { files });
     } else {
-      ctx.request.body.idea_card = ctx.params.id
+      ctx.request.body.idea_card = ctx.params.id;
       entity = await strapi.services.comment.create(ctx.request.body);
     }
     return sanitizeEntity(entity, { model: strapi.models.comment });
