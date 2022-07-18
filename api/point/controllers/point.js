@@ -36,13 +36,14 @@ module.exports = {
 
   async incrementOrDecrementPoint(ctx) {
     const { id } = ctx.params;
-    const { totalPoints, totalSeasonPoints, availablePoints } = ctx.request.body;
+    const { totalPoints, totalSeasonPoints, availablePoints, projectMeetingMinutes } = ctx.request.body;
 
     const currentPoint = await strapi.services.point.findOne({ user: id });
 
     const newTotalPoints = currentPoint.totalPoints + totalPoints;
     const newTotalSeasonPoints = currentPoint.totalSeasonPoints + totalSeasonPoints;
     const newAvailablePoints = currentPoint.availablePoints + availablePoints;
+    const newProjectMeetingMinutes = currentPoint.projectMeetingMinutes + projectMeetingMinutes;
 
     //checks if user input makes currentPoints less than 0
     if (newTotalPoints < 0) {
@@ -58,7 +59,8 @@ module.exports = {
     const validatedBody = {
       totalPoints: newTotalPoints,
       totalSeasonPoints: newTotalSeasonPoints,
-      availablePoints: newAvailablePoints
+      availablePoints: newAvailablePoints,
+      projectMeetingMinutes: newProjectMeetingMinutes
     };
 
     const entity = await strapi.services.point.update({ user: id }, validatedBody);
