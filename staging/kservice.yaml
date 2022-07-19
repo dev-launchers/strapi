@@ -13,12 +13,6 @@ spec:
             items:
             - key: google-service-key.json
               path: google-service-key.json
-        - name: license
-          secret:
-            secretName: license
-            items:
-            - key: license.txt
-              path: license.txt
       containers:
       - name: strapi
         image: devlaunchers/cms-api:190e6cd-202201292107
@@ -151,5 +145,3 @@ spec:
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
-        - name: license
-          mountPath: /srv/app
