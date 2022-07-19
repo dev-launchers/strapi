@@ -49,4 +49,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           secrets: |
-            "strapi_license=${{ secrets.STRAPI_LICENSE }}"
+            "STRAPI_LICENSE=${{ secrets.STRAPI_LICENSE }}"
