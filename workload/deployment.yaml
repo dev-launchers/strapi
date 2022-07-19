@@ -22,6 +22,12 @@ spec:
             items:
             - key: google-service-key.json
               path: google-service-key.json
+        - name: license
+          secret:
+            secretName: license
+            items:
+            - key: license.txt
+              path: license.txt
       containers:
       - name: strapi
         image: devlaunchers/cms-api:latest
