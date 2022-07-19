@@ -154,6 +154,9 @@ spec:
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
+        - name: license
+          mountPath: /srv/app/license.txt
+          subPath: license.txt
         resources:
           limits:
             cpu: 128m
