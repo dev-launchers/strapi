@@ -5,5 +5,5 @@ COPY ./package.json ./
 COPY ./package-lock.json ./
 RUN npm install
 COPY . .
-RUN --mount=type=secret,id=strapi_license npm run build
+RUN --mount=type=secret,id=STRAPI_LICENSE npm run build
 CMD ["npm", "run", "start"]
