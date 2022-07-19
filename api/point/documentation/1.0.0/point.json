@@ -717,6 +717,9 @@
               }
             }
           },
+          "projectMeetingMinutes": {
+            "type": "integer"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -749,6 +752,9 @@
           },
           "user": {
             "type": "string"
+          },
+          "projectMeetingMinutes": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
