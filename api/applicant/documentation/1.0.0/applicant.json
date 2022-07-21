@@ -521,7 +521,6 @@
           "name",
           "age",
           "role",
-          "zip",
           "experience",
           "commitment",
           "accepted",
@@ -543,9 +542,6 @@
           },
           "role": {
             "type": "string"
-          },
-          "zip": {
-            "type": "integer"
           },
           "experience": {
             "type": "string"
@@ -704,7 +700,6 @@
           "name",
           "age",
           "role",
-          "zip",
           "experience",
           "commitment",
           "accepted",
@@ -723,9 +718,6 @@
           },
           "role": {
             "type": "string"
-          },
-          "zip": {
-            "type": "integer"
           },
           "experience": {
             "type": "string"
