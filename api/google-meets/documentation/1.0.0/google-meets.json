@@ -330,7 +330,6 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
               "team",
               "isListed",
               "isPlatform"
@@ -358,9 +357,6 @@
                 "type": "string"
               },
               "commitmentLevel": {
-                "type": "string"
-              },
-              "signupFormUrl": {
                 "type": "string"
               },
               "team": {

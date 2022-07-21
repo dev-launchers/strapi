@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/18/2022 7:28:36 PM"
+    "x-generation-date": "07/21/2022 9:01:57 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9023,7 +9023,6 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
               "team",
               "isListed",
               "isPlatform"
@@ -9051,9 +9050,6 @@
                 "type": "string"
               },
               "commitmentLevel": {
-                "type": "string"
-              },
-              "signupFormUrl": {
                 "type": "string"
               },
               "team": {
@@ -9510,7 +9506,6 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
               "team",
               "isListed",
               "isPlatform"
@@ -9538,9 +9533,6 @@
                 "type": "string"
               },
               "commitmentLevel": {
-                "type": "string"
-              },
-              "signupFormUrl": {
                 "type": "string"
               },
               "team": {
@@ -10150,7 +10142,6 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
                 "team",
                 "isListed",
                 "isPlatform"
@@ -10178,9 +10169,6 @@
                   "type": "string"
                 },
                 "commitmentLevel": {
-                  "type": "string"
-                },
-                "signupFormUrl": {
                   "type": "string"
                 },
                 "team": {
@@ -10466,7 +10454,6 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
                 "team",
                 "isListed",
                 "isPlatform"
@@ -10494,9 +10481,6 @@
                   "type": "string"
                 },
                 "commitmentLevel": {
-                  "type": "string"
-                },
-                "signupFormUrl": {
                   "type": "string"
                 },
                 "team": {
@@ -11034,7 +11018,6 @@
           "vision",
           "description",
           "commitmentLevel",
-          "signupFormUrl",
           "team",
           "isListed",
           "isPlatform"
@@ -11126,9 +11109,6 @@
             "type": "string"
           },
           "commitmentLevel": {
-            "type": "string"
-          },
-          "signupFormUrl": {
             "type": "string"
           },
           "team": {
@@ -11707,7 +11687,6 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
                 "team",
                 "isListed",
                 "isPlatform"
@@ -11735,9 +11714,6 @@
                   "type": "string"
                 },
                 "commitmentLevel": {
-                  "type": "string"
-                },
-                "signupFormUrl": {
                   "type": "string"
                 },
                 "team": {
@@ -11810,7 +11786,6 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
               "team",
               "isListed",
               "isPlatform"
@@ -11838,9 +11813,6 @@
                 "type": "string"
               },
               "commitmentLevel": {
-                "type": "string"
-              },
-              "signupFormUrl": {
                 "type": "string"
               },
               "team": {
@@ -12058,7 +12030,6 @@
           "vision",
           "description",
           "commitmentLevel",
-          "signupFormUrl",
           "team",
           "isListed",
           "isPlatform"
@@ -12080,9 +12051,6 @@
             "type": "string"
           },
           "commitmentLevel": {
-            "type": "string"
-          },
-          "signupFormUrl": {
             "type": "string"
           },
           "team": {
@@ -13057,7 +13025,6 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
                 "team",
                 "isListed",
                 "isPlatform"
@@ -13085,9 +13052,6 @@
                   "type": "string"
                 },
                 "commitmentLevel": {
-                  "type": "string"
-                },
-                "signupFormUrl": {
                   "type": "string"
                 },
                 "team": {
