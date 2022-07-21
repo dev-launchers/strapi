@@ -47,11 +47,6 @@
       "type": "string",
       "required": true
     },
-    "signupFormUrl": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
     "team": {
       "type": "component",
       "repeatable": false,

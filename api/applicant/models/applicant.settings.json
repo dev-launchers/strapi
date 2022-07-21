@@ -28,10 +28,6 @@
       "type": "string",
       "required": true
     },
-    "zip": {
-      "type": "biginteger",
-      "required": true
-    },
     "experience": {
       "type": "string",
       "required": true

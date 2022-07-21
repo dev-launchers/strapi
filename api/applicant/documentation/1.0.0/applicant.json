@@ -521,7 +521,6 @@
           "name",
           "age",
           "role",
-          "zip",
           "experience",
           "commitment",
           "accepted",
@@ -543,9 +542,6 @@
           },
           "role": {
             "type": "string"
-          },
-          "zip": {
-            "type": "integer"
           },
           "experience": {
             "type": "string"
@@ -569,7 +565,6 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
               "team",
               "isListed",
               "isPlatform"
@@ -597,9 +592,6 @@
                 "type": "string"
               },
               "commitmentLevel": {
-                "type": "string"
-              },
-              "signupFormUrl": {
                 "type": "string"
               },
               "team": {
@@ -708,7 +700,6 @@
           "name",
           "age",
           "role",
-          "zip",
           "experience",
           "commitment",
           "accepted",
@@ -727,9 +718,6 @@
           },
           "role": {
             "type": "string"
-          },
-          "zip": {
-            "type": "integer"
           },
           "experience": {
             "type": "string"
