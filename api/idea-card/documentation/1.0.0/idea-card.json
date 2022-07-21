@@ -524,10 +524,10 @@
         ]
       }
     },
-    "/users/{id}/idea-cards": {
-      "get": {
+    "/idea-cards/{id}/comment": {
+      "post": {
         "deprecated": false,
-        "description": "",
+        "description": "Create a new record",
         "responses": {
           "200": {
             "description": "response",
@@ -578,18 +578,21 @@
         "tags": [
           "Idea-card"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
-        ]
+        }
       }
     }
   },
@@ -790,6 +793,52 @@
               "Advanced"
             ]
           },
+          "comments": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "idea_card": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "discord": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "calendly": {
+            "type": "string"
+          },
+          "features": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -880,6 +929,27 @@
               "Intermediate",
               "Advanced"
             ]
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "discord": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "calendly": {
+            "type": "string"
+          },
+          "features": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/18/2021 5:29:55 AM"
+    "x-generation-date": "07/21/2022 9:03:36 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1052,6 +1052,517 @@
         "summary": "",
         "tags": [
           "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/comments": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comment"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comment"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewComment"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comment"
+        ],
+        "parameters": []
+      }
+    },
+    "/comments/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comment"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewComment"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comment"
         ],
         "parameters": [
           {
@@ -2429,10 +2940,10 @@
         ]
       }
     },
-    "/users/{id}/idea-cards": {
-      "get": {
+    "/idea-cards/{id}/comment": {
+      "post": {
         "deprecated": false,
-        "description": "",
+        "description": "Create a new record",
         "responses": {
           "200": {
             "description": "response",
@@ -2483,18 +2994,21 @@
         "tags": [
           "Idea-card"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
-        ]
+        }
       }
     },
     "/interests": {
@@ -3504,6 +4018,517 @@
         "summary": "",
         "tags": [
           "Newsletter"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/opportunities": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the opportunities's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Opportunities"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new opportunities record",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Opportunities"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOpportunities"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/opportunities/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of opportunities documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
+        ],
+        "parameters": []
+      }
+    },
+    "/opportunities/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one opportunities record",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Opportunities"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single opportunities record",
+        "responses": {
+          "200": {
+            "description": "Retrieve opportunities document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Opportunities"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOpportunities"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single opportunities record",
+        "responses": {
+          "200": {
+            "description": "deletes a single opportunities based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Opportunities"
         ],
         "parameters": [
           {
@@ -7950,7 +8975,6 @@
           "name",
           "age",
           "role",
-          "zip",
           "experience",
           "commitment",
           "accepted",
@@ -7972,9 +8996,6 @@
           },
           "role": {
             "type": "string"
-          },
-          "zip": {
-            "type": "integer"
           },
           "experience": {
             "type": "string"
@@ -7998,12 +9019,9 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
-              "meetingLinkURLs",
-              "meetingTimes",
-              "keywords",
               "team",
-              "isListed"
+              "isListed",
+              "isPlatform"
             ],
             "properties": {
               "id": {
@@ -8029,24 +9047,6 @@
               },
               "commitmentLevel": {
                 "type": "string"
-              },
-              "signupFormUrl": {
-                "type": "string"
-              },
-              "meetingLinkURLs": {
-                "type": "component"
-              },
-              "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
-                "type": "component"
-              },
-              "projectReferenceURLs": {
-                "type": "component"
-              },
-              "openPositions": {
-                "type": "component"
               },
               "team": {
                 "type": "component"
@@ -8083,6 +9083,18 @@
               },
               "google_meet": {
                 "type": "string"
+              },
+              "newMeetingTimes": {
+                "type": "component"
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isPlatform": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -8121,6 +9133,15 @@
               }
             }
           },
+          "discordUsername": {
+            "type": "string"
+          },
+          "extraInfo": {
+            "type": "string"
+          },
+          "portfolioLink": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8133,7 +9154,6 @@
           "name",
           "age",
           "role",
-          "zip",
           "experience",
           "commitment",
           "accepted",
@@ -8152,9 +9172,6 @@
           },
           "role": {
             "type": "string"
-          },
-          "zip": {
-            "type": "integer"
           },
           "experience": {
             "type": "string"
@@ -8196,6 +9213,15 @@
                 }
               }
             }
+          },
+          "discordUsername": {
+            "type": "string"
+          },
+          "extraInfo": {
+            "type": "string"
+          },
+          "portfolioLink": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -8297,6 +9323,131 @@
           }
         }
       },
+      "Comment": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "idea_card": {
+            "required": [
+              "id",
+              "ideaName",
+              "tagline",
+              "description",
+              "targetAudience",
+              "hourCommitmentMin",
+              "hourCommitmentMax",
+              "difficultyLevel"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ideaName": {
+                "type": "string"
+              },
+              "tagline": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "targetAudience": {
+                "type": "string"
+              },
+              "hourCommitmentMin": {
+                "type": "integer"
+              },
+              "hourCommitmentMax": {
+                "type": "integer"
+              },
+              "skills": {
+                "type": "component"
+              },
+              "openPositions": {
+                "type": "component"
+              },
+              "author": {
+                "type": "string"
+              },
+              "difficultyLevel": {
+                "type": "string",
+                "enum": [
+                  "Beginner",
+                  "Intermediate",
+                  "Advanced"
+                ]
+              },
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "discord": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "calendly": {
+                "type": "string"
+              },
+              "features": {
+                "type": "string"
+              },
+              "experience": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "author": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewComment": {
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "idea_card": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "Google-meets": {
         "required": [
           "id"
@@ -8347,12 +9498,9 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
-              "meetingLinkURLs",
-              "meetingTimes",
-              "keywords",
               "team",
-              "isListed"
+              "isListed",
+              "isPlatform"
             ],
             "properties": {
               "id": {
@@ -8378,24 +9526,6 @@
               },
               "commitmentLevel": {
                 "type": "string"
-              },
-              "signupFormUrl": {
-                "type": "string"
-              },
-              "meetingLinkURLs": {
-                "type": "component"
-              },
-              "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
-                "type": "component"
-              },
-              "projectReferenceURLs": {
-                "type": "component"
-              },
-              "openPositions": {
-                "type": "component"
               },
               "team": {
                 "type": "component"
@@ -8432,6 +9562,18 @@
               },
               "google_meet": {
                 "type": "string"
+              },
+              "newMeetingTimes": {
+                "type": "component"
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isPlatform": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -8686,6 +9828,52 @@
               "Advanced"
             ]
           },
+          "comments": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "idea_card": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "discord": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "calendly": {
+            "type": "string"
+          },
+          "features": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8776,6 +9964,27 @@
               "Intermediate",
               "Advanced"
             ]
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "discord": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "calendly": {
+            "type": "string"
+          },
+          "features": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -8925,12 +10134,9 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -8956,24 +10162,6 @@
                 },
                 "commitmentLevel": {
                   "type": "string"
-                },
-                "signupFormUrl": {
-                  "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
-                },
-                "openPositions": {
-                  "type": "component"
                 },
                 "team": {
                   "type": "component"
@@ -9010,6 +10198,18 @@
                 },
                 "google_meet": {
                   "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -9124,6 +10324,283 @@
         "properties": {
           "email": {
             "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Opportunities": {
+        "required": [
+          "id",
+          "title",
+          "level",
+          "commitmentHoursPerWeek",
+          "description",
+          "expectations",
+          "isHidden"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "interest"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "interest": {
+                  "type": "string"
+                },
+                "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "categories": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
+          },
+          "commitmentHoursPerWeek": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "expectation"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "expectation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "isHidden": {
+            "type": "boolean",
+            "default": false
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "catchPhrase",
+                "title",
+                "heroImage",
+                "vision",
+                "description",
+                "commitmentLevel",
+                "team",
+                "isListed",
+                "isPlatform"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "heroImage": {
+                  "type": "string"
+                },
+                "vision": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "commitmentLevel": {
+                  "type": "string"
+                },
+                "team": {
+                  "type": "component"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "Images": {
+                  "type": "component"
+                },
+                "interests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "calendarId": {
+                  "type": "string"
+                },
+                "board": {
+                  "type": "component"
+                },
+                "isListed": {
+                  "type": "boolean"
+                },
+                "subProjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parentProject": {
+                  "type": "string"
+                },
+                "google_meet": {
+                  "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewOpportunities": {
+        "required": [
+          "title",
+          "level",
+          "commitmentHoursPerWeek",
+          "description",
+          "expectations",
+          "isHidden"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "Beginner",
+              "Intermediate",
+              "Advanced"
+            ]
+          },
+          "commitmentHoursPerWeek": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "expectation"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "expectation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "isHidden": {
+            "type": "boolean",
+            "default": false
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -9274,6 +10751,9 @@
               }
             }
           },
+          "projectMeetingMinutes": {
+            "type": "integer"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -9306,6 +10786,9 @@
           },
           "user": {
             "type": "string"
+          },
+          "projectMeetingMinutes": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -9527,12 +11010,9 @@
           "vision",
           "description",
           "commitmentLevel",
-          "signupFormUrl",
-          "meetingLinkURLs",
-          "meetingTimes",
-          "keywords",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "id": {
@@ -9622,120 +11102,6 @@
           },
           "commitmentLevel": {
             "type": "string"
-          },
-          "signupFormUrl": {
-            "type": "string"
-          },
-          "meetingLinkURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "roomName",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "roomName": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "meetingTimes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "dateTime"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "projectReferenceURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "team": {
             "type": "object",
@@ -10313,12 +11679,9 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -10344,24 +11707,6 @@
                 },
                 "commitmentLevel": {
                   "type": "string"
-                },
-                "signupFormUrl": {
-                  "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
-                },
-                "openPositions": {
-                  "type": "component"
                 },
                 "team": {
                   "type": "component"
@@ -10399,6 +11744,18 @@
                 "google_meet": {
                   "type": "string"
                 },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -10421,12 +11778,9 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
-              "meetingLinkURLs",
-              "meetingTimes",
-              "keywords",
               "team",
-              "isListed"
+              "isListed",
+              "isPlatform"
             ],
             "properties": {
               "id": {
@@ -10452,24 +11806,6 @@
               },
               "commitmentLevel": {
                 "type": "string"
-              },
-              "signupFormUrl": {
-                "type": "string"
-              },
-              "meetingLinkURLs": {
-                "type": "component"
-              },
-              "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
-                "type": "component"
-              },
-              "projectReferenceURLs": {
-                "type": "component"
-              },
-              "openPositions": {
-                "type": "component"
               },
               "team": {
                 "type": "component"
@@ -10506,6 +11842,18 @@
               },
               "google_meet": {
                 "type": "string"
+              },
+              "newMeetingTimes": {
+                "type": "component"
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isPlatform": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -10552,6 +11900,114 @@
               }
             }
           },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "level",
+                "commitmentHoursPerWeek",
+                "description",
+                "expectations",
+                "isHidden"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced"
+                  ]
+                },
+                "commitmentHoursPerWeek": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "expectations": {
+                  "type": "component"
+                },
+                "isHidden": {
+                  "type": "boolean"
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "isPlatform": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -10566,12 +12022,9 @@
           "vision",
           "description",
           "commitmentLevel",
-          "signupFormUrl",
-          "meetingLinkURLs",
-          "meetingTimes",
-          "keywords",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "slug": {
@@ -10591,120 +12044,6 @@
           },
           "commitmentLevel": {
             "type": "string"
-          },
-          "signupFormUrl": {
-            "type": "string"
-          },
-          "meetingLinkURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "roomName",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "roomName": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "meetingTimes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "dateTime"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "projectReferenceURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "team": {
             "type": "object",
@@ -11137,6 +12476,57 @@
           },
           "google_meet": {
             "type": "string"
+          },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isPlatform": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
@@ -11627,12 +13017,9 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -11658,24 +13045,6 @@
                 },
                 "commitmentLevel": {
                   "type": "string"
-                },
-                "signupFormUrl": {
-                  "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
-                },
-                "openPositions": {
-                  "type": "component"
                 },
                 "team": {
                   "type": "component"
@@ -11712,6 +13081,18 @@
                 },
                 "google_meet": {
                   "type": "string"
+                },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -11751,6 +13132,9 @@
               },
               "user": {
                 "type": "string"
+              },
+              "projectMeetingMinutes": {
+                "type": "integer"
               },
               "published_at": {
                 "type": "string"
@@ -11979,6 +13363,27 @@
                     "Advanced"
                   ]
                 },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discord": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "calendly": {
+                  "type": "string"
+                },
+                "features": {
+                  "type": "string"
+                },
+                "experience": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -12137,6 +13542,9 @@
       "name": "Category"
     },
     {
+      "name": "Comment"
+    },
+    {
       "name": "Custom"
     },
     {
@@ -12150,6 +13558,9 @@
     },
     {
       "name": "Newsletter"
+    },
+    {
+      "name": "Opportunities"
     },
     {
       "name": "Point"

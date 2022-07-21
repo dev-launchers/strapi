@@ -47,41 +47,6 @@
       "type": "string",
       "required": true
     },
-    "signupFormUrl": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
-    "meetingLinkURLs": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.meeting-link-ur-ls",
-      "required": true
-    },
-    "meetingTimes": {
-      "type": "component",
-      "repeatable": true,
-      "component": "dates.meeting-times",
-      "required": true
-    },
-    "keywords": {
-      "type": "component",
-      "repeatable": true,
-      "component": "keywords.keywords",
-      "required": true
-    },
-    "projectReferenceURLs": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.project-reference-ur-ls",
-      "required": false
-    },
-    "openPositions": {
-      "type": "component",
-      "repeatable": true,
-      "component": "positions.open-positions",
-      "required": false
-    },
     "team": {
       "type": "component",
       "repeatable": false,
@@ -125,6 +90,19 @@
     "google_meet": {
       "model": "google-meets",
       "via": "project"
+    },
+    "newMeetingTimes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dates.new-meeting-times"
+    },
+    "opportunities": {
+      "via": "projects",
+      "collection": "opportunities"
+    },
+    "isPlatform": {
+      "type": "boolean",
+      "required": true
     }
   }
 }

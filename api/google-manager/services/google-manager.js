@@ -7,6 +7,7 @@ const uuid = require('uuid/v4');
 
 const { isDevEnv } = require('../../../utils/isDevEnv');
 const { v4: uuidv4 } = require('uuid');
+const validTimeZone = require('../../../utils/timezones.js');
 
 class GoogleManager {
   constructor(email, key, serverBaseURL, auditFreqMins) {
@@ -171,56 +172,73 @@ class GoogleManager {
         auth: this.calendarAuth
       });
 
-      const createdEvent = await calendar.events.insert({
-        calendarId,
-        conferenceDataVersion: 1,
-        requestBody: {
-          end: {
-            date: this.getCurrentDate(),
-          },
-          start: {
-            date: this.getCurrentDate(),
-          },
-          recurrence: [
-            'RRULE:FREQ=DAILY'
-          ],
-          attendees: [
-            {
-              email: groupEmail,
-              responseStatus: 'accepted'
-            }
-          ],
-          conferenceData: {
-            createRequest: {
-              requestId: uuidv4(),
-              conferenceSolutionKey: {
-                type: 'hangoutsMeet',
-              },
-            }
-          },
-          summary: `${title} Common Room`,
-          //This prevents the event from blocking time on the calendar
-          transparency: 'transparent'
+      // get the meeting newMeetingTimes
+      const project = await strapi.query('project').findOne({ id: projectID });
+
+      const newMeetingTimes = project.newMeetingTimes;
+       
+      await Promise.all(newMeetingTimes.map(async (meetingTime) => {
+        const startTime = new Date(meetingTime.startTime);
+        const endTime = new Date(meetingTime.endTime);
+        const timeZone = meetingTime.IANA_timeZone;
+        // invalid timezone
+        if (!validTimeZone(timeZone)) {
+          throw strapi.errors.badRequest('Invailid TimeZone!');
         }
-      });
+        // create event with specified schedule
+        const createdEvent = await calendar.events.insert({
+          calendarId,
+          conferenceDataVersion: 1,
+          requestBody: {
+            end: {
+              dateTime: endTime,
+              timeZone
+            },
+            start: {
+              dateTime: startTime,
+              timeZone
+            },
+            recurrence: [
+              'RRULE:FREQ=WEEKLY'
+            ],
+            attendees: [
+              {
+                email: groupEmail,
+                responseStatus: 'accepted'
+              }
+            ],
+            conferenceData: {
+              createRequest: {
+                requestId: uuidv4(),
+                conferenceSolutionKey: {
+                  type: 'hangoutsMeet',
+                },
+              }
+            },
+            summary: `${title} Common Room`,
+            //This prevents the event from blocking time on the calendar
+            transparency: 'transparent'
+          }
+        });
 
-      const { id, summary, conferenceData } = createdEvent.data;
+        const { id, summary, conferenceData } = createdEvent.data;
 
-      /*
-        gets meetingcode from uri
-        Ex uri: https://meet.google.com/nuz-gfbn-nxv
-        Ex split array: ['https:', '', 'meet.google.com', 'nuz-gfbn-nxv']
-      */
-      const meetingCode = conferenceData.entryPoints[0].uri.split('/')[3];
+        /*
+          gets meetingcode from uri
+          Ex uri: https://meet.google.com/nuz-gfbn-nxv
+          Ex split array: ['https:', '', 'meet.google.com', 'nuz-gfbn-nxv']
+        */
 
-      await strapi.services['google-meets'].create({
-        name: summary,
-        project: projectID,
-        meetingCode,
-        conferenceId: conferenceData.conferenceId,
-        calendarEventId: id,
-      });
+        const meetingCode = conferenceData.entryPoints[0].uri.split('/')[3];
 
+        await strapi.services['google-meets'].create({
+          name: summary,
+          project: projectID,
+          meetingCode,
+          conferenceId: conferenceData.conferenceId,
+          calendarEventId: id,
+        });
+      }));
     } catch (err) {
       console.error(`Google Calendar API returned error ${err} when creating event`);
       throw new Error(err);
@@ -382,6 +400,7 @@ if (!isDevEnv()) {
   const manager = new GoogleManager(email, privateKey, serverBaseURL, auditFreq);
   const cronTime = `0 */${auditFreq} * * * *`;
   const job = new CronJob(cronTime, function () {
+
     manager.listAuditReports('all', 'meet', 'call_ended').then(reports => {
       reports.items.forEach(r => {
         strapi.log.info('Report for Google Meet', r.events[0].parameters);

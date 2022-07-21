@@ -36,6 +36,9 @@
       "via": "point",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "projectMeetingMinutes": {
+      "type": "integer"
     }
   }
 }

@@ -652,12 +652,9 @@
           "vision",
           "description",
           "commitmentLevel",
-          "signupFormUrl",
-          "meetingLinkURLs",
-          "meetingTimes",
-          "keywords",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "id": {
@@ -747,120 +744,6 @@
           },
           "commitmentLevel": {
             "type": "string"
-          },
-          "signupFormUrl": {
-            "type": "string"
-          },
-          "meetingLinkURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "roomName",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "roomName": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "meetingTimes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "dateTime"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "projectReferenceURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "team": {
             "type": "object",
@@ -1438,12 +1321,9 @@
                 "vision",
                 "description",
                 "commitmentLevel",
-                "signupFormUrl",
-                "meetingLinkURLs",
-                "meetingTimes",
-                "keywords",
                 "team",
-                "isListed"
+                "isListed",
+                "isPlatform"
               ],
               "properties": {
                 "id": {
@@ -1469,24 +1349,6 @@
                 },
                 "commitmentLevel": {
                   "type": "string"
-                },
-                "signupFormUrl": {
-                  "type": "string"
-                },
-                "meetingLinkURLs": {
-                  "type": "component"
-                },
-                "meetingTimes": {
-                  "type": "component"
-                },
-                "keywords": {
-                  "type": "component"
-                },
-                "projectReferenceURLs": {
-                  "type": "component"
-                },
-                "openPositions": {
-                  "type": "component"
                 },
                 "team": {
                   "type": "component"
@@ -1524,6 +1386,18 @@
                 "google_meet": {
                   "type": "string"
                 },
+                "newMeetingTimes": {
+                  "type": "component"
+                },
+                "opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "isPlatform": {
+                  "type": "boolean"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1546,12 +1420,9 @@
               "vision",
               "description",
               "commitmentLevel",
-              "signupFormUrl",
-              "meetingLinkURLs",
-              "meetingTimes",
-              "keywords",
               "team",
-              "isListed"
+              "isListed",
+              "isPlatform"
             ],
             "properties": {
               "id": {
@@ -1577,24 +1448,6 @@
               },
               "commitmentLevel": {
                 "type": "string"
-              },
-              "signupFormUrl": {
-                "type": "string"
-              },
-              "meetingLinkURLs": {
-                "type": "component"
-              },
-              "meetingTimes": {
-                "type": "component"
-              },
-              "keywords": {
-                "type": "component"
-              },
-              "projectReferenceURLs": {
-                "type": "component"
-              },
-              "openPositions": {
-                "type": "component"
               },
               "team": {
                 "type": "component"
@@ -1631,6 +1484,18 @@
               },
               "google_meet": {
                 "type": "string"
+              },
+              "newMeetingTimes": {
+                "type": "component"
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isPlatform": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -1677,6 +1542,114 @@
               }
             }
           },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "level",
+                "commitmentHoursPerWeek",
+                "description",
+                "expectations",
+                "isHidden"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced"
+                  ]
+                },
+                "commitmentHoursPerWeek": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "expectations": {
+                  "type": "component"
+                },
+                "isHidden": {
+                  "type": "boolean"
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "isPlatform": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1691,12 +1664,9 @@
           "vision",
           "description",
           "commitmentLevel",
-          "signupFormUrl",
-          "meetingLinkURLs",
-          "meetingTimes",
-          "keywords",
           "team",
-          "isListed"
+          "isListed",
+          "isPlatform"
         ],
         "properties": {
           "slug": {
@@ -1716,120 +1686,6 @@
           },
           "commitmentLevel": {
             "type": "string"
-          },
-          "signupFormUrl": {
-            "type": "string"
-          },
-          "meetingLinkURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "roomName",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "roomName": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "meetingTimes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "dateTime"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "dateTime": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "keyword"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "keyword": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "projectReferenceURLs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "url"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "openPositions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "title",
-                "description",
-                "isHidden"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "isHidden": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
           },
           "team": {
             "type": "object",
@@ -2262,6 +2118,57 @@
           },
           "google_meet": {
             "type": "string"
+          },
+          "newMeetingTimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "recurringDate",
+                "startTime",
+                "IANA_timeZone",
+                "endTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "recurringDate": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "IANA_timeZone": {
+                  "type": "string",
+                  "default": "eg. America/Los_Angeles"
+                },
+                "endTime": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isPlatform": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

@@ -22,6 +22,12 @@ spec:
             items:
             - key: google-service-key.json
               path: google-service-key.json
+        - name: license
+          secret:
+            secretName: license
+            items:
+            - key: license.txt
+              path: license.txt
       containers:
       - name: strapi
         image: devlaunchers/cms-api:latest
@@ -136,9 +142,27 @@ spec:
             secretKeyRef:
               name: site-projects
               key: discord-webhook
+        - name: V_MATCH_USER
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: user
+        - name: V_MATCH_ID
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: id
+        - name: V_MATCH_PREFERENCE
+          valueFrom:
+            secretKeyRef:
+              name: v-match
+              key: preferences
         volumeMounts:
         - name: google-directory-key
           mountPath: "/etc/google-directory"
+        - name: license
+          mountPath: /srv/app/license.txt
+          subPath: license.txt
         resources:
           limits:
             cpu: 128m
@@ -150,7 +174,7 @@ spec:
           httpGet:
             path: /
             port: 1337
-          initialDelaySeconds: 120
+          initialDelaySeconds: 300
           periodSeconds: 10
           timeoutSeconds: 10
           failureThreshold: 5

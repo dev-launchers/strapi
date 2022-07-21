@@ -28,10 +28,6 @@
       "type": "string",
       "required": true
     },
-    "zip": {
-      "type": "biginteger",
-      "required": true
-    },
     "experience": {
       "type": "string",
       "required": true
@@ -64,6 +60,15 @@
       "type": "component",
       "repeatable": true,
       "component": "skills.skills"
+    },
+    "discordUsername": {
+      "type": "string"
+    },
+    "extraInfo": {
+      "type": "string"
+    },
+    "portfolioLink": {
+      "type": "string"
     }
   }
 }
