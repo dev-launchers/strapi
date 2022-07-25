@@ -107,6 +107,12 @@ To set up Google as a provider for testing, go to http://localhost:1337/admin/se
 
 
 # Running
+## Using Docker
 In the root of the [platform__dev-env](https://github.com/dev-launchers/platform__dev-env) repo, run `./run.sh strapi` to run the backend
 Tilt will automatically detect change in source and handle restarts.
 It also provides an UI to read logs from each container, and restart them at http://localhost:10350/.
+
+## Locally
+If you are having problem with docker, you can use sqlite as the database so strapi can run locally.
+1. Add `NODE_ENV=development` to `.env` file
+2. Run `npm run develop`
