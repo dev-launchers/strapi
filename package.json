@@ -18,6 +18,7 @@
     "knex": "0.21.18",
     "pg": "8.5.1",
     "semantic-release": "^17.4.3",
+    "sqlite3": "^5.0.10",
     "strapi": "3.6.5",
     "strapi-admin": "3.6.5",
     "strapi-connector-bookshelf": "3.6.5",
