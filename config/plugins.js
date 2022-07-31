@@ -1,4 +1,5 @@
-if (process.env.NODE_ENV == 'development') {
+const { isDevEnv } = require('../utils/isDevEnv');
+if (isDevEnv()) {
   module.exports = () => ({
     upload: {
       providerOptions: {
