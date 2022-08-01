@@ -16,3 +16,14 @@ jobs:
     - run: npm run build
       env:
         CI: false
+    - name: Install newman
+      run: npm install -g newman
+    - name: Run postman tests
+      run: |
+        npm run develop &
+        sleep 30
+        newman run integration-test/collection.json
+      env:
+        NODE_ENV: test
+        OPEN_POSITIONS_DISCORD_WEBHOOK: "not_used"
+    
