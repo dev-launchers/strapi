@@ -216,7 +216,9 @@ module.exports = {
         });
       }
 
-      if(!user.username){
+      if (ctx.session.grant.dynamic.redirectURL) {
+        ctx.redirect(ctx.session.grant.dynamic.redirectURL);
+      } else if(!user.username) {
         ctx.redirect(`${process.env.FRONTEND_URL}/signup`);
       } else {
         ctx.redirect(`${process.env.FRONTEND_URL}/users/me`);
