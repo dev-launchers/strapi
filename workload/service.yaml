@@ -8,6 +8,7 @@ metadata:
     app: strapi
 spec:
   ports:
-    - port: 1337
+    - name: server
+      port: 1337
   selector:
     app: strapi
