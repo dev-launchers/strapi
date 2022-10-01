@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = {
   /**
@@ -7,7 +7,7 @@ module.exports = {
   lifecycles: {
     async beforeUpdate(params, data) {
       if (data.username)
-        data.username = data.username.trim().replace(/\s+/g, "_");
+        data.username = data.username.trim().replace(/\s+/g, '_');
     },
   },
 };
