@@ -40,10 +40,10 @@ module.exports = {
 
     const currentPoint = await strapi.services.point.findOne({ user: id });
 
-    const newTotalPoints = currentPoint.totalPoints + totalPoints;
-    const newTotalSeasonPoints = currentPoint.totalSeasonPoints + totalSeasonPoints;
-    const newAvailablePoints = currentPoint.availablePoints + availablePoints;
-    const newProjectMeetingMinutes = currentPoint.projectMeetingMinutes + projectMeetingMinutes;
+    const newTotalPoints = Number(currentPoint.totalPoints) + Number(totalPoints);
+    const newTotalSeasonPoints = Number(currentPoint.totalSeasonPoints) + Number(totalSeasonPoints);
+    const newAvailablePoints = Number(currentPoint.availablePoints) + Number(availablePoints);
+    const newProjectMeetingMinutes = Number(currentPoint.projectMeetingMinutes) + Number(projectMeetingMinutes);
 
     //checks if user input makes currentPoints less than 0
     if (newTotalPoints < 0) {
