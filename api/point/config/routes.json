@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "PATCH",
+      "path": "/users/points",
+      "handler": "point.patchBatchPoint",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/users/:id/points",
       "handler": "point.delete",
