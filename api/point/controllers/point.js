@@ -35,9 +35,9 @@ module.exports = {
   },
 
   async patchBatchPoint(ctx) {
-    let updatedPoints = []
+    let updatedPoints = [];
     for (const points of ctx.request.body) {
-      const {id, totalPoints, totalSeasonPoints, availablePoints, projectMeetingMinutes} =  points
+      const {id, totalPoints, totalSeasonPoints, availablePoints, projectMeetingMinutes} =  points;
       const newCtx = {
         params: {
           id: id
@@ -50,11 +50,11 @@ module.exports = {
             projectMeetingMinutes: projectMeetingMinutes
           }
         }
-      }
-      let updated = await this.incrementOrDecrementPoint(newCtx)
-      updatedPoints.push(updated)
+      };
+      let updated = await this.incrementOrDecrementPoint(newCtx);
+      updatedPoints.push(updated);
     }
-    return updatedPoints
+    return updatedPoints;
   },
 
   async incrementOrDecrementPoint(ctx) {
@@ -97,5 +97,5 @@ module.exports = {
 
 // helpr function to add points in string together
 function addPoints(point1, point2) {
-  return Number(point1) + Number(point2)
+  return Number(point1) + Number(point2);
 }
