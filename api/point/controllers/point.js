@@ -51,8 +51,16 @@ module.exports = {
           }
         }
       };
-      let updated = await this.incrementOrDecrementPoint(newCtx);
-      updatedPoints.push(updated);
+      let updated = null
+      try {
+        updated = await this.incrementOrDecrementPoint(newCtx);
+      } catch(error) {
+        // don't quit if encounter errors
+        console.log(error)
+      }
+      if (updated) {
+        updatedPoints.push(updated);
+      }
     }
     return updatedPoints;
   },
