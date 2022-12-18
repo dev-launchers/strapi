@@ -23,7 +23,10 @@ module.exports = {
       accepted,
       reason,
       project,
-      level
+      level,
+      portfolioLink,
+      extraInfo,
+      discordUsername
     } = ctx.request.body;
 
 
@@ -42,7 +45,10 @@ module.exports = {
       accepted,
       reason,
       project: applicantProject.id,
-      level
+      level,
+      portfolioLink,
+      extraInfo,
+      discordUsername
     };
 
     const entity = await strapi.services.applicant.create(application);
