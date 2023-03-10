@@ -867,6 +867,12 @@
                             "type": "string"
                           }
                         },
+                        "ideaOwned": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -994,6 +1000,12 @@
                             "type": "string"
                           }
                         },
+                        "ideaOwned": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1106,6 +1118,12 @@
                 }
               },
               "idea_cards": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ideaOwned": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -1809,6 +1827,12 @@
                             "type": "string"
                           }
                         },
+                        "ideaOwned": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1931,6 +1955,12 @@
                           }
                         },
                         "idea_cards": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "ideaOwned": {
                           "type": "array",
                           "items": {
                             "type": "string"

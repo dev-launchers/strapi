@@ -19,7 +19,7 @@
     },
     "tagline": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "description": {
       "type": "text",
@@ -27,15 +27,7 @@
     },
     "targetAudience": {
       "type": "text",
-      "required": true
-    },
-    "hourCommitmentMin": {
-      "type": "integer",
-      "required": true
-    },
-    "hourCommitmentMax": {
-      "type": "integer",
-      "required": true
+      "required": false
     },
     "skills": {
       "type": "component",
@@ -52,15 +44,6 @@
       "model": "user",
       "via": "idea_cards"
     },
-    "difficultyLevel": {
-      "type": "enumeration",
-      "enum": [
-        "Beginner",
-        "Intermediate",
-        "Advanced"
-      ],
-      "required": true
-    },
     "comments": {
       "via": "idea_card",
       "collection": "comment"
@@ -75,10 +58,39 @@
       "type": "string"
     },
     "features": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "experience": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "extraInfo": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "submitted",
+        "applying",
+        "approved",
+        "archived",
+        "workshopping"
+      ]
+    },
+    "involveLevel": {
+      "type": "enumeration",
+      "enum": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ]
+    },
+    "ideaOwner": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "ideaOwned"
     }
   }
 }

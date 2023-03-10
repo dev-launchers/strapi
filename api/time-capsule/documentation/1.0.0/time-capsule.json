@@ -604,6 +604,12 @@
                   "type": "string"
                 }
               },
+              "ideaOwned": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/21/2022 9:03:36 PM"
+    "x-generation-date": "03/09/2023 6:05:10 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9338,12 +9338,9 @@
             "required": [
               "id",
               "ideaName",
-              "tagline",
               "description",
-              "targetAudience",
-              "hourCommitmentMin",
-              "hourCommitmentMax",
-              "difficultyLevel"
+              "features",
+              "experience"
             ],
             "properties": {
               "id": {
@@ -9361,12 +9358,6 @@
               "targetAudience": {
                 "type": "string"
               },
-              "hourCommitmentMin": {
-                "type": "integer"
-              },
-              "hourCommitmentMax": {
-                "type": "integer"
-              },
               "skills": {
                 "type": "component"
               },
@@ -9375,14 +9366,6 @@
               },
               "author": {
                 "type": "string"
-              },
-              "difficultyLevel": {
-                "type": "string",
-                "enum": [
-                  "Beginner",
-                  "Intermediate",
-                  "Advanced"
-                ]
               },
               "comments": {
                 "type": "array",
@@ -9403,6 +9386,31 @@
                 "type": "string"
               },
               "experience": {
+                "type": "string"
+              },
+              "extraInfo": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "submitted",
+                  "applying",
+                  "approved",
+                  "archived",
+                  "workshopping"
+                ]
+              },
+              "involveLevel": {
+                "type": "string",
+                "enum": [
+                  "one",
+                  "two",
+                  "three",
+                  "four"
+                ]
+              },
+              "ideaOwner": {
                 "type": "string"
               },
               "published_at": {
@@ -9637,12 +9645,9 @@
         "required": [
           "id",
           "ideaName",
-          "tagline",
           "description",
-          "targetAudience",
-          "hourCommitmentMin",
-          "hourCommitmentMax",
-          "difficultyLevel"
+          "features",
+          "experience"
         ],
         "properties": {
           "id": {
@@ -9659,12 +9664,6 @@
           },
           "targetAudience": {
             "type": "string"
-          },
-          "hourCommitmentMin": {
-            "type": "integer"
-          },
-          "hourCommitmentMax": {
-            "type": "integer"
           },
           "skills": {
             "type": "array",
@@ -9812,6 +9811,12 @@
                   "type": "string"
                 }
               },
+              "ideaOwned": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9819,14 +9824,6 @@
                 "type": "string"
               }
             }
-          },
-          "difficultyLevel": {
-            "type": "string",
-            "enum": [
-              "Beginner",
-              "Intermediate",
-              "Advanced"
-            ]
           },
           "comments": {
             "type": "array",
@@ -9874,6 +9871,143 @@
           "experience": {
             "type": "string"
           },
+          "extraInfo": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "submitted",
+              "applying",
+              "approved",
+              "archived",
+              "workshopping"
+            ]
+          },
+          "involveLevel": {
+            "type": "string",
+            "enum": [
+              "one",
+              "two",
+              "three",
+              "four"
+            ]
+          },
+          "ideaOwner": {
+            "required": [
+              "id",
+              "email",
+              "googleId",
+              "userId"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "projects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "point": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "string"
+              },
+              "discordId": {
+                "type": "string"
+              },
+              "googleId": {
+                "type": "string"
+              },
+              "discordAvatar": {
+                "type": "string"
+              },
+              "discordDiscriminator": {
+                "type": "string"
+              },
+              "discordUsername": {
+                "type": "string"
+              },
+              "userId": {
+                "type": "uid"
+              },
+              "time_capsules": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "birthday": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "zipCode": {
+                "type": "integer"
+              },
+              "hasAcceptedTermsOfService": {
+                "type": "boolean"
+              },
+              "hasSubscribedEmails": {
+                "type": "boolean"
+              },
+              "interests": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "idea_cards": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ideaOwned": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -9883,12 +10017,9 @@
       "NewIdea-card": {
         "required": [
           "ideaName",
-          "tagline",
           "description",
-          "targetAudience",
-          "hourCommitmentMin",
-          "hourCommitmentMax",
-          "difficultyLevel"
+          "features",
+          "experience"
         ],
         "properties": {
           "ideaName": {
@@ -9902,12 +10033,6 @@
           },
           "targetAudience": {
             "type": "string"
-          },
-          "hourCommitmentMin": {
-            "type": "integer"
-          },
-          "hourCommitmentMax": {
-            "type": "integer"
           },
           "skills": {
             "type": "array",
@@ -9957,14 +10082,6 @@
           "author": {
             "type": "string"
           },
-          "difficultyLevel": {
-            "type": "string",
-            "enum": [
-              "Beginner",
-              "Intermediate",
-              "Advanced"
-            ]
-          },
           "comments": {
             "type": "array",
             "items": {
@@ -9984,6 +10101,31 @@
             "type": "string"
           },
           "experience": {
+            "type": "string"
+          },
+          "extraInfo": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "submitted",
+              "applying",
+              "approved",
+              "archived",
+              "workshopping"
+            ]
+          },
+          "involveLevel": {
+            "type": "string",
+            "enum": [
+              "one",
+              "two",
+              "three",
+              "four"
+            ]
+          },
+          "ideaOwner": {
             "type": "string"
           },
           "published_at": {
@@ -10108,6 +10250,12 @@
                   }
                 },
                 "idea_cards": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ideaOwned": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -10743,6 +10891,12 @@
                   "type": "string"
                 }
               },
+              "ideaOwned": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -10932,6 +11086,12 @@
                 }
               },
               "idea_cards": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ideaOwned": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -11225,6 +11385,12 @@
                             "type": "string"
                           }
                         },
+                        "ideaOwned": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -11352,6 +11518,12 @@
                             "type": "string"
                           }
                         },
+                        "ideaOwned": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -11464,6 +11636,12 @@
                 }
               },
               "idea_cards": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ideaOwned": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -12167,6 +12345,12 @@
                             "type": "string"
                           }
                         },
+                        "ideaOwned": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -12289,6 +12473,12 @@
                           }
                         },
                         "idea_cards": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "ideaOwned": {
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -12673,6 +12863,12 @@
                   "type": "string"
                 }
               },
+              "ideaOwned": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -12886,6 +13082,12 @@
                   }
                 },
                 "idea_cards": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ideaOwned": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -13317,12 +13519,9 @@
               "required": [
                 "id",
                 "ideaName",
-                "tagline",
                 "description",
-                "targetAudience",
-                "hourCommitmentMin",
-                "hourCommitmentMax",
-                "difficultyLevel"
+                "features",
+                "experience"
               ],
               "properties": {
                 "id": {
@@ -13340,12 +13539,6 @@
                 "targetAudience": {
                   "type": "string"
                 },
-                "hourCommitmentMin": {
-                  "type": "integer"
-                },
-                "hourCommitmentMax": {
-                  "type": "integer"
-                },
                 "skills": {
                   "type": "component"
                 },
@@ -13354,14 +13547,6 @@
                 },
                 "author": {
                   "type": "string"
-                },
-                "difficultyLevel": {
-                  "type": "string",
-                  "enum": [
-                    "Beginner",
-                    "Intermediate",
-                    "Advanced"
-                  ]
                 },
                 "comments": {
                   "type": "array",
@@ -13382,6 +13567,124 @@
                   "type": "string"
                 },
                 "experience": {
+                  "type": "string"
+                },
+                "extraInfo": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "submitted",
+                    "applying",
+                    "approved",
+                    "archived",
+                    "workshopping"
+                  ]
+                },
+                "involveLevel": {
+                  "type": "string",
+                  "enum": [
+                    "one",
+                    "two",
+                    "three",
+                    "four"
+                  ]
+                },
+                "ideaOwner": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ideaOwned": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "ideaName",
+                "description",
+                "features",
+                "experience"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "ideaName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "targetAudience": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "component"
+                },
+                "openPositions": {
+                  "type": "component"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discord": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "calendly": {
+                  "type": "string"
+                },
+                "features": {
+                  "type": "string"
+                },
+                "experience": {
+                  "type": "string"
+                },
+                "extraInfo": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "submitted",
+                    "applying",
+                    "approved",
+                    "archived",
+                    "workshopping"
+                  ]
+                },
+                "involveLevel": {
+                  "type": "string",
+                  "enum": [
+                    "one",
+                    "two",
+                    "three",
+                    "four"
+                  ]
+                },
+                "ideaOwner": {
                   "type": "string"
                 },
                 "published_at": {
@@ -13497,6 +13800,12 @@
             }
           },
           "idea_cards": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ideaOwned": {
             "type": "array",
             "items": {
               "type": "string"

@@ -116,6 +116,10 @@
     "idea_cards": {
       "via": "author",
       "collection": "idea-card"
+    },
+    "ideaOwned": {
+      "via": "ideaOwner",
+      "collection": "idea-card"
     }
   }
 }
