@@ -595,10 +595,10 @@
               "involveLevel": {
                 "type": "string",
                 "enum": [
-                  "one",
-                  "two",
-                  "three",
-                  "four"
+                  "none",
+                  "minimum",
+                  "medium",
+                  "highly"
                 ]
               },
               "ideaOwner": {

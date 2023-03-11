@@ -81,10 +81,10 @@
     "involveLevel": {
       "type": "enumeration",
       "enum": [
-        "one",
-        "two",
-        "three",
-        "four"
+        "none",
+        "minimum",
+        "medium",
+        "highly"
       ]
     },
     "ideaOwner": {

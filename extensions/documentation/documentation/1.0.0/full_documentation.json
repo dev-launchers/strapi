@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/09/2023 6:05:10 PM"
+    "x-generation-date": "03/10/2023 8:39:54 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9404,10 +9404,10 @@
               "involveLevel": {
                 "type": "string",
                 "enum": [
-                  "one",
-                  "two",
-                  "three",
-                  "four"
+                  "none",
+                  "minimum",
+                  "medium",
+                  "highly"
                 ]
               },
               "ideaOwner": {
@@ -9887,10 +9887,10 @@
           "involveLevel": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
+              "none",
+              "minimum",
+              "medium",
+              "highly"
             ]
           },
           "ideaOwner": {
@@ -10119,10 +10119,10 @@
           "involveLevel": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
+              "none",
+              "minimum",
+              "medium",
+              "highly"
             ]
           },
           "ideaOwner": {
@@ -13585,10 +13585,10 @@
                 "involveLevel": {
                   "type": "string",
                   "enum": [
-                    "one",
-                    "two",
-                    "three",
-                    "four"
+                    "none",
+                    "minimum",
+                    "medium",
+                    "highly"
                   ]
                 },
                 "ideaOwner": {
@@ -13678,10 +13678,10 @@
                 "involveLevel": {
                   "type": "string",
                   "enum": [
-                    "one",
-                    "two",
-                    "three",
-                    "four"
+                    "none",
+                    "minimum",
+                    "medium",
+                    "highly"
                   ]
                 },
                 "ideaOwner": {
