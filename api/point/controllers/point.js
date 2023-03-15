@@ -34,16 +34,47 @@ module.exports = {
     return sanitizeEntity(entity, { model: strapi.models.point });
   },
 
+  async patchBatchPoint(ctx) {
+    let updatedPoints = [];
+    for (const points of ctx.request.body) {
+      const {id, totalPoints, totalSeasonPoints, availablePoints, projectMeetingMinutes} =  points;
+      const newCtx = {
+        params: {
+          id: id
+        },
+        request: {
+          body: {
+            totalPoints: totalPoints,
+            totalSeasonPoints: totalSeasonPoints,
+            availablePoints: availablePoints,
+            projectMeetingMinutes: projectMeetingMinutes
+          }
+        }
+      };
+      let updated = null;
+      try {
+        updated = await this.incrementOrDecrementPoint(newCtx);
+      } catch(error) {
+        // don't quit if encounter errors
+        console.log(`Error updating points with error: ${error}`);
+      }
+      if (updated) {
+        updatedPoints.push(updated);
+      }
+    }
+    return updatedPoints;
+  },
+
   async incrementOrDecrementPoint(ctx) {
     const { id } = ctx.params;
     const { totalPoints, totalSeasonPoints, availablePoints, projectMeetingMinutes } = ctx.request.body;
 
     const currentPoint = await strapi.services.point.findOne({ user: id });
 
-    const newTotalPoints = currentPoint.totalPoints + totalPoints;
-    const newTotalSeasonPoints = currentPoint.totalSeasonPoints + totalSeasonPoints;
-    const newAvailablePoints = currentPoint.availablePoints + availablePoints;
-    const newProjectMeetingMinutes = currentPoint.projectMeetingMinutes + projectMeetingMinutes;
+    const newTotalPoints = addPoints(currentPoint.totalPoints, totalPoints);
+    const newTotalSeasonPoints = addPoints(currentPoint.totalSeasonPoints, totalSeasonPoints);
+    const newAvailablePoints = addPoints(currentPoint.availablePoints, availablePoints);
+    const newProjectMeetingMinutes = addPoints(currentPoint.projectMeetingMinutes, projectMeetingMinutes);
 
     //checks if user input makes currentPoints less than 0
     if (newTotalPoints < 0) {
@@ -54,6 +85,9 @@ module.exports = {
     }
     if (newAvailablePoints < 0) {
       throw strapi.errors.badRequest('availablePoints cannot be a negative number that makes the current availablePoints less than 0');
+    }
+    if (newProjectMeetingMinutes < 0) {
+      throw strapi.errors.badRequest('newProjectMeetingMinutes cannot be a negative number that makes the current newProjectMeetingMinutes less than 0');
     }
 
     const validatedBody = {
@@ -68,3 +102,8 @@ module.exports = {
 
   }
 };
+
+// helpr function to add points in string together
+function addPoints(point1, point2) {
+  return Number(point1) + Number(point2);
+}
