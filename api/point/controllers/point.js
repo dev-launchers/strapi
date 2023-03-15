@@ -51,7 +51,7 @@ module.exports = {
           }
         }
       };
-      let updated = null
+      let updated = null;
       try {
         updated = await this.incrementOrDecrementPoint(newCtx);
       } catch(error) {
