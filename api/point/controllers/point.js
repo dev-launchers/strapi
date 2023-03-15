@@ -56,7 +56,7 @@ module.exports = {
         updated = await this.incrementOrDecrementPoint(newCtx);
       } catch(error) {
         // don't quit if encounter errors
-        console.log(error)
+        console.log(`Error updating points with error: ${error}`);
       }
       if (updated) {
         updatedPoints.push(updated);
