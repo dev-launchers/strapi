@@ -116,6 +116,12 @@
     "idea_cards": {
       "via": "author",
       "collection": "idea-card"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
     }
   }
 }

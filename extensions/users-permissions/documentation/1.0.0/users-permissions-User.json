@@ -1642,6 +1642,12 @@
                 }
               }
             }
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
           }
         }
       },
@@ -1748,6 +1754,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
