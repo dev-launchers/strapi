@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "idea_cards",
+  "info": {
+    "name": "IdeaCard",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ideaName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tagline": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "targetAudience": {
+      "type": "text",
+      "required": true
+    },
+    "hourCommitmentMin": {
+      "type": "integer",
+      "required": true
+    },
+    "hourCommitmentMax": {
+      "type": "integer",
+      "required": true
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skills"
+    },
+    "openPositions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "positions.open-positions"
+    },
+    "author": {
+      "via": "idea_cards",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "difficultyLevel": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "required": true
+    },
+    "comments": {
+      "via": "idea_card",
+      "collection": "comment"
+    },
+    "discord": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "calendly": {
+      "type": "string"
+    },
+    "features": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "string"
+    }
+  }
+}

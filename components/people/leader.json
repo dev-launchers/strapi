@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_members_leaders",
+  "info": {
+    "name": "leaders",
+    "icon": "child",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "leader": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

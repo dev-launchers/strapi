@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "interests",
+  "info": {
+    "name": "Interest",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "interest": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "users_permissions_users": {
+      "via": "interests",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    },
+    "projects": {
+      "via": "interests",
+      "collection": "project",
+      "dominant": true
+    },
+    "categories": {
+      "via": "interests",
+      "collection": "category"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applicants",
+  "info": {
+    "name": "Applicant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "experience": {
+      "type": "string",
+      "required": true
+    },
+    "commitment": {
+      "type": "float",
+      "required": true
+    },
+    "accepted": {
+      "type": "boolean",
+      "required": true
+    },
+    "reason": {
+      "type": "text",
+      "required": true
+    },
+    "project": {
+      "model": "project"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "required": true
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skills"
+    },
+    "discordUsername": {
+      "type": "string"
+    },
+    "extraInfo": {
+      "type": "string"
+    },
+    "portfolioLink": {
+      "type": "string"
+    }
+  }
+}

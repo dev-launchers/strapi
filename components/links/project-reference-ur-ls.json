@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_links_project_reference_ur_ls",
+  "info": {
+    "name": "projectReferenceURLs",
+    "icon": "project-diagram"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

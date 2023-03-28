@@ -1,0 +1,7 @@
+FROM strapi/base
+ENV NODE_ENV development
+WORKDIR /srv/app
+COPY ./package.json ./
+COPY ./package-lock.json ./
+RUN npm install
+CMD ["npm", "run", "develop"]

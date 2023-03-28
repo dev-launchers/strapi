@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "GoogleMeets",
+  "info": {
+    "name": "GoogleMeets",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "meetingCode": {
+      "type": "string"
+    },
+    "conferenceId": {
+      "type": "string"
+    },
+    "calendarEventId": {
+      "type": "string"
+    },
+    "participants": {
+      "type": "component",
+      "repeatable": true,
+      "component": "meet-participant.meet-participant"
+    },
+    "project": {
+      "via": "google_meet",
+      "model": "project"
+    }
+  }
+}

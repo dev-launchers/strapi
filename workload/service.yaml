@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: strapi
+  namespace: strapi
+  labels:
+    app: strapi
+spec:
+  ports:
+    - name: server
+      port: 1337
+  selector:
+    app: strapi

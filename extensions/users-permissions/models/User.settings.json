@@ -1,0 +1,130 @@
+{
+  "kind": "collectionType",
+  "collectionName": "users-permissions_user",
+  "info": {
+    "name": "user",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "timestamps": true
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "model": "role",
+      "via": "users",
+      "plugin": "users-permissions",
+      "configurable": false
+    },
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "required": false
+    },
+    "projects": {
+      "via": "user",
+      "collection": "project"
+    },
+    "point": {
+      "via": "user",
+      "model": "point"
+    },
+    "profile": {
+      "via": "user",
+      "model": "profile"
+    },
+    "discordId": {
+      "type": "string"
+    },
+    "googleId": {
+      "type": "string",
+      "required": true
+    },
+    "discordAvatar": {
+      "type": "string"
+    },
+    "discordDiscriminator": {
+      "type": "string"
+    },
+    "discordUsername": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "uid",
+      "required": true
+    },
+    "time_capsules": {
+      "via": "user",
+      "collection": "time-capsule"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "country": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "integer"
+    },
+    "hasAcceptedTermsOfService": {
+      "type": "boolean"
+    },
+    "hasSubscribedEmails": {
+      "type": "boolean"
+    },
+    "interests": {
+      "via": "users_permissions_users",
+      "collection": "interest"
+    },
+    "idea_cards": {
+      "via": "author",
+      "collection": "idea-card"
+    },
+    "firstName": {
+      "type": "string",
+      "required": false,
+      "minLength": 1
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

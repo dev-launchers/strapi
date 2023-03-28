@@ -1,0 +1,44 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/:id/time-capsules",
+      "handler": "time-capsule.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/users/time-capsules/count",
+      "handler": "time-capsule.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/users/time-capsules",
+      "handler": "time-capsule.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/users/:id/time-capsules",
+      "handler": "time-capsule.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/:id/time-capsules",
+      "handler": "time-capsule.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

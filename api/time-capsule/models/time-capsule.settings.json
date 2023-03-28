@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "time_capsules",
+  "info": {
+    "name": "TimeCapsule",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "generalDayInformation": {
+      "type": "text"
+    },
+    "acquiredKnowledge": {
+      "type": "text"
+    },
+    "sessionRating": {
+      "type": "text"
+    },
+    "gaveHelp": {
+      "type": "text"
+    },
+    "volunteerHours": {
+      "type": "float"
+    },
+    "receivedHelp": {
+      "type": "text"
+    },
+    "pairUpQuestion": {
+      "type": "text"
+    },
+    "extraInformation": {
+      "type": "text"
+    },
+    "user": {
+      "via": "time_capsules",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

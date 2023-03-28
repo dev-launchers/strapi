@@ -1,0 +1,108 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "Project",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "catchPhrase": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "heroImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "vision": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "commitmentLevel": {
+      "type": "string",
+      "required": true
+    },
+    "team": {
+      "type": "component",
+      "repeatable": false,
+      "component": "people.people",
+      "required": true
+    },
+    "user": {
+      "via": "projects",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "Images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.images"
+    },
+    "interests": {
+      "via": "projects",
+      "collection": "interest"
+    },
+    "calendarId": {
+      "type": "string"
+    },
+    "board": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project.project-board"
+    },
+    "isListed": {
+      "type": "boolean",
+      "required": true
+    },
+    "subProjects": {
+      "collection": "project",
+      "via": "parentProject"
+    },
+    "parentProject": {
+      "model": "project",
+      "via": "subProjects"
+    },
+    "google_meet": {
+      "model": "google-meets",
+      "via": "project"
+    },
+    "newMeetingTimes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dates.new-meeting-times"
+    },
+    "opportunities": {
+      "via": "projects",
+      "collection": "opportunities"
+    },
+    "isPlatform": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}
