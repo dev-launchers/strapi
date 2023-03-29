@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
@@ -7,7 +7,7 @@
 
 module.exports = {
   async find(ctx) {
-    const userCount = await strapi.query("user", "users-permissions").count({});
+    const userCount = await strapi.query('user', 'users-permissions').count({});
 
     // gets 100 random user ids
     const randomUserIds = Array(100)
@@ -21,7 +21,7 @@ module.exports = {
     }
 
     let users = await strapi
-      .query("user", "users-permissions")
+      .query('user', 'users-permissions')
       .find({ id_in: randomUserIds });
 
     // keeps track of the similarity score of each user
