@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/user-recommendations",
+      "handler": "user-recommendations.find",
+      "config": {
+        "auth": false,
+        "policies": []
+      }
+    }
+  ]
+}
