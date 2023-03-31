@@ -1642,6 +1642,13 @@
                 }
               }
             }
+          },
+          "firstName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lastName": {
+            "type": "string"
           }
         }
       },
@@ -1748,6 +1755,13 @@
             "items": {
               "type": "string"
             }
+          },
+          "firstName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lastName": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

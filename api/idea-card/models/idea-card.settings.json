@@ -48,9 +48,9 @@
       "component": "positions.open-positions"
     },
     "author": {
+      "via": "idea_cards",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "idea_cards"
+      "model": "user"
     },
     "difficultyLevel": {
       "type": "enumeration",

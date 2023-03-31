@@ -629,6 +629,12 @@
                     "type": "string"
                   }
                 },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
