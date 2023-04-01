@@ -529,12 +529,9 @@
             "required": [
               "id",
               "ideaName",
-              "tagline",
               "description",
-              "targetAudience",
-              "hourCommitmentMin",
-              "hourCommitmentMax",
-              "difficultyLevel"
+              "features",
+              "experience"
             ],
             "properties": {
               "id": {
@@ -552,12 +549,6 @@
               "targetAudience": {
                 "type": "string"
               },
-              "hourCommitmentMin": {
-                "type": "integer"
-              },
-              "hourCommitmentMax": {
-                "type": "integer"
-              },
               "skills": {
                 "type": "component"
               },
@@ -566,14 +557,6 @@
               },
               "author": {
                 "type": "string"
-              },
-              "difficultyLevel": {
-                "type": "string",
-                "enum": [
-                  "Beginner",
-                  "Intermediate",
-                  "Advanced"
-                ]
               },
               "comments": {
                 "type": "array",
@@ -594,6 +577,31 @@
                 "type": "string"
               },
               "experience": {
+                "type": "string"
+              },
+              "extraInfo": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "submitted",
+                  "applying",
+                  "approved",
+                  "archived",
+                  "workshopping"
+                ]
+              },
+              "involveLevel": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "minimum",
+                  "medium",
+                  "highly"
+                ]
+              },
+              "ideaOwner": {
                 "type": "string"
               },
               "published_at": {
