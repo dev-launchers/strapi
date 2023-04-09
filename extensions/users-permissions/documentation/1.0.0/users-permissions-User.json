@@ -1624,7 +1624,8 @@
                     "applying",
                     "approved",
                     "archived",
-                    "workshopping"
+                    "workshopping",
+                    "deleted"
                   ]
                 },
                 "involveLevel": {
@@ -1717,7 +1718,8 @@
                     "applying",
                     "approved",
                     "archived",
-                    "workshopping"
+                    "workshopping",
+                    "deleted"
                   ]
                 },
                 "involveLevel": {
