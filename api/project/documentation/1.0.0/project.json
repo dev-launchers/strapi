@@ -873,6 +873,9 @@
                             "type": "string"
                           }
                         },
+                        "calendly": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -882,6 +885,9 @@
                       }
                     },
                     "role": {
+                      "type": "string"
+                    },
+                    "calendly": {
                       "type": "string"
                     }
                   }
@@ -1006,6 +1012,9 @@
                             "type": "string"
                           }
                         },
+                        "calendly": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1128,6 +1137,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "calendly": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -1833,6 +1845,9 @@
                             "type": "string"
                           }
                         },
+                        "calendly": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -1842,6 +1857,9 @@
                       }
                     },
                     "role": {
+                      "type": "string"
+                    },
+                    "calendly": {
                       "type": "string"
                     }
                   }
@@ -1965,6 +1983,9 @@
                           "items": {
                             "type": "string"
                           }
+                        },
+                        "calendly": {
+                          "type": "string"
                         },
                         "created_by": {
                           "type": "string"

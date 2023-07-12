@@ -40,9 +40,9 @@
       "component": "positions.open-positions"
     },
     "author": {
+      "via": "idea_cards",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "idea_cards"
+      "model": "user"
     },
     "comments": {
       "via": "idea_card",
@@ -88,9 +88,9 @@
       ]
     },
     "ideaOwner": {
+      "via": "ideaOwned",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "ideaOwned"
+      "model": "user"
     }
   }
 }

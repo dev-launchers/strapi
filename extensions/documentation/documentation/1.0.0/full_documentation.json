@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/10/2023 8:39:54 PM"
+    "x-generation-date": "07/11/2023 2:53:35 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9872,6 +9872,9 @@
                   "type": "string"
                 }
               },
+              "calendly": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -10054,6 +10057,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "calendly": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -10315,6 +10321,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "calendly": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -10952,6 +10961,9 @@
                   "type": "string"
                 }
               },
+              "calendly": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -11151,6 +11163,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "calendly": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -11446,6 +11461,9 @@
                             "type": "string"
                           }
                         },
+                        "calendly": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -11455,6 +11473,9 @@
                       }
                     },
                     "role": {
+                      "type": "string"
+                    },
+                    "calendly": {
                       "type": "string"
                     }
                   }
@@ -11579,6 +11600,9 @@
                             "type": "string"
                           }
                         },
+                        "calendly": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -11701,6 +11725,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "calendly": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -12406,6 +12433,9 @@
                             "type": "string"
                           }
                         },
+                        "calendly": {
+                          "type": "string"
+                        },
                         "created_by": {
                           "type": "string"
                         },
@@ -12415,6 +12445,9 @@
                       }
                     },
                     "role": {
+                      "type": "string"
+                    },
+                    "calendly": {
                       "type": "string"
                     }
                   }
@@ -12538,6 +12571,9 @@
                           "items": {
                             "type": "string"
                           }
+                        },
+                        "calendly": {
+                          "type": "string"
                         },
                         "created_by": {
                           "type": "string"
@@ -12924,6 +12960,9 @@
                   "type": "string"
                 }
               },
+              "calendly": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -13147,6 +13186,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "calendly": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -13753,6 +13795,9 @@
                 }
               }
             }
+          },
+          "calendly": {
+            "type": "string"
           }
         }
       },
@@ -13865,6 +13910,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "calendly": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

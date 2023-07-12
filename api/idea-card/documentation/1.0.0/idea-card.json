@@ -774,6 +774,9 @@
                   "type": "string"
                 }
               },
+              "calendly": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -956,6 +959,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "calendly": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
