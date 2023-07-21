@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_project_resources",
+  "info": {
+    "name": "Resources",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "figma_file": {
+      "type": "string"
+    },
+    "design_system": {
+      "type": "string"
+    },
+    "project_file": {
+      "type": "string"
+    },
+    "discord": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    },
+    "zenhub": {
+      "type": "string"
+    }
+  }
+}

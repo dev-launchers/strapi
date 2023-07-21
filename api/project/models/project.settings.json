@@ -103,6 +103,11 @@
     "isPlatform": {
       "type": "boolean",
       "required": true
+    },
+    "resources": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project.resources"
     }
   }
 }

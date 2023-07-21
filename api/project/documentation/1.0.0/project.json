@@ -1416,6 +1416,9 @@
                 "isPlatform": {
                   "type": "boolean"
                 },
+                "resources": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1514,6 +1517,9 @@
               },
               "isPlatform": {
                 "type": "boolean"
+              },
+              "resources": {
+                "type": "component"
               },
               "published_at": {
                 "type": "string"
@@ -1667,6 +1673,38 @@
           },
           "isPlatform": {
             "type": "boolean"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "figma_file": {
+                  "type": "string"
+                },
+                "design_system": {
+                  "type": "string"
+                },
+                "project_file": {
+                  "type": "string"
+                },
+                "discord": {
+                  "type": "string"
+                },
+                "github": {
+                  "type": "string"
+                },
+                "zenhub": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -2199,6 +2237,38 @@
           },
           "isPlatform": {
             "type": "boolean"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "figma_file": {
+                  "type": "string"
+                },
+                "design_system": {
+                  "type": "string"
+                },
+                "project_file": {
+                  "type": "string"
+                },
+                "discord": {
+                  "type": "string"
+                },
+                "github": {
+                  "type": "string"
+                },
+                "zenhub": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",

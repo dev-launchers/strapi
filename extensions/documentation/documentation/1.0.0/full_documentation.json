@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/10/2023 8:39:54 PM"
+    "x-generation-date": "07/21/2023 7:04:11 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9151,6 +9151,9 @@
               "isPlatform": {
                 "type": "boolean"
               },
+              "resources": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -9637,6 +9640,9 @@
               },
               "isPlatform": {
                 "type": "boolean"
+              },
+              "resources": {
+                "type": "component"
               },
               "published_at": {
                 "type": "string"
@@ -10414,6 +10420,9 @@
                 "isPlatform": {
                   "type": "boolean"
                 },
+                "resources": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -10725,6 +10734,9 @@
                 },
                 "isPlatform": {
                   "type": "boolean"
+                },
+                "resources": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"
@@ -11989,6 +12001,9 @@
                 "isPlatform": {
                   "type": "boolean"
                 },
+                "resources": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -12087,6 +12102,9 @@
               },
               "isPlatform": {
                 "type": "boolean"
+              },
+              "resources": {
+                "type": "component"
               },
               "published_at": {
                 "type": "string"
@@ -12240,6 +12258,38 @@
           },
           "isPlatform": {
             "type": "boolean"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "figma_file": {
+                  "type": "string"
+                },
+                "design_system": {
+                  "type": "string"
+                },
+                "project_file": {
+                  "type": "string"
+                },
+                "discord": {
+                  "type": "string"
+                },
+                "github": {
+                  "type": "string"
+                },
+                "zenhub": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -12772,6 +12822,38 @@
           },
           "isPlatform": {
             "type": "boolean"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "figma_file": {
+                  "type": "string"
+                },
+                "design_system": {
+                  "type": "string"
+                },
+                "project_file": {
+                  "type": "string"
+                },
+                "discord": {
+                  "type": "string"
+                },
+                "github": {
+                  "type": "string"
+                },
+                "zenhub": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -13350,6 +13432,9 @@
                 },
                 "isPlatform": {
                   "type": "boolean"
+                },
+                "resources": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"

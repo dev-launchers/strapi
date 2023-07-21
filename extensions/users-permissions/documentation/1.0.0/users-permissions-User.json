@@ -1341,6 +1341,9 @@
                 "isPlatform": {
                   "type": "boolean"
                 },
+                "resources": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
