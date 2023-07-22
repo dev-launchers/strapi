@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_project_other_resources",
+  "info": {
+    "name": "other_resources",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "strapi_ai": {
+      "type": "string"
+    }
+  }
+}

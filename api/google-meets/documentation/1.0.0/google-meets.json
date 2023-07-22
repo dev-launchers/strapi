@@ -410,6 +410,9 @@
               "resources": {
                 "type": "component"
               },
+              "other_resources": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },

@@ -108,6 +108,11 @@
       "type": "component",
       "repeatable": true,
       "component": "project.resources"
+    },
+    "other_resources": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project.other-resources"
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/21/2023 7:04:11 PM"
+    "x-generation-date": "07/21/2023 9:44:25 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9154,6 +9154,9 @@
               "resources": {
                 "type": "component"
               },
+              "other_resources": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -9642,6 +9645,9 @@
                 "type": "boolean"
               },
               "resources": {
+                "type": "component"
+              },
+              "other_resources": {
                 "type": "component"
               },
               "published_at": {
@@ -10423,6 +10429,9 @@
                 "resources": {
                   "type": "component"
                 },
+                "other_resources": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -10736,6 +10745,9 @@
                   "type": "boolean"
                 },
                 "resources": {
+                  "type": "component"
+                },
+                "other_resources": {
                   "type": "component"
                 },
                 "published_at": {
@@ -12004,6 +12016,9 @@
                 "resources": {
                   "type": "component"
                 },
+                "other_resources": {
+                  "type": "component"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -12104,6 +12119,9 @@
                 "type": "boolean"
               },
               "resources": {
+                "type": "component"
+              },
+              "other_resources": {
                 "type": "component"
               },
               "published_at": {
@@ -12286,6 +12304,23 @@
                   "type": "string"
                 },
                 "zenhub": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "other_resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "strapi_ai": {
                   "type": "string"
                 }
               }
@@ -12850,6 +12885,23 @@
                   "type": "string"
                 },
                 "zenhub": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "other_resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "strapi_ai": {
                   "type": "string"
                 }
               }
@@ -13434,6 +13486,9 @@
                   "type": "boolean"
                 },
                 "resources": {
+                  "type": "component"
+                },
+                "other_resources": {
                   "type": "component"
                 },
                 "published_at": {
